@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Scarlett Box - The Mission</title>
+  <link rel="icon" type="image/png" href="images/logo.PNG">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Base Styles */
@@ -23,7 +24,6 @@
       color: white;
       text-align: center;
       padding: 20px 10px;
-      position: relative;
     }
 
     header h1 {
@@ -40,20 +40,13 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo styling */
+    /* Centered Logo */
     .logo {
-      position: absolute;
-      top: 20px;
-      right: 30px;
       width: 80px;
       height: 80px;
-      z-index: 1;
-    }
-
-    .logo img {
-      width: 100%;
-      height: 100%;
       object-fit: contain;
+      display: block;
+      margin: 0 auto 10px auto;
     }
 
     /* Navigation Bar */
@@ -61,6 +54,7 @@
       background-color: #BA1A00;
       display: flex;
       justify-content: center;
+      align-items: center;
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
@@ -147,8 +141,10 @@
     footer {
       background-color: #BA1A00;
       border-top: 2px solid white;
-      padding: 20px 0;
+      padding: 20px 0 70px;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
     .footer-text {
@@ -161,10 +157,35 @@
       font-weight: bold;
     }
 
+    /* Footer Logo */
+    .footer-logo-link {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      display: inline-block;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo-link:hover .footer-logo {
+      transform: scale(1.05);
+    }
+
     /* Responsive adjustments */
     @media (max-width: 768px) {
       header {
         padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
       }
 
       header h1 {
@@ -173,15 +194,6 @@
 
       header p {
         font-size: 0.8em;
-      }
-
-      .logo {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin: 10px auto 0 auto;
-        width: 60px;
-        height: 60px;
       }
 
       nav {
@@ -216,19 +228,34 @@
         padding: 8px 15px;
         font-size: 0.8em;
       }
+
+      /* Stack footer logo below text */
+      .footer-logo-link {
+        position: static;
+        display: block;
+        margin: 15px auto 0 auto;
+        text-align: center;
+      }
+
+      .footer-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      footer {
+        padding-bottom: 20px;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
+    <a href="index.html" title="Home Page">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
+    </a>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
-    <a href="index.html" title="Home Page">
-      <div class="logo">
-        <img src="images/logoplain.PNG" alt="The Scarlett Box Logo">
-      </div>
-    </a>
   </header>
 
   <nav>
@@ -266,6 +293,9 @@
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
+    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+    </a>
   </footer>
 
 </body>
