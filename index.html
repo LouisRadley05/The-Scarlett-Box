@@ -5,10 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Scarlett Box</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  
-  <!-- Import Montserrat Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
-
   <style>
     /* Base Styles */
     body {
@@ -32,9 +28,8 @@
 
     header h1 {
       margin: 0;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 900;
       font-size: 2em;
+      font-weight: 900;
       letter-spacing: 1px;
     }
 
@@ -140,13 +135,13 @@
 
     .carousel-track {
       display: flex;
-      animation: scroll 45s linear infinite;
+      animation: scroll 45s linear infinite; /* updated speed */
     }
 
     .carousel-item {
       flex: 0 0 auto;
       width: calc(100% / 6);
-      margin: 0;
+      margin: 0; 
     }
 
     .carousel-item img {
@@ -166,139 +161,98 @@
       flex: 1;
       text-align: center;
       padding: 20px 15%;
-      padding-bottom: 100px; /* Prevent footer overlap */
-      box-sizing: border-box;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.5px;
     }
 
     main h2 {
       margin-top: 20px;
-      font-weight: 900;
-      color: #ba1a00;
+      font-weight: bold;
     }
 
     main p {
       line-height: 1.6;
       margin-top: 20px;
-      text-align: justify;
-    }
-
-    /* Article Section */
-    .article-section {
-      text-align: left;
-      margin-top: 50px;
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-    }
-
-    .article-section img {
-      float: left;
-      margin-right: 20px;
-      margin-bottom: 10px;
-      width: 300px;
-      max-width: 40%;
-      height: auto;
-      border-radius: 10px;
-    }
-
-    .article-section h2 {
-      color: #ba1a00;
-      font-size: 1.8em;
-      margin-bottom: 15px;
-      font-weight: 900;
-    }
-
-    .article-section p {
-      line-height: 1.7;
-      text-align: justify;
-      margin-bottom: 20px;
     }
 
     /* Footer */
     footer {
       background-color: #ba1a00;
       border-top: 2px solid white;
-      padding: 10px 20px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: fixed;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      z-index: 100;
-      flex-wrap: wrap;
-      box-sizing: border-box;
-    }
-
-    .footer-logo {
-      display: flex;
-      align-items: center;
-      flex: 0 0 auto;
-    }
-
-    .footer-logo img {
-      width: 55px;
-      height: auto;
-      object-fit: contain;
-      cursor: pointer;
-      transition: transform 0.3s ease;
-      max-width: 100%;
-    }
-
-    .footer-logo img:hover {
-      transform: scale(1.05);
+      padding: 20px 0;
+      text-align: center;
     }
 
     .footer-text {
-      flex: 1 1 auto;
-      text-align: center;
+      display: inline-block;
       color: white;
       background-color: #8a1200;
-      padding: 8px 12px;
+      padding: 10px 20px;
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
-      margin: 0 auto;
-      box-sizing: border-box;
-      white-space: normal;
-      word-break: break-word;
-      max-width: 100%;
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      .article-section img {
-        float: none;
-        display: block;
-        margin: 0 auto 20px auto;
-        width: 100%;
-        max-width: 100%;
-      }
-
-      footer {
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+      header {
         padding: 15px 10px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
+
+      .logo {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 10px auto 0 auto;
+        width: 60px;
+        height: 60px;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;
+        width: 100%;
         text-align: center;
+        box-sizing: border-box;
       }
 
-      .footer-logo {
-        position: static;
-        margin-bottom: 10px;
+      .carousel-item {
+        width: calc(100% / 3); 
       }
 
-      .footer-logo img {
-        width: 45px;
-        height: auto;
+      .carousel-container {
+        width: 95%;
+      }
+
+      main {
+        padding: 20px 10%;
+      }
+
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
       }
 
       .footer-text {
+        padding: 8px 15px;
         font-size: 0.8em;
-        padding: 8px 10px;
       }
     }
   </style>
@@ -346,6 +300,20 @@
       <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10"></div>
       <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11"></div>
       <div class="carousel-item"><img src="images/image12.PNG" alt="Slide 12"></div>
+      
+      <!-- duplicate for smooth scroll -->
+      <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1 duplicate"></div>
+      <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2 duplicate"></div>
+      <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3 duplicate"></div>
+      <div class="carousel-item"><img src="images/image4.PNG" alt="Slide 4 duplicate"></div>
+      <div class="carousel-item"><img src="images/image5.PNG" alt="Slide 5 duplicate"></div>
+      <div class="carousel-item"><img src="images/image6.PNG" alt="Slide 6 duplicate"></div>
+      <div class="carousel-item"><img src="images/image7.PNG" alt="Slide 7 duplicate"></div>
+      <div class="carousel-item"><img src="images/image8.PNG" alt="Slide 8 duplicate"></div>
+      <div class="carousel-item"><img src="images/image9.PNG" alt="Slide 9 duplicate"></div>
+      <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10 duplicate"></div>
+      <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11 duplicate"></div>
+      <div class="carousel-item"><img src="images/image12.PNG" alt="Slide 12 duplicate"></div>
     </div>
   </div>
 
@@ -358,34 +326,10 @@
       who need quick access to essential sanitary products. Together, we can
       support health, dignity, and equality — even on the high seas.
     </p>
-
-    <!-- Article Section -->
-    <section class="article-section">
-      <h2>Why Women Working on Ships Deserve Access to Free Menstrual Products</h2>
-      <img src="images/image12.PNG" alt="Women at sea illustration">
-      <p>Women who work at sea as officers, engineers, and crew members play an increasingly vital role in the maritime industry. Their presence brings balance, skill, and perspective to a workforce that has historically been male-dominated. These women manage complex navigation systems, ensure vessel safety, lead teams, and handle demanding physical and mental tasks under challenging conditions. Yet, despite their professionalism and commitment, one essential aspect of their well-being is often overlooked — access to menstrual products.</p>
-
-      <p>Working on a ship is not like working on land. Once a vessel sets sail, crew members may spend weeks or even months at sea without access to traditional stores or medical facilities. In such isolated environments, the lack of immediate access to menstrual supplies can create anxiety, discomfort, and even health risks. Periods can be unpredictable, and without the right products available, women may be forced to improvise, which can lead to infections or distraction from critical duties. In a profession where focus and safety are paramount, this is unacceptable.</p>
-
-      <p>Providing free menstrual products for women officers is not a privilege; it is a necessity. Just as ships are required to carry first-aid kits, safety equipment, and food supplies for all crew members, menstrual products should be considered basic provisions. They are essential for maintaining hygiene, comfort, and dignity. Offering them free of charge ensures that women can perform their duties without fear of embarrassment or discomfort. It also sends a powerful message: that the maritime industry recognizes the unique needs of all its workers, regardless of gender.</p>
-
-      <p>Moreover, providing menstrual products promotes equality at sea. The maritime world has worked hard to recruit and retain more women, but inclusion goes beyond hiring — it means building an environment that supports their needs. Men do not face the same monthly biological challenges, and women should not be burdened with the additional stress of sourcing supplies while fulfilling the same demanding roles. Equal opportunity must include equal access to health and hygiene necessities.</p>
-
-      <p>Free menstrual products are also a matter of respect. They affirm that women’s health matters and that their contributions are valued. The maritime environment can be isolating and mentally taxing; something as simple as knowing that essential products are readily available can help reduce stress and create a sense of belonging. It shows that employers care not only about productivity but also about the human well-being of their crew.</p>
-
-      <p>Finally, making menstrual products freely available onboard is consistent with global movements toward menstrual equity. Around the world, workplaces, schools, and public spaces are beginning to understand that access to these products is a human right, not a luxury. By adopting this standard, the maritime sector can lead by example and demonstrate its commitment to fairness, dignity, and modern workplace values.</p>
-
-      <p>In short, women working on ships deserve free menstrual products because they are essential workers who face unique challenges. Supporting them is not only the right thing to do — it strengthens the industry as a whole by fostering a culture of respect, equality, and care on every voyage.</p>
-    </section>
   </main>
 
   <!-- Footer -->
   <footer>
-    <div class="footer-logo">
-      <a href="index.html" title="Home Page - The Scarlett Box">
-        <img src="images/logoplain.PNG" alt="The Scarlett Box Footer Logo">
-      </a>
-    </div>
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
