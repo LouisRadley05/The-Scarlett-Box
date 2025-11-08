@@ -8,7 +8,8 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* Base Styles */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -42,7 +43,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo */
     .logo {
       width: 80px;
       height: 80px;
@@ -84,8 +84,6 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
     }
 
     .social-bar a {
@@ -98,9 +96,9 @@
       justify-content: center;
       border-radius: 5px;
       text-decoration: none;
-      transition: all 0.3s ease;
       font-size: 20px;
       position: relative;
+      transition: all 0.3s ease;
     }
 
     .social-bar a:hover {
@@ -133,17 +131,24 @@
     main {
       flex: 1;
       text-align: center;
-      padding: 40px 15%;
+      padding: 40px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     main h2 {
       font-weight: bold;
-      margin-top: 20px;
+      color: #ba1a00;
+      margin-bottom: 10px;
     }
 
     main p {
       line-height: 1.6;
-      margin-top: 20px;
+      font-size: 1.05em;
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     /* Footer */
@@ -194,23 +199,10 @@
         transform: none !important;
       }
 
-      header {
-        padding: 15px 10px;
-      }
-
-      .logo {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 8px;
-      }
-
-      header h1 {
-        font-size: 1.5em;
-      }
-
-      header p {
-        font-size: 0.8em;
-      }
+      header { padding: 15px 10px; }
+      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
+      header h1 { font-size: 1.5em; }
+      header p { font-size: 0.8em; }
 
       nav {
         flex-direction: column;
@@ -223,27 +215,11 @@
         padding: 10px 0;
         width: 100%;
         text-align: center;
-        box-sizing: border-box;
       }
 
-      main {
-        padding: 20px 10%;
-      }
-
-      .social-bar {
-        gap: 10px;
-      }
-
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      .footer-text {
-        padding: 8px 15px;
-        font-size: 0.8em;
-      }
+      main { padding: 20px; }
+      .social-bar { gap: 10px; }
+      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
 
       .footer-logo-link {
         position: static;
@@ -257,15 +233,12 @@
         height: 50px;
       }
 
-      footer {
-        padding-bottom: 20px;
-      }
+      footer { padding-bottom: 20px; }
     }
   </style>
 </head>
-<body>
 
-  <!-- Header -->
+<body>
   <header>
     <a href="index.html" title="Home Page">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
@@ -274,7 +247,6 @@
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -283,24 +255,24 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <!-- Social Icons -->
   <div class="social-bar">
     <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:info@thescarlettbox.com" title="Contact us via email"><i class="fas fa-envelope"></i></a>
+    <a href="mailto:info@thescarlettbox.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
 
-  <!-- Main Content -->
   <main>
     <h2>Our Mission</h2>
     <p>
-      Write a blurb regarding the struggles of women in maritime and the lack of availability of period products when they are needed.
-      Also about how the business has grown and developed partnerships; such as Lil-lets etc.
+      The Scarlett Box aims to ensure every woman working at sea has access to essential period products — whenever and wherever they need them.
+      <br><br>
+      Our mission is to eliminate the stress and discomfort that comes from being caught out while on duty offshore. From bridge to engine room, mooring stations to rest areas, we are installing emergency period boxes across vessels to promote menstrual dignity and equality onboard.
+      <br><br>
+      We are proud to collaborate with trusted partners such as <strong>Lil-lets</strong> and other leading brands to bring high-quality sanitary products to those who keep the maritime industry moving. Together, we’re creating a safer, more inclusive working environment for women in the Merchant Navy and beyond.
     </p>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
@@ -309,6 +281,5 @@
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
-
 </body>
 </html>
