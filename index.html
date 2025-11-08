@@ -133,12 +133,13 @@
     .carousel-container {
       overflow: hidden;
       width: 80%;
-      margin: 40px auto 20px auto; /* shifted down */
+      margin: 50px auto 20px auto; /* shifted down more to avoid overlap */
       position: relative;
     }
 
     .carousel-track {
       display: flex;
+      gap: 5px; /* small gap between images */
       animation: scroll 30s linear infinite;
     }
 
@@ -243,6 +244,16 @@
 
       .carousel-container {
         width: 95%;
+      }
+
+      .carousel-track {
+        gap: 3px; /* smaller gap for mobile */
+        animation: scroll-mobile 20s linear infinite; /* faster scroll for mobile */
+      }
+
+      @keyframes scroll-mobile {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
       }
 
       main {
