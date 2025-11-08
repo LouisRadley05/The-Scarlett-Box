@@ -140,7 +140,8 @@
 
     .carousel-track {
       display: flex;
-      transition: transform 1.5s ease;
+      width: calc(200%); /* for seamless looping */
+      animation: scroll 24s linear infinite;
     }
 
     .carousel-item {
@@ -155,6 +156,11 @@
       object-fit: cover; /* crop instead of stretch */
       border-radius: 10px;
       display: block;
+    }
+
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); } /* scroll half for seamless loop */
     }
 
     /* Main content */
@@ -289,7 +295,8 @@
 
   <!-- Carousel -->
   <div class="carousel-container">
-    <div class="carousel-track" id="carouselTrack">
+    <div class="carousel-track">
+      <!-- Original 3 images repeated for seamless scroll -->
       <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1"></div>
       <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2"></div>
       <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3"></div>
@@ -316,24 +323,6 @@
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
   </footer>
-
-  <!-- Carousel Script -->
-  <script>
-    const track = document.getElementById('carouselTrack');
-    const items = Array.from(track.children);
-    let index = 0;
-
-    function moveCarousel() {
-      index++;
-      if (index >= items.length / 2) { // loop seamlessly
-        index = 0;
-      }
-      const slideWidth = items[0].getBoundingClientRect().width + 10; // include margin
-      track.style.transform = `translateX(-${slideWidth * index}px)`;
-    }
-
-    setInterval(moveCarousel, 8000); // slide every 8 seconds
-  </script>
 
 </body>
 </html>
