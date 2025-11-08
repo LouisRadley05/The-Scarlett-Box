@@ -1,13 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Scarlett Box - My Story</title>
-  <link rel="icon" type="image/png" href="images/logoplain.PNG">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="images/logoplain.PNG" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
-    /* Base Styles */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -20,10 +22,11 @@
 
     /* Header */
     header {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       text-align: center;
       padding: 20px 10px;
+      position: relative;
     }
 
     header h1 {
@@ -40,7 +43,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Centered Logo */
     .logo {
       width: 80px;
       height: 80px;
@@ -49,9 +51,9 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation Bar */
+    /* Navigation */
     nav {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -66,11 +68,13 @@
       padding: 15px 25px;
       display: inline-block;
       font-weight: bold;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
+      transform-origin: center;
     }
 
     nav a:hover {
-      background-color: #8A1200;
+      background-color: #8a1200;
+      transform: scale(1.15);
     }
 
     /* Social Icons */
@@ -83,7 +87,7 @@
     }
 
     .social-bar a {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       width: 45px;
       height: 45px;
@@ -92,13 +96,14 @@
       justify-content: center;
       border-radius: 5px;
       text-decoration: none;
-      transition: background-color 0.3s;
       font-size: 20px;
       position: relative;
+      transition: all 0.3s ease;
     }
 
     .social-bar a:hover {
-      background-color: #8A1200;
+      background-color: #8a1200;
+      transform: translateY(-5px);
     }
 
     .social-bar a::after {
@@ -122,24 +127,33 @@
       opacity: 1;
     }
 
-    /* Main content */
+    /* Main Content */
     main {
       flex: 1;
       text-align: center;
-      padding: 40px 15%;
+      padding: 40px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     main h2 {
       font-weight: bold;
+      color: #ba1a00;
+      margin-bottom: 10px;
     }
 
     main p {
       line-height: 1.6;
+      font-size: 1.05em;
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     /* Footer */
     footer {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
@@ -150,14 +164,13 @@
     .footer-text {
       display: inline-block;
       color: white;
-      background-color: #8A1200;
+      background-color: #8a1200;
       padding: 10px 20px;
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
     }
 
-    /* Footer Logo */
     .footer-logo-link {
       position: absolute;
       bottom: 10px;
@@ -176,25 +189,20 @@
       transform: scale(1.05);
     }
 
-    /* Responsive adjustments */
+    /* Responsive */
     @media (max-width: 768px) {
-      header {
-        padding: 15px 10px;
+      nav a {
+        transform: none !important;
       }
 
-      .logo {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 8px;
+      .social-bar a {
+        transform: none !important;
       }
 
-      header h1 {
-        font-size: 1.5em;
-      }
-
-      header p {
-        font-size: 0.8em;
-      }
+      header { padding: 15px 10px; }
+      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
+      header h1 { font-size: 1.5em; }
+      header p { font-size: 0.8em; }
 
       nav {
         flex-direction: column;
@@ -207,29 +215,12 @@
         padding: 10px 0;
         width: 100%;
         text-align: center;
-        box-sizing: border-box;
       }
 
-      main {
-        padding: 20px 10%;
-      }
+      main { padding: 20px; }
+      .social-bar { gap: 10px; }
+      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
 
-      .social-bar {
-        gap: 10px;
-      }
-
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      .footer-text {
-        padding: 8px 15px;
-        font-size: 0.8em;
-      }
-
-      /* Stack footer logo below text */
       .footer-logo-link {
         position: static;
         display: block;
@@ -242,17 +233,15 @@
         height: 50px;
       }
 
-      footer {
-        padding-bottom: 20px;
-      }
+      footer { padding-bottom: 20px; }
     }
   </style>
 </head>
-<body>
 
+<body>
   <header>
     <a href="index.html" title="Home Page">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
     </a>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
@@ -267,18 +256,10 @@
   </nav>
 
   <div class="social-bar">
-    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="mailto:info@thescarlettbox.com" title="Contact us via email">
-      <i class="fas fa-envelope"></i>
-    </a>
+    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:info@thescarlettbox.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
 
   <main>
@@ -294,10 +275,8 @@
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
     <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
-
 </body>
 </html>
-
