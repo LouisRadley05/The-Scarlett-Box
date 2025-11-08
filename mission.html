@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Scarlett Box - The Mission</title>
-  <link rel="icon" type="image/png" href="images/logoplain.PNG">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="icon" type="image/png" href="images/logoplain.PNG" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     /* Base Styles */
     body {
@@ -20,10 +21,11 @@
 
     /* Header */
     header {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       text-align: center;
       padding: 20px 10px;
+      position: relative;
     }
 
     header h1 {
@@ -40,7 +42,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* Centered Logo */
+    /* Logo */
     .logo {
       width: 80px;
       height: 80px;
@@ -49,9 +51,9 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation Bar */
+    /* Navigation */
     nav {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -66,11 +68,13 @@
       padding: 15px 25px;
       display: inline-block;
       font-weight: bold;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
+      transform-origin: center;
     }
 
     nav a:hover {
-      background-color: #8A1200;
+      background-color: #8a1200;
+      transform: scale(1.15);
     }
 
     /* Social Icons */
@@ -80,10 +84,12 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .social-bar a {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       width: 45px;
       height: 45px;
@@ -92,13 +98,14 @@
       justify-content: center;
       border-radius: 5px;
       text-decoration: none;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
       font-size: 20px;
       position: relative;
     }
 
     .social-bar a:hover {
-      background-color: #8A1200;
+      background-color: #8a1200;
+      transform: translateY(-5px);
     }
 
     .social-bar a::after {
@@ -122,7 +129,7 @@
       opacity: 1;
     }
 
-    /* Main content */
+    /* Main Content */
     main {
       flex: 1;
       text-align: center;
@@ -131,15 +138,17 @@
 
     main h2 {
       font-weight: bold;
+      margin-top: 20px;
     }
 
     main p {
       line-height: 1.6;
+      margin-top: 20px;
     }
 
     /* Footer */
     footer {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
@@ -150,14 +159,13 @@
     .footer-text {
       display: inline-block;
       color: white;
-      background-color: #8A1200;
+      background-color: #8a1200;
       padding: 10px 20px;
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
     }
 
-    /* Footer Logo */
     .footer-logo-link {
       position: absolute;
       bottom: 10px;
@@ -176,8 +184,16 @@
       transform: scale(1.05);
     }
 
-    /* Responsive adjustments */
+    /* Responsive */
     @media (max-width: 768px) {
+      nav a {
+        transform: none !important;
+      }
+
+      .social-bar a {
+        transform: none !important;
+      }
+
       header {
         padding: 15px 10px;
       }
@@ -229,7 +245,6 @@
         font-size: 0.8em;
       }
 
-      /* Stack footer logo below text */
       .footer-logo-link {
         position: static;
         display: block;
@@ -250,14 +265,16 @@
 </head>
 <body>
 
+  <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
     </a>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -266,38 +283,32 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
+  <!-- Social Icons -->
   <div class="social-bar">
-    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank">
-      <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank">
-      <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank">
-      <i class="fab fa-linkedin-in"></i>
-    </a>
-    <a href="mailto:info@thescarlettbox.com" title="Contact us via email">
-      <i class="fas fa-envelope"></i>
-    </a>
+    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:info@thescarlettbox.com" title="Contact us via email"><i class="fas fa-envelope"></i></a>
   </div>
 
+  <!-- Main Content -->
   <main>
     <h2>Our Mission</h2>
     <p>
       Write a blurb regarding the struggles of women in maritime and the lack of availability of period products when they are needed.
-      Also about how the business has grown and developed partnerships; such as Lilletes etc.
+      Also about how the business has grown and developed partnerships; such as Lil-lets etc.
     </p>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
     <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
 
 </body>
 </html>
-
