@@ -8,6 +8,9 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* Box-sizing reset for reliable width calculations */
+    *, *::before, *::after { box-sizing: border-box; }
+
     /* Base Styles */
     body {
       margin: 0;
@@ -94,7 +97,7 @@
       border-radius: 5px;
       text-decoration: none;
       font-size: 20px;
-      transition: background-color 0.3s, transform 0.3s ease;
+      transition: background-color 0.3s, transform 0.25s ease;
       position: relative;
     }
 
@@ -125,18 +128,21 @@
     }
 
     /* Main Content */
+    /* Use flex column and center alignment so children (including contact-box) align properly */
     main {
       flex: 1;
       text-align: center;
       padding: 40px 10px;
       display: flex;
       flex-direction: column;
-      align-items: center;
+      align-items: center;      /* <--- centers the contact box horizontally */
+      justify-content: flex-start;
     }
 
     main h2 {
       font-weight: bold;
       color: #ba1a00;
+      margin: 0 0 8px 0;
     }
 
     main p {
@@ -147,15 +153,15 @@
       max-width: 700px;
     }
 
-    /* Contact Box */
+    /* Contact Box - centered block with max-width */
     .contact-box {
       background-color: #fff;
       border: 2px solid #ba1a00;
       border-radius: 12px;
       padding: 35px;
       width: 100%;
-      max-width: 600px;
-      margin: 0 auto 60px auto;
+      max-width: 600px;       /* limits width on large screens */
+      margin: 0 auto 60px auto; /* centers horizontally */
       text-align: left;
       box-shadow: 0 6px 12px rgba(0,0,0,0.08);
       transition: transform 0.3s ease, box-shadow 0.3s ease;
@@ -184,7 +190,8 @@
       font-size: 1em;
       background-color: #fdfdfd;
       transition: border-color 0.3s;
-      width: 100%;
+      width: 100%; /* ensures fields fill the contact box */
+      display: block;
     }
 
     .contact-box input:focus,
@@ -251,67 +258,30 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      header {
-        padding: 15px 10px;
-      }
+      header { padding: 15px 10px; }
+      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
+      header h1 { font-size: 1.5em; }
+      header p { font-size: 0.8em; }
 
-      .logo {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 8px;
-      }
+      nav { flex-direction: column; align-items: center; border-top: none; border-bottom: none; }
+      nav a { padding: 10px 0; width: 100%; text-align: center; box-sizing: border-box; }
 
-      header h1 {
-        font-size: 1.5em;
-      }
+      main { padding: 20px; }
 
-      header p {
-        font-size: 0.8em;
-      }
+      /* ensure consistent social icon size on mobile */
+      .social-bar { gap: 10px; }
+      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
 
-      nav {
-        flex-direction: column;
-        align-items: center;
-        border-top: none;
-        border-bottom: none;
-      }
-
-      nav a {
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-      }
-
-      main {
-        padding: 20px;
-      }
-
-      .social-bar {
-        gap: 10px;
-      }
-
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
+      /* contact box full width with comfortable padding and centered */
       .contact-box {
-        width: 90%;
-        padding: 25px;
-        margin: 20px auto;
+        width: 92%;
+        max-width: 520px;
+        padding: 22px;
+        margin: 18px auto;
       }
 
-      .footer-logo-link {
-        position: static;
-        display: block;
-        margin: 15px auto 0 auto;
-      }
-
-      footer {
-        padding-bottom: 20px;
-      }
+      .footer-logo-link { position: static; display: block; margin: 15px auto 0 auto; }
+      footer { padding-bottom: 20px; }
     }
   </style>
 </head>
@@ -333,19 +303,19 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <div class="social-bar">
-    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
+  <div class="social-bar" aria-label="social links">
+    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank" aria-label="Facebook"><i class="fab fa-facebook-f" aria-hidden="true"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank" aria-label="Instagram"><i class="fab fa-instagram" aria-hidden="true"></i></a>
+    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin-in" aria-hidden="true"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email" aria-label="Email"><i class="fas fa-envelope" aria-hidden="true"></i></a>
   </div>
 
   <main>
     <h2>Get in Touch</h2>
     <p>We’d love to hear from you! Whether you have an idea, a partnership proposal, or simply want to support <strong>The Scarlett Box</strong> mission to provide menstrual dignity at sea — reach out below and we’ll get back to you soon.</p>
 
-    <div class="contact-box">
-      <form action="https://formspree.io/f/mnnlavrp" method="POST">
+    <div class="contact-box" role="region" aria-labelledby="contact-heading">
+      <form action="https://formspree.io/f/mnnlavrp" method="POST" novalidate>
         <label for="name">Full Name</label>
         <input type="text" id="name" name="name" placeholder="Your name..." required>
 
@@ -361,9 +331,7 @@
   </main>
 
   <footer>
-    <div class="footer-text">
-      Copyright © 2025 The Scarlett Box - All Rights Reserved.
-    </div>
+    <div class="footer-text">Copyright © 2025 The Scarlett Box - All Rights Reserved.</div>
     <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
     </a>
