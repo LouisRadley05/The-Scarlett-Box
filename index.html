@@ -133,16 +133,15 @@
       overflow: hidden;
       width: 80%;
       margin: 20px auto;
-      position: relative;
     }
 
     .carousel-track {
       display: flex;
-      animation: scroll 50s linear infinite;
+      animation: scroll 20s linear infinite;
     }
 
     .carousel-item {
-      flex-shrink: 0;
+      flex: 0 0 20%; /* 5 visible on desktop */
       padding: 0 5px;
       box-sizing: border-box;
     }
@@ -150,20 +149,53 @@
     .carousel-item img {
       width: 100%;
       height: auto;
-      max-height: 200px;
+      max-height: 180px;
       object-fit: cover;
       display: block;
       border-radius: 5px;
     }
 
-    /* Desktop: 5 images visible */
-    @media (min-width: 769px) {
-      .carousel-item {
-        min-width: 20%;
-      }
+    @keyframes scroll {
+      0% { transform: translateX(0); }
+      100% { transform: translateX(-50%); } /* smooth continuous scroll */
     }
 
-    /* Mobile: 3 images visible */
+    /* Main content */
+    main {
+      flex: 1;
+      text-align: center;
+      padding: 20px 15%;
+    }
+
+    main h2 {
+      margin-top: 20px;
+      font-weight: bold;
+    }
+
+    main p {
+      line-height: 1.6;
+      margin-top: 20px;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #ba1a00;
+      border-top: 2px solid white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-text {
+      display: inline-block;
+      color: white;
+      background-color: #8a1200;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    /* Responsive */
     @media (max-width: 768px) {
       header {
         padding: 15px 10px;
@@ -202,11 +234,15 @@
       }
 
       .carousel-item {
-        min-width: 33.3333%;
+        flex: 0 0 33.3333%; /* 3 visible on mobile */
       }
 
       .carousel-container {
         width: 95%;
+      }
+
+      .carousel-track {
+        animation: scroll 15s linear infinite; /* faster on mobile */
       }
 
       main {
@@ -227,46 +263,6 @@
         padding: 8px 15px;
         font-size: 0.8em;
       }
-    }
-
-    @keyframes scroll {
-      0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); }
-    }
-
-    /* Main content */
-    main {
-      flex: 1;
-      text-align: center;
-      padding: 20px 15%;
-    }
-
-    main h2 {
-      margin-top: 20px;
-      font-weight: bold;
-    }
-
-    main p {
-      line-height: 1.6;
-      margin-top: 20px;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #ba1a00;
-      border-top: 2px solid white;
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    .footer-text {
-      display: inline-block;
-      color: white;
-      background-color: #8a1200;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 0.9em;
-      font-weight: bold;
     }
   </style>
 </head>
@@ -300,6 +296,7 @@
   <!-- Carousel -->
   <div class="carousel-container">
     <div class="carousel-track">
+      <!-- 11 images + duplicates for smooth loop -->
       <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1"></div>
       <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2"></div>
       <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3"></div>
@@ -311,8 +308,7 @@
       <div class="carousel-item"><img src="images/image9.PNG" alt="Slide 9"></div>
       <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10"></div>
       <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11"></div>
-
-      <!-- duplicate for seamless scroll -->
+      <!-- duplicates to allow seamless scroll -->
       <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1 duplicate"></div>
       <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2 duplicate"></div>
       <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3 duplicate"></div>
