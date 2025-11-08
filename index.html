@@ -86,6 +86,8 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2; /* so carousel scroll doesn't cover them */
     }
 
     .social-bar a {
@@ -132,32 +134,36 @@
     .carousel-container {
       overflow: hidden;
       width: 80%;
-      margin: 20px auto;
+      margin: 40px auto 20px auto; /* shifted down */
+      position: relative;
     }
 
     .carousel-track {
       display: flex;
-      animation: scroll 20s linear infinite;
+      animation: scroll 25s linear infinite;
     }
 
     .carousel-item {
-      flex: 0 0 20%; /* 5 visible on desktop */
+      flex: 0 0 calc(100% / 5); /* 5 visible on desktop */
+      max-height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
       padding: 0 5px;
       box-sizing: border-box;
     }
 
     .carousel-item img {
-      width: 100%;
-      height: auto;
-      max-height: 180px;
-      object-fit: cover;
+      max-height: 100%;
+      width: auto;
       display: block;
-      border-radius: 5px;
+      object-fit: contain;
     }
 
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); } /* smooth continuous scroll */
+      100% { transform: translateX(-50%); } /* continuous loop */
     }
 
     /* Main content */
@@ -234,15 +240,12 @@
       }
 
       .carousel-item {
-        flex: 0 0 33.3333%; /* 3 visible on mobile */
+        flex: 0 0 calc(100% / 3); /* 3 visible on mobile */
+        max-height: 120px;
       }
 
       .carousel-container {
         width: 95%;
-      }
-
-      .carousel-track {
-        animation: scroll 15s linear infinite; /* faster on mobile */
       }
 
       main {
@@ -296,7 +299,6 @@
   <!-- Carousel -->
   <div class="carousel-container">
     <div class="carousel-track">
-      <!-- 11 images + duplicates for smooth loop -->
       <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1"></div>
       <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2"></div>
       <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3"></div>
@@ -308,18 +310,18 @@
       <div class="carousel-item"><img src="images/image9.PNG" alt="Slide 9"></div>
       <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10"></div>
       <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11"></div>
-      <!-- duplicates to allow seamless scroll -->
-      <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1 duplicate"></div>
-      <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2 duplicate"></div>
-      <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3 duplicate"></div>
-      <div class="carousel-item"><img src="images/image4.PNG" alt="Slide 4 duplicate"></div>
-      <div class="carousel-item"><img src="images/image5.PNG" alt="Slide 5 duplicate"></div>
-      <div class="carousel-item"><img src="images/image6.PNG" alt="Slide 6 duplicate"></div>
-      <div class="carousel-item"><img src="images/image7.PNG" alt="Slide 7 duplicate"></div>
-      <div class="carousel-item"><img src="images/image8.PNG" alt="Slide 8 duplicate"></div>
-      <div class="carousel-item"><img src="images/image9.PNG" alt="Slide 9 duplicate"></div>
-      <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10 duplicate"></div>
-      <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11 duplicate"></div>
+      <!-- Duplicate set for smooth scrolling -->
+      <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1"></div>
+      <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2"></div>
+      <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3"></div>
+      <div class="carousel-item"><img src="images/image4.PNG" alt="Slide 4"></div>
+      <div class="carousel-item"><img src="images/image5.PNG" alt="Slide 5"></div>
+      <div class="carousel-item"><img src="images/image6.PNG" alt="Slide 6"></div>
+      <div class="carousel-item"><img src="images/image7.PNG" alt="Slide 7"></div>
+      <div class="carousel-item"><img src="images/image8.PNG" alt="Slide 8"></div>
+      <div class="carousel-item"><img src="images/image9.PNG" alt="Slide 9"></div>
+      <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10"></div>
+      <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11"></div>
     </div>
   </div>
 
