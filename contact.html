@@ -42,7 +42,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo */
     .logo {
       width: 80px;
       height: 80px;
@@ -51,7 +50,7 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation Bar (matches Social Media page) */
+    /* Navigation Bar */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -99,7 +98,59 @@
       background-color: #8a1200;
     }
 
-    /* Contact Form Section */
+    /* Social Icons */
+    .social-bar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
+    }
+
+    .social-bar a {
+      background-color: #ba1a00;
+      color: white;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 20px;
+      position: relative;
+    }
+
+    .social-bar a:hover {
+      background-color: #8a1200;
+      transform: translateY(-5px);
+    }
+
+    .social-bar a::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      font-size: 12px;
+      padding: 5px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+
+    .social-bar a:hover::after {
+      opacity: 1;
+    }
+
+    /* Main Content */
     main {
       flex: 1;
       text-align: center;
@@ -108,51 +159,53 @@
 
     main h2 {
       font-weight: bold;
-      margin-bottom: 20px;
     }
 
-    .contact-form {
-      max-width: 600px;
+    main p {
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 10px auto 30px auto;
+    }
+
+    /* Contact Form */
+    form {
+      max-width: 500px;
       margin: 0 auto;
-      background-color: #f9f9f9;
-      border-radius: 10px;
-      padding: 30px;
-      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    .contact-form label {
-      display: block;
-      text-align: left;
-      font-weight: bold;
-      margin-bottom: 5px;
-    }
-
-    .contact-form input,
-    .contact-form textarea {
-      width: 100%;
-      padding: 10px;
-      margin-bottom: 15px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    input, textarea, button {
       font-family: inherit;
       font-size: 1em;
-      box-sizing: border-box;
+      padding: 10px;
+      border: 2px solid #ba1a00;
+      border-radius: 5px;
+      outline: none;
     }
 
-    .contact-form button {
+    input:focus, textarea:focus {
+      border-color: #8a1200;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 120px;
+    }
+
+    button {
       background-color: #ba1a00;
       color: white;
-      border: none;
-      padding: 12px 25px;
-      border-radius: 5px;
-      cursor: pointer;
       font-weight: bold;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
     }
 
-    .contact-form button:hover {
+    button:hover {
       background-color: #8a1200;
-      transform: scale(1.03);
+      transform: translateY(-3px);
     }
 
     /* Footer */
@@ -227,12 +280,18 @@
         box-sizing: border-box;
       }
 
-      main {
-        padding: 20px 10%;
+      .social-bar {
+        gap: 10px;
       }
 
-      .contact-form {
-        padding: 20px;
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      form {
+        width: 90%;
       }
 
       .footer-text {
@@ -260,14 +319,17 @@
 </head>
 
 <body>
+
+  <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
     </a>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -276,30 +338,38 @@
     <a href="contact.html" class="active">CONTACT US</a>
   </nav>
 
+  <!-- Social Icons -->
+  <div class="social-bar">
+    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
+  </div>
+
+  <!-- Main Content -->
   <main>
     <h2>Contact Us</h2>
-    <div class="contact-form">
-      <form action="mailto:thescarlettboxuk@gmail.com" method="post" enctype="text/plain">
-        <label for="name">Your Name</label>
-        <input type="text" id="name" name="name" required />
+    <p>
+      We'd love to hear from you! Whether you’re looking to support our mission,
+      request a Scarlett Box for your vessel, or just want to learn more —
+      fill out the form below and we’ll be in touch soon.
+    </p>
 
-        <label for="email">Your Email</label>
-        <input type="email" id="email" name="email" required />
-
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" rows="5" required></textarea>
-
-        <button type="submit">Send Message</button>
-      </form>
-    </div>
+    <form action="https://formspree.io/f/mrgnprqq" method="POST">
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="email" name="email" placeholder="Your Email" required />
+      <textarea name="message" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
     <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
     </a>
   </footer>
 </body>
