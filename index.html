@@ -101,7 +101,6 @@
       transition: background-color 0.3s;
       font-size: 20px;
       position: relative;
-      z-index: 2;
     }
 
     .social-bar a:hover {
@@ -133,35 +132,32 @@
     .carousel-container {
       overflow: hidden;
       width: 80%;
-      margin: 50px auto 20px auto; /* shifted down more to avoid overlap */
-      position: relative;
+      margin: 50px auto 20px auto; /* shifted down */
     }
 
     .carousel-track {
       display: flex;
-      gap: 5px; /* small gap between images */
       animation: scroll 30s linear infinite;
     }
 
     .carousel-item {
-      flex: 0 0 calc(100% / 5); /* 5 visible on desktop */
-      max-height: 180px;
+      flex: 0 0 calc(100% / 5); /* 5 images desktop */
       display: flex;
       align-items: center;
       justify-content: center;
-      overflow: hidden;
     }
 
     .carousel-item img {
       width: 100%;
-      height: 100%;
+      height: 180px; /* uniform height */
       object-fit: contain;
       display: block;
+      margin-right: 2px; /* tiny gap for seamless look */
     }
 
     @keyframes scroll {
       0% { transform: translateX(0); }
-      100% { transform: translateX(-50%); } /* seamless loop */
+      100% { transform: translateX(-50%); }
     }
 
     /* Main content */
@@ -237,18 +233,18 @@
         box-sizing: border-box;
       }
 
+      /* Carousel mobile adjustments */
       .carousel-item {
-        flex: 0 0 calc(100% / 3); /* 3 visible on mobile */
-        max-height: 120px;
+        flex: 0 0 calc(100% / 3); /* 3 images visible on mobile */
       }
 
-      .carousel-container {
-        width: 95%;
+      .carousel-item img {
+        height: 120px;
+        margin-right: 1px; /* minimal gap */
       }
 
       .carousel-track {
-        gap: 3px; /* smaller gap for mobile */
-        animation: scroll-mobile 20s linear infinite; /* faster scroll for mobile */
+        animation: scroll-mobile 20s linear infinite; /* slightly faster scroll */
       }
 
       @keyframes scroll-mobile {
@@ -318,7 +314,8 @@
       <div class="carousel-item"><img src="images/image9.PNG" alt="Slide 9"></div>
       <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10"></div>
       <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11"></div>
-      <!-- Repeat images for seamless scroll -->
+      
+      <!-- Duplicate for seamless scrolling -->
       <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1 duplicate"></div>
       <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2 duplicate"></div>
       <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3 duplicate"></div>
