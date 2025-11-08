@@ -40,19 +40,14 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo placeholder */
+    /* Logo image */
     .logo {
       position: absolute;
       top: 20px;
       right: 30px;
       width: 80px;
       height: 80px;
-      background-color: black;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
+      object-fit: contain; /* scale without distortion */
       z-index: 1;
     }
 
@@ -232,7 +227,6 @@
         margin: 10px auto 0 auto;
         width: 60px;
         height: 60px;
-        font-size: 0.8em;
       }
 
       nav {
@@ -276,7 +270,7 @@
   <h1>THE SCARLETT BOX</h1>
   <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   <a href="index.html">
-    <div class="logo">LOGO</div>
+    <img src="logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
   </a>
 </header>
 
@@ -299,7 +293,6 @@
   <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank">
     <i class="fab fa-linkedin-in"></i>
   </a>
-  <!-- Email Icon Added -->
   <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email">
     <i class="fas fa-envelope"></i>
   </a>
@@ -308,7 +301,7 @@
 <main>
   <h2>Contact Scarlett</h2>
   <p>
-    The Scarlett Box is always looking to hear new ideas and proposals regarding our business and looking towards working with a diverse maritime group. Contact us below.
+    The Scarlett Box is always looking to hear new ideas and proposals regarding our business and working with a diverse maritime group. Contact us below.
   </p>
   <div class="contact-box">
     <form action="https://formspree.io/f/your-form-id" method="POST">
