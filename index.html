@@ -79,7 +79,7 @@
       background-color: #8A1200;
     }
 
-    /* Social Icons (below header) */
+    /* Social Icons */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -133,15 +133,12 @@
       display: flex;
       width: 100%;
       overflow: hidden;
+      height: 300px; 
       margin: 20px 0;
     }
 
     .image-slider img {
-      flex: 1 1 calc(33.333% - 10px); /* 3 images visible */
-      max-width: 100%;
-      height: auto;
-      margin: 0 5px;
-      border-radius: 5px;
+      width: 33.33%; 
       object-fit: cover;
       transition: opacity 0.5s ease-in-out;
     }
@@ -236,14 +233,8 @@
         font-size: 0.8em;
       }
 
-      .image-slider img {
-        flex: 1 1 calc(50% - 10px); /* 2 images on tablet/mobile */
-      }
-    }
-
-    @media (max-width: 480px) {
-      .image-slider img {
-        flex: 1 1 100%; /* 1 image on small phones */
+      .image-slider {
+        height: 200px; 
       }
     }
   </style>
@@ -280,9 +271,9 @@
 
   <!-- Image Slider -->
   <div class="image-slider">
-    <img src="images/image1.jpg" alt="Slide 1">
-    <img src="images/image2.jpg" alt="Slide 2">
-    <img src="images/image3.jpg" alt="Slide 3">
+    <img src="images/image1.png" alt="Slide 1">
+    <img src="images/image2.png" alt="Slide 2">
+    <img src="images/image3.png" alt="Slide 3">
   </div>
 
   <main>
@@ -303,15 +294,15 @@
   <!-- Slider Script -->
   <script>
     const images = [
-      'images/image1.jpg',
-      'images/image2.jpg',
-      'images/image3.jpg',
-      'images/image4.jpg',
-      'images/image5.jpg',
-      'images/image6.jpg',
-      'images/image7.jpg',
-      'images/image8.jpg',
-      'images/image9.jpg'
+      'images/image1.png',
+      'images/image2.png',
+      'images/image3.png',
+      'images/image4.png',
+      'images/image5.png',
+      'images/image6.png',
+      'images/image7.png',
+      'images/image8.png',
+      'images/image9.png'
     ];
 
     const slider = document.querySelector('.image-slider');
