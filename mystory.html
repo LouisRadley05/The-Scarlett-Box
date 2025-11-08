@@ -8,6 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* Base Styles */
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
@@ -51,7 +52,7 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation */
+    /* Navigation (matches Contact & Social Media pages) */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -60,6 +61,8 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 5;
     }
 
     nav a {
@@ -68,13 +71,33 @@
       padding: 15px 25px;
       display: inline-block;
       font-weight: bold;
+      position: relative;
       transition: all 0.3s ease;
-      transform-origin: center;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 50%;
+      bottom: 5px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 60%;
     }
 
     nav a:hover {
       background-color: #8a1200;
-      transform: scale(1.15);
+    }
+
+    nav a.active {
+      background-color: #8a1200;
     }
 
     /* Social Icons */
@@ -84,6 +107,8 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .social-bar a {
@@ -96,9 +121,9 @@
       justify-content: center;
       border-radius: 5px;
       text-decoration: none;
+      transition: all 0.3s ease;
       font-size: 20px;
       position: relative;
-      transition: all 0.3s ease;
     }
 
     .social-bar a:hover {
@@ -131,7 +156,7 @@
     main {
       flex: 1;
       text-align: center;
-      padding: 40px 10px;
+      padding: 40px 15%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -140,7 +165,7 @@
     main h2 {
       font-weight: bold;
       color: #ba1a00;
-      margin-bottom: 10px;
+      margin-bottom: 15px;
     }
 
     main p {
@@ -191,18 +216,23 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav a {
-        transform: none !important;
+      header {
+        padding: 15px 10px;
       }
 
-      .social-bar a {
-        transform: none !important;
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
       }
 
-      header { padding: 15px 10px; }
-      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
-      header h1 { font-size: 1.5em; }
-      header p { font-size: 0.8em; }
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
 
       nav {
         flex-direction: column;
@@ -215,11 +245,27 @@
         padding: 10px 0;
         width: 100%;
         text-align: center;
+        box-sizing: border-box;
       }
 
-      main { padding: 20px; }
-      .social-bar { gap: 10px; }
-      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      main {
+        padding: 20px 10%;
+      }
+
+      .footer-text {
+        padding: 8px 15px;
+        font-size: 0.8em;
+      }
 
       .footer-logo-link {
         position: static;
@@ -233,12 +279,16 @@
         height: 50px;
       }
 
-      footer { padding-bottom: 20px; }
+      footer {
+        padding-bottom: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
@@ -247,14 +297,16 @@
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
-    <a href="mystory.html">MY STORY</a>
+    <a href="mystory.html" class="active">MY STORY</a>
     <a href="socialmedia.html">SOCIAL MEDIA</a>
     <a href="contact.html">CONTACT US</a>
   </nav>
 
+  <!-- Social Icons -->
   <div class="social-bar">
     <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -262,14 +314,18 @@
     <a href="mailto:info@thescarlettbox.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
 
+  <!-- Main Content -->
   <main>
     <h2>My Story at Sea</h2>
     <p>
-      Description about your story at sea and how it made you come to this business idea etc.
-      Also plan to have some photos here on a scrolling bar like a collage but changing to different photos almost like a live Instagram feed.
+      This is where your story at sea will go — how your experiences inspired you to
+      create The Scarlett Box and champion menstrual dignity across the maritime industry.
+      You can later enhance this section with a scrolling photo gallery or an interactive
+      Instagram-style collage to bring your journey to life visually.
     </p>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
@@ -278,5 +334,6 @@
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
+
 </body>
 </html>
