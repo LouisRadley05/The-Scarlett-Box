@@ -131,19 +131,38 @@
       opacity: 1;
     }
 
-    /* Image Slider */
+    /* Smooth Scrolling Image Slider */
     .image-slider {
-      display: flex;
-      width: 100%;
       overflow: hidden;
-      height: 300px; /* Adjust as needed */
+      width: 100%;
+      background-color: white;
+      border: 2px solid #BA1A00;
+      box-sizing: border-box;
+      height: 300px;
+      position: relative;
       margin: 20px 0;
     }
 
-    .image-slider img {
-      width: 33.33%; /* 3 images visible */
+    .slider-track {
+      display: flex;
+      width: calc(9 * 200px * 2); /* 9 images x 200px width x 2 (duplicated) */
+      animation: scroll-left 30s linear infinite;
+    }
+
+    .slider-track img {
+      width: 200px;
+      height: 300px;
       object-fit: cover;
-      transition: opacity 0.5s ease-in-out;
+      flex-shrink: 0;
+    }
+
+    @keyframes scroll-left {
+      0% {
+        transform: translateX(0);
+      }
+      100% {
+        transform: translateX(calc(-50%));
+      }
     }
 
     /* Main content */
@@ -239,6 +258,15 @@
       .image-slider {
         height: 200px; /* smaller slider on mobile */
       }
+
+      .slider-track img {
+        width: 150px;
+        height: 200px;
+      }
+
+      .slider-track {
+        width: calc(9 * 150px * 2);
+      }
     }
   </style>
 </head>
@@ -285,9 +313,27 @@
 
   <!-- Image Slider -->
   <div class="image-slider">
-    <img src="images/image1.PNG" alt="Slide 1" />
-    <img src="images/image2.PNG" alt="Slide 2" />
-    <img src="images/image3.PNG" alt="Slide 3" />
+    <div class="slider-track">
+      <img src="images/image1.PNG" alt="Slide 1" />
+      <img src="images/image2.PNG" alt="Slide 2" />
+      <img src="images/image3.PNG" alt="Slide 3" />
+      <img src="images/image4.PNG" alt="Slide 4" />
+      <img src="images/image5.PNG" alt="Slide 5" />
+      <img src="images/image6.PNG" alt="Slide 6" />
+      <img src="images/image7.PNG" alt="Slide 7" />
+      <img src="images/image8.PNG" alt="Slide 8" />
+      <img src="images/image9.PNG" alt="Slide 9" />
+      <!-- Duplicate for seamless loop -->
+      <img src="images/image1.PNG" alt="Slide 1" />
+      <img src="images/image2.PNG" alt="Slide 2" />
+      <img src="images/image3.PNG" alt="Slide 3" />
+      <img src="images/image4.PNG" alt="Slide 4" />
+      <img src="images/image5.PNG" alt="Slide 5" />
+      <img src="images/image6.PNG" alt="Slide 6" />
+      <img src="images/image7.PNG" alt="Slide 7" />
+      <img src="images/image8.PNG" alt="Slide 8" />
+      <img src="images/image9.PNG" alt="Slide 9" />
+    </div>
   </div>
 
   <!-- Main Content BELOW the images -->
@@ -306,42 +352,5 @@
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
   </footer>
-
-  <!-- Slider Script -->
-  <script>
-    // Use exact filenames with uppercase .PNG matching your repo files
-    const images = [
-      "images/image1.PNG",
-      "images/image2.PNG",
-      "images/image3.PNG",
-      "images/image4.PNG",
-      "images/image5.PNG",
-      "images/image6.PNG",
-      "images/image7.PNG",
-      "images/image8.PNG",
-      "images/image9.PNG",
-    ];
-
-    const slider = document.querySelector(".image-slider");
-
-    function showRandomImages() {
-      let randomImages = [];
-      while (randomImages.length < 3) {
-        const img = images[Math.floor(Math.random() * images.length)];
-        if (!randomImages.includes(img)) randomImages.push(img);
-      }
-
-      const imgElements = slider.querySelectorAll("img");
-      imgElements.forEach((img, i) => {
-        img.src = randomImages[i];
-      });
-    }
-
-    // Initial load
-    showRandomImages();
-
-    // Change images every 4 seconds
-    setInterval(showRandomImages, 4000);
-  </script>
 </body>
 </html>
