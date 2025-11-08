@@ -1,380 +1,240 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Scarlett Box</title>
-  <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-  />
-  <style>
-    /* Base Styles */
-    body {
-      margin: 0;
-      font-family: Arial, Helvetica, sans-serif;
-      background-color: white;
-      color: #000;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
-    }
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>The Scarlett Box</title>
+<link
+  rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+/>
+<style>
+  body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background-color: white;
+    color: #000;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
 
-    /* Header */
-    header {
-      background-color: #ba1a00;
-      color: white;
-      text-align: center;
-      padding: 20px 10px;
-      position: relative;
-    }
+  header {
+    background-color: #ba1a00;
+    color: white;
+    text-align: center;
+    padding: 20px 10px;
+    position: relative;
+  }
 
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
+  header h1 {
+    margin: 0;
+    font-size: 2em;
+    font-weight: 900;
+  }
 
-    header p {
-      margin: 5px 0 0;
-      font-weight: 400;
-      font-size: 0.9em;
-      letter-spacing: 0.5px;
-    }
+  header p {
+    margin: 5px 0 0;
+    font-weight: 400;
+  }
 
-    /* Logo placeholder */
-    .logo {
-      position: absolute;
-      top: 20px;
-      right: 30px;
-      width: 80px;
-      height: 80px;
-      background-color: black;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
-      z-index: 1;
-    }
+  .logo {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    width: 80px;
+    height: 80px;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    z-index: 1;
+  }
 
-    /* Navigation Bar */
-    nav {
-      background-color: #ba1a00;
-      display: flex;
-      justify-content: center;
-      border-top: 2px solid white;
-      border-bottom: 2px solid white;
-      flex-wrap: wrap;
-    }
+  nav {
+    background-color: #ba1a00;
+    display: flex;
+    justify-content: center;
+    border-top: 2px solid white;
+    border-bottom: 2px solid white;
+    flex-wrap: wrap;
+  }
 
-    nav a {
-      color: white;
-      text-decoration: none;
-      padding: 15px 25px;
-      display: inline-block;
-      font-weight: bold;
-      transition: background-color 0.3s;
-    }
+  nav a {
+    color: white;
+    text-decoration: none;
+    padding: 15px 25px;
+    font-weight: bold;
+  }
 
-    nav a:hover {
-      background-color: #8a1200;
-    }
+  nav a:hover {
+    background-color: #8a1200;
+  }
 
-    /* Social Icons (below header) */
-    .social-bar {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-    }
+  .social-bar {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
 
-    .social-bar a {
-      background-color: #ba1a00;
-      color: white;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: background-color 0.3s;
-      font-size: 20px;
-      position: relative;
-    }
+  .social-bar a {
+    background-color: #ba1a00;
+    color: white;
+    width: 45px;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 5px;
+    font-size: 20px;
+    position: relative;
+    text-decoration: none;
+  }
 
-    .social-bar a:hover {
-      background-color: #8a1200;
-    }
+  .social-bar a:hover {
+    background-color: #8a1200;
+  }
 
-    .social-bar a::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: white;
-      font-size: 12px;
-      padding: 5px 8px;
-      border-radius: 4px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      white-space: nowrap;
-    }
+  /* Carousel Container */
+  .image-slider {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    margin: 20px 0;
+    height: 300px;
+    border: 2px solid #BA1A00;
+    box-sizing: border-box;
+    position: relative;
+  }
 
-    .social-bar a:hover::after {
-      opacity: 1;
-    }
+  .slider-track {
+    display: flex;
+    transition: transform 1.5s ease; /* smooth sliding effect */
+  }
 
-    /* Smooth Scrolling Image Slider */
+  .slider-track img {
+    width: 33.33%; /* 3 images visible */
+    object-fit: cover;
+    flex-shrink: 0;
+  }
+
+  main {
+    flex: 1;
+    text-align: center;
+    padding: 0 15%;
+  }
+
+  main h2 {
+    font-weight: bold;
+    margin-top: 20px;
+  }
+
+  main p {
+    line-height: 1.6;
+    margin: 20px 0 40px 0;
+  }
+
+  footer {
+    background-color: #ba1a00;
+    border-top: 2px solid white;
+    padding: 20px 0;
+    text-align: center;
+  }
+
+  .footer-text {
+    display: inline-block;
+    color: white;
+    background-color: #8a1200;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    font-weight: bold;
+  }
+
+  @media (max-width: 768px) {
     .image-slider {
-      overflow: hidden;
-      width: 100%;
-      background-color: white;
-      border: 2px solid #BA1A00;
-      box-sizing: border-box;
-      height: 300px;
-      position: relative;
-      margin: 20px 0;
+      height: 200px;
     }
-
-    .slider-track {
-      display: flex;
-      width: calc(9 * 200px * 2); /* 9 images x 200px width x 2 (duplicated) */
-      animation-name: scroll-left;
-      animation-timing-function: linear;
-      animation-iteration-count: infinite;
-      animation-duration: 30s; /* default duration */
-      animation-play-state: running;
-      will-change: transform;
-    }
-
-    .slider-track.slow {
-      animation-duration: 60s; /* slower speed */
-    }
-
     .slider-track img {
-      width: 200px;
-      height: 300px;
-      object-fit: cover;
-      flex-shrink: 0;
+      width: 50%;
     }
-
-    @keyframes scroll-left {
-      0% {
-        transform: translateX(0);
-      }
-      100% {
-        transform: translateX(calc(-50%));
-      }
-    }
-
-    /* Main content */
-    main {
-      flex: 1;
-      text-align: center;
-      padding: 0 15%;
-    }
-
-    main h2 {
-      font-weight: bold;
-      margin-top: 40px;
-    }
-
-    main p {
-      line-height: 1.6;
-      margin: 20px 15% 40px 15%;
-    }
-
-    /* Footer */
-    footer {
-      background-color: #ba1a00;
-      border-top: 2px solid white;
-      padding: 20px 0;
-      text-align: center;
-    }
-
-    .footer-text {
-      display: inline-block;
-      color: white;
-      background-color: #8a1200;
-      padding: 10px 20px;
-      border-radius: 5px;
-      font-size: 0.9em;
-      font-weight: bold;
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
-      header {
-        padding: 15px 10px;
-      }
-
-      header h1 {
-        font-size: 1.5em;
-      }
-
-      header p {
-        font-size: 0.8em;
-      }
-
-      .logo {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin: 10px auto 0 auto;
-        width: 60px;
-        height: 60px;
-        font-size: 0.8em;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        border-top: none;
-        border-bottom: none;
-      }
-
-      nav a {
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-      }
-
-      main {
-        padding: 0 10%;
-      }
-
-      .social-bar {
-        gap: 10px;
-      }
-
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      .footer-text {
-        padding: 8px 15px;
-        font-size: 0.8em;
-      }
-
-      .image-slider {
-        height: 200px; /* smaller slider on mobile */
-      }
-
-      .slider-track img {
-        width: 150px;
-        height: 200px;
-      }
-
-      .slider-track {
-        width: calc(9 * 150px * 2);
-      }
-    }
-  </style>
+  }
+</style>
 </head>
 <body>
-  <!-- Header above image slider -->
-  <header>
-    <h1>THE SCARLETT BOX</h1>
-    <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
-    <a href="index.html">
-      <div class="logo">LOGO</div>
-    </a>
-  </header>
+<header>
+  <h1>THE SCARLETT BOX</h1>
+  <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
+  <a href="index.html"><div class="logo">LOGO</div></a>
+</header>
 
-  <!-- Navigation Bar -->
-  <nav>
-    <a href="index.html">HOME</a>
-    <a href="mission.html">THE MISSION</a>
-    <a href="mystory.html">MY STORY</a>
-    <a href="socialmedia.html">SOCIAL MEDIA</a>
-    <a href="contact.html">CONTACT US</a>
-  </nav>
+<nav>
+  <a href="index.html">HOME</a>
+  <a href="mission.html">THE MISSION</a>
+  <a href="mystory.html">MY STORY</a>
+  <a href="socialmedia.html">SOCIAL MEDIA</a>
+  <a href="contact.html">CONTACT US</a>
+</nav>
 
-  <!-- Social Icons -->
-  <div class="social-bar">
-    <a
-      href="https://www.facebook.com/"
-      title="Visit our Facebook page"
-      target="_blank"
-      ><i class="fab fa-facebook-f"></i
-    ></a>
-    <a
-      href="https://www.instagram.com/thescarlettboxuk/"
-      title="Follow us on Instagram"
-      target="_blank"
-      ><i class="fab fa-instagram"></i
-    ></a>
-    <a
-      href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160"
-      title="Connect with us on LinkedIn"
-      target="_blank"
-      ><i class="fab fa-linkedin-in"></i
-    ></a>
+<div class="social-bar">
+  <a href="#" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+  <a href="#" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+  <a href="#" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+</div>
+
+<!-- Image Slider -->
+<div class="image-slider">
+  <div class="slider-track" id="slider-track">
+    <img src="images/image1.PNG" alt="Slide 1" />
+    <img src="images/image2.PNG" alt="Slide 2" />
+    <img src="images/image3.PNG" alt="Slide 3" />
+    <img src="images/image4.PNG" alt="Slide 4" />
+    <img src="images/image5.PNG" alt="Slide 5" />
+    <img src="images/image6.PNG" alt="Slide 6" />
+    <img src="images/image7.PNG" alt="Slide 7" />
+    <img src="images/image8.PNG" alt="Slide 8" />
+    <img src="images/image9.PNG" alt="Slide 9" />
   </div>
+</div>
 
-  <!-- Moved h2 above slider -->
-  <main>
-    <h2>Welcome to The Scarlett Box</h2>
-  </main>
+<!-- Heading below slider -->
+<main>
+  <h2>Welcome to The Scarlett Box</h2>
+  <p>
+    The Scarlett Box is dedicated to ensuring menstrual dignity for women
+    working at sea. We provide emergency sanitary boxes to women on ships
+    who need quick access to essential sanitary products. Together, we can
+    support health, dignity, and equality — even on the high seas.
+  </p>
+</main>
 
-  <!-- Image Slider -->
-  <div class="image-slider">
-    <div class="slider-track" id="slider-track">
-      <img src="images/image1.PNG" alt="Slide 1" />
-      <img src="images/image2.PNG" alt="Slide 2" />
-      <img src="images/image3.PNG" alt="Slide 3" />
-      <img src="images/image4.PNG" alt="Slide 4" />
-      <img src="images/image5.PNG" alt="Slide 5" />
-      <img src="images/image6.PNG" alt="Slide 6" />
-      <img src="images/image7.PNG" alt="Slide 7" />
-      <img src="images/image8.PNG" alt="Slide 8" />
-      <img src="images/image9.PNG" alt="Slide 9" />
-      <!-- Duplicate for seamless loop -->
-      <img src="images/image1.PNG" alt="Slide 1" />
-      <img src="images/image2.PNG" alt="Slide 2" />
-      <img src="images/image3.PNG" alt="Slide 3" />
-      <img src="images/image4.PNG" alt="Slide 4" />
-      <img src="images/image5.PNG" alt="Slide 5" />
-      <img src="images/image6.PNG" alt="Slide 6" />
-      <img src="images/image7.PNG" alt="Slide 7" />
-      <img src="images/image8.PNG" alt="Slide 8" />
-      <img src="images/image9.PNG" alt="Slide 9" />
-    </div>
+<footer>
+  <div class="footer-text">
+    Copyright © 2025 The Scarlett Box - All Rights Reserved.
   </div>
+</footer>
 
-  <!-- Paragraph below images -->
-  <main>
-    <p>
-      The Scarlett Box is dedicated to ensuring menstrual dignity for women
-      working at sea. We provide emergency sanitary boxes to women on ships
-      who need quick access to essential sanitary products. Together, we can
-      support health, dignity, and equality — even on the high seas.
-    </p>
-  </main>
+<script>
+  const track = document.getElementById('slider-track');
+  const slides = Array.from(track.children);
+  let index = 0;
+  const totalSlides = slides.length;
 
-  <footer>
-    <div class="footer-text">
-      Copyright © 2025 The Scarlett Box - All Rights Reserved.
-    </div>
-  </footer>
+  function slideCarousel() {
+    index++;
+    // Wrap around
+    if (index > totalSlides - 3) index = 0; // 3 visible slides
+    const move = -(index * 100 / 3); // percentage movement
+    track.style.transform = `translateX(${move}%)`;
+  }
 
-  <script>
-    const sliderTrack = document.getElementById('slider-track');
-
-    // Toggle slow class every 8 seconds to change animation speed
-    setInterval(() => {
-      sliderTrack.classList.toggle('slow');
-    }, 8000);
-  </script>
+  // Slide every 4 seconds (you can increase to slow further)
+  setInterval(slideCarousel, 4000);
+</script>
 </body>
 </html>
