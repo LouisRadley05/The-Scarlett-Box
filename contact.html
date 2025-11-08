@@ -3,13 +3,11 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Scarlett Box - Contact Us!</title>
+  <title>The Scarlett Box - Contact Us</title>
   <link rel="icon" type="image/png" href="images/logoplain.PNG" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    *, *::before, *::after { box-sizing: border-box; }
-
     /* Base Styles */
     body {
       margin: 0;
@@ -44,6 +42,7 @@
       letter-spacing: 0.5px;
     }
 
+    /* Logo */
     .logo {
       width: 80px;
       height: 80px;
@@ -52,7 +51,7 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation */
+    /* Navigation Bar (matches Social Media page) */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -61,6 +60,8 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 5;
     }
 
     nav a {
@@ -69,154 +70,89 @@
       padding: 15px 25px;
       display: inline-block;
       font-weight: bold;
+      position: relative;
       transition: all 0.3s ease;
-      transform-origin: center;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 50%;
+      bottom: 5px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 60%;
     }
 
     nav a:hover {
       background-color: #8a1200;
-      transform: scale(1.15);
     }
 
-    /* Social Icons */
-    .social-bar {
-      margin-top: 20px;
-      display: flex;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
-    }
-
-    .social-bar a {
-      background-color: #ba1a00;
-      color: white;
-      width: 45px;
-      height: 45px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      border-radius: 5px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-size: 20px;
-      position: relative;
-    }
-
-    .social-bar a:hover {
+    nav a.active {
       background-color: #8a1200;
-      transform: translateY(-5px);
     }
 
-    .social-bar a::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: white;
-      font-size: 12px;
-      padding: 5px 8px;
-      border-radius: 4px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      white-space: nowrap;
-    }
-
-    .social-bar a:hover::after {
-      opacity: 1;
-    }
-
-    /* Main Content */
+    /* Contact Form Section */
     main {
       flex: 1;
       text-align: center;
-      padding: 40px 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      padding: 40px 15%;
     }
 
     main h2 {
       font-weight: bold;
-      color: #ba1a00;
-      margin: 0 0 8px 0;
+      margin-bottom: 20px;
     }
 
-    main p {
-      line-height: 1.6;
-      font-size: 1.05em;
-      color: #444;
-      margin: 10px auto 30px auto;
-      max-width: 700px;
-    }
-
-    /* Contact Box */
-    .contact-box {
-      background-color: #fff;
-      border: 2px solid #ba1a00;
-      border-radius: 12px;
-      padding: 35px;
-      width: 100%;
+    .contact-form {
       max-width: 600px;
-      margin: 0 auto 60px auto;
-      text-align: left;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.08);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      margin: 0 auto;
+      background-color: #f9f9f9;
+      border-radius: 10px;
+      padding: 30px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     }
 
-    .contact-box:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 16px rgba(0,0,0,0.12);
-    }
-
-    .contact-box label {
-      margin-bottom: 6px;
-      font-weight: 600;
-      color: #ba1a00;
-      font-size: 1em;
+    .contact-form label {
       display: block;
+      text-align: left;
+      font-weight: bold;
+      margin-bottom: 5px;
     }
 
-    .contact-box input,
-    .contact-box textarea {
-      padding: 12px;
-      margin-bottom: 18px;
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
       border: 1px solid #ccc;
-      border-radius: 6px;
+      border-radius: 5px;
       font-family: inherit;
       font-size: 1em;
-      background-color: #fdfdfd;
-      transition: border-color 0.3s;
-      width: 100%;
-      display: block;
+      box-sizing: border-box;
     }
 
-    .contact-box input:focus,
-    .contact-box textarea:focus {
-      outline: none;
-      border-color: #ba1a00;
-    }
-
-    .contact-box button {
+    .contact-form button {
       background-color: #ba1a00;
       color: white;
       border: none;
-      padding: 14px;
-      border-radius: 6px;
-      font-size: 1em;
-      font-weight: bold;
+      padding: 12px 25px;
+      border-radius: 5px;
       cursor: pointer;
-      transition: all 0.3s ease;
-      width: 100%;
+      font-weight: bold;
+      transition: background-color 0.3s ease, transform 0.2s ease;
     }
 
-    .contact-box button:hover {
+    .contact-form button:hover {
       background-color: #8a1200;
-      transform: scale(1.02);
+      transform: scale(1.03);
     }
 
     /* Footer */
@@ -259,17 +195,23 @@
 
     /* Responsive */
     @media (max-width: 768px) {
-      nav a {
-        transform: none !important;
-      }
-      .social-bar a {
-        transform: none !important;
+      header {
+        padding: 15px 10px;
       }
 
-      header { padding: 15px 10px; }
-      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
-      header h1 { font-size: 1.5em; }
-      header p { font-size: 0.8em; }
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
 
       nav {
         flex-direction: column;
@@ -285,15 +227,17 @@
         box-sizing: border-box;
       }
 
-      main { padding: 20px; }
-      .social-bar { gap: 10px; }
-      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
+      main {
+        padding: 20px 10%;
+      }
 
-      .contact-box {
-        width: 92%;
-        max-width: 520px;
-        padding: 22px;
-        margin: 18px auto;
+      .contact-form {
+        padding: 20px;
+      }
+
+      .footer-text {
+        padding: 8px 15px;
+        font-size: 0.8em;
       }
 
       .footer-logo-link {
@@ -308,7 +252,9 @@
         height: 50px;
       }
 
-      footer { padding-bottom: 20px; }
+      footer {
+        padding-bottom: 20px;
+      }
     }
   </style>
 </head>
@@ -327,33 +273,21 @@
     <a href="mission.html">THE MISSION</a>
     <a href="mystory.html">MY STORY</a>
     <a href="socialmedia.html">SOCIAL MEDIA</a>
-    <a href="contact.html">CONTACT US</a>
+    <a href="contact.html" class="active">CONTACT US</a>
   </nav>
 
-  <div class="social-bar">
-    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
-  </div>
-
   <main>
-    <h2>Get in Touch</h2>
-    <p>
-      We’d love to hear from you! Whether you have an idea, a partnership proposal, or simply want to support
-      <strong>The Scarlett Box</strong> mission to provide menstrual dignity at sea — reach out below and we’ll get back to you soon.
-    </p>
+    <h2>Contact Us</h2>
+    <div class="contact-form">
+      <form action="mailto:thescarlettboxuk@gmail.com" method="post" enctype="text/plain">
+        <label for="name">Your Name</label>
+        <input type="text" id="name" name="name" required />
 
-    <div class="contact-box">
-      <form action="https://formspree.io/f/mnnlavrp" method="POST" novalidate>
-        <label for="name">Full Name</label>
-        <input type="text" id="name" name="name" placeholder="Your name..." required />
-
-        <label for="email">Email Address</label>
-        <input type="email" id="email" name="email" placeholder="Your email..." required />
+        <label for="email">Your Email</label>
+        <input type="email" id="email" name="email" required />
 
         <label for="message">Your Message</label>
-        <textarea id="message" name="message" placeholder="Write your message..." rows="6" required></textarea>
+        <textarea id="message" name="message" rows="5" required></textarea>
 
         <button type="submit">Send Message</button>
       </form>
