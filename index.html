@@ -133,12 +133,15 @@
       display: flex;
       width: 100%;
       overflow: hidden;
-      height: 300px; /* Adjust as needed */
       margin: 20px 0;
     }
 
     .image-slider img {
-      width: 33.33%; /* 3 images visible */
+      flex: 1 1 calc(33.333% - 10px); /* 3 images visible */
+      max-width: 100%;
+      height: auto;
+      margin: 0 5px;
+      border-radius: 5px;
       object-fit: cover;
       transition: opacity 0.5s ease-in-out;
     }
@@ -233,8 +236,14 @@
         font-size: 0.8em;
       }
 
-      .image-slider {
-        height: 200px; /* smaller slider on mobile */
+      .image-slider img {
+        flex: 1 1 calc(50% - 10px); /* 2 images on tablet/mobile */
+      }
+    }
+
+    @media (max-width: 480px) {
+      .image-slider img {
+        flex: 1 1 100%; /* 1 image on small phones */
       }
     }
   </style>
