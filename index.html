@@ -146,7 +146,16 @@
     .slider-track {
       display: flex;
       width: calc(9 * 200px * 2); /* 9 images x 200px width x 2 (duplicated) */
-      animation: scroll-left 30s linear infinite;
+      animation-name: scroll-left;
+      animation-timing-function: linear;
+      animation-iteration-count: infinite;
+      animation-duration: 30s; /* default duration */
+      animation-play-state: running;
+      will-change: transform;
+    }
+
+    .slider-track.slow {
+      animation-duration: 60s; /* slower speed */
     }
 
     .slider-track img {
@@ -169,15 +178,17 @@
     main {
       flex: 1;
       text-align: center;
-      padding: 40px 15%;
+      padding: 0 15%;
     }
 
     main h2 {
       font-weight: bold;
+      margin-top: 40px;
     }
 
     main p {
       line-height: 1.6;
+      margin: 20px 15% 40px 15%;
     }
 
     /* Footer */
@@ -237,7 +248,7 @@
       }
 
       main {
-        padding: 20px 10%;
+        padding: 0 10%;
       }
 
       .social-bar {
@@ -311,9 +322,14 @@
     ></a>
   </div>
 
+  <!-- Moved h2 above slider -->
+  <main>
+    <h2>Welcome to The Scarlett Box</h2>
+  </main>
+
   <!-- Image Slider -->
   <div class="image-slider">
-    <div class="slider-track">
+    <div class="slider-track" id="slider-track">
       <img src="images/image1.PNG" alt="Slide 1" />
       <img src="images/image2.PNG" alt="Slide 2" />
       <img src="images/image3.PNG" alt="Slide 3" />
@@ -336,9 +352,8 @@
     </div>
   </div>
 
-  <!-- Main Content BELOW the images -->
+  <!-- Paragraph below images -->
   <main>
-    <h2>Welcome to The Scarlett Box</h2>
     <p>
       The Scarlett Box is dedicated to ensuring menstrual dignity for women
       working at sea. We provide emergency sanitary boxes to women on ships
@@ -352,5 +367,14 @@
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
   </footer>
+
+  <script>
+    const sliderTrack = document.getElementById('slider-track');
+
+    // Toggle slow class every 8 seconds to change animation speed
+    setInterval(() => {
+      sliderTrack.classList.toggle('slow');
+    }, 8000);
+  </script>
 </body>
 </html>
