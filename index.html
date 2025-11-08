@@ -4,6 +4,10 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Scarlett Box</title>
+
+  <!-- ✅ Favicon -->
+  <link rel="icon" type="image/png" href="images/logo.PNG" />
+
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <style>
     /* Base Styles */
@@ -179,6 +183,8 @@
       border-top: 2px solid white;
       padding: 20px 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
     .footer-text {
@@ -189,6 +195,25 @@
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
+    }
+
+    /* Footer Logo */
+    .footer-logo-link {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      display: inline-block;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo-link:hover .footer-logo {
+      transform: scale(1.05);
     }
 
     /* Responsive */
@@ -253,6 +278,16 @@
       .footer-text {
         padding: 8px 15px;
         font-size: 0.8em;
+      }
+
+      .footer-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .footer-logo-link {
+        bottom: 8px;
+        right: 15px;
       }
     }
   </style>
@@ -333,6 +368,9 @@
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
+    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+    </a>
   </footer>
 
 </body>
