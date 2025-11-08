@@ -40,7 +40,7 @@
       letter-spacing: 0.5px;
     }
 
-    /*  image */
+    /* Logo image */
     .logo img {
       position: absolute;
       top: 20px;
@@ -145,6 +145,8 @@
       border-top: 2px solid white;
       padding: 20px 0;
       text-align: center;
+      position: relative;
+      overflow: hidden;
     }
 
     .footer-text {
@@ -155,6 +157,25 @@
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
+    }
+
+    /* Footer logo link */
+    .footer-logo-link {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      display: inline-block;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo-link:hover .footer-logo {
+      transform: scale(1.05);
     }
 
     /* Responsive adjustments for mobile */
@@ -208,9 +229,25 @@
         font-size: 18px;
       }
 
+      footer {
+        padding-bottom: 80px; /* Extra space to avoid overlap with logo */
+      }
+
+      .footer-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      .footer-logo-link {
+        bottom: 10px;
+        right: 15px;
+      }
+
       .footer-text {
         padding: 8px 15px;
         font-size: 0.8em;
+        display: block;
+        margin-bottom: 10px;
       }
     }
   </style>
@@ -244,7 +281,6 @@
   <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank">
     <i class="fab fa-linkedin-in"></i>
   </a>
-  <!-- Email Us button -->
   <a href="mailto:info@thescarlettbox.com" title="Email Us">
     <i class="fas fa-envelope"></i>
   </a>
@@ -261,8 +297,10 @@
   <div class="footer-text">
     Copyright © 2025 The Scarlett Box - All Rights Reserved.
   </div>
+  <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+    <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+  </a>
 </footer>
 
 </body>
 </html>
-
