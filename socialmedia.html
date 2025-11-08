@@ -4,6 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>The Scarlett Box - Social Media</title>
+  <link rel="icon" href="images/logoplain.PNG" type="image/png">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
     /* Base Styles */
@@ -40,7 +41,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo image */
+    /* Header logo */
     .logo img {
       position: absolute;
       top: 20px;
@@ -74,7 +75,7 @@
       background-color: #8A1200;
     }
 
-    /* Social Icons (below header) */
+    /* Social Icons */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -102,7 +103,6 @@
       background-color: #8A1200;
     }
 
-    /* Tooltip styling */
     .social-bar a::after {
       content: attr(title);
       position: absolute;
@@ -124,7 +124,7 @@
       opacity: 1;
     }
 
-    /* Main content */
+    /* Main Content */
     main {
       flex: 1;
       text-align: center;
@@ -159,7 +159,7 @@
       font-weight: bold;
     }
 
-    /* Footer logo link */
+    /* Footer logo */
     .footer-logo-link {
       position: absolute;
       bottom: 10px;
@@ -178,7 +178,7 @@
       transform: scale(1.05);
     }
 
-    /* Responsive adjustments for mobile */
+    /* Responsive Design */
     @media (max-width: 768px) {
       header {
         padding: 15px 10px;
@@ -202,15 +202,15 @@
       }
 
       nav {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         border-top: none;
         border-bottom: none;
       }
 
       nav a {
-        padding: 10px 0;       
-        width: 100%;            
+        padding: 10px 0;
+        width: 100%;
         text-align: center;
         box-sizing: border-box;
       }
@@ -229,25 +229,27 @@
         font-size: 18px;
       }
 
+      .footer-text {
+        display: block;
+        margin-bottom: 10px;
+        padding: 8px 15px;
+        font-size: 0.8em;
+      }
+
       footer {
-        padding-bottom: 80px; /* Extra space to avoid overlap with logo */
+        padding-bottom: 80px;
+      }
+
+      /* ✅ Center footer logo on mobile */
+      .footer-logo-link {
+        position: static;
+        display: block;
+        margin: 10px auto 0 auto;
       }
 
       .footer-logo {
         width: 50px;
         height: 50px;
-      }
-
-      .footer-logo-link {
-        bottom: 10px;
-        right: 15px;
-      }
-
-      .footer-text {
-        padding: 8px 15px;
-        font-size: 0.8em;
-        display: block;
-        margin-bottom: 10px;
       }
     }
   </style>
@@ -270,7 +272,7 @@
   <a href="contact.html">CONTACT US</a>
 </nav>
 
-<!-- Social buttons with tooltip -->
+<!-- Social Links -->
 <div class="social-bar">
   <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank">
     <i class="fab fa-facebook-f"></i>
