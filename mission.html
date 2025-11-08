@@ -3,14 +3,18 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>The Scarlett Box - The Mission</title>
+  <title>The Scarlett Box</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
   <style>
+    /* Base Styles */
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
       background-color: white;
       color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Full viewport height */
     }
 
     /* Header */
@@ -49,6 +53,7 @@
       align-items: center;
       justify-content: center;
       font-weight: bold;
+      z-index: 1;
     }
 
     /* Navigation Bar */
@@ -58,6 +63,7 @@
       justify-content: center;
       border-top: 2px solid white;
       border-bottom: 2px solid white;
+      flex-wrap: wrap;
     }
 
     nav a {
@@ -79,6 +85,7 @@
       display: flex;
       justify-content: center;
       gap: 20px;
+      flex-wrap: wrap;
     }
 
     .social-bar a {
@@ -124,6 +131,7 @@
 
     /* Main content */
     main {
+      flex: 1; /* pushes footer to bottom if content is short */
       text-align: center;
       padding: 40px 15%;
     }
@@ -136,6 +144,87 @@
       line-height: 1.6;
     }
 
+    /* Footer */
+    footer {
+      background-color: #BA1A00;
+      border-top: 2px solid white;
+      padding: 20px 0;
+      text-align: center;
+    }
+
+    .footer-text {
+      display: inline-block;
+      color: white;
+      background-color: #8A1200;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    /* Responsive adjustments for mobile */
+    @media (max-width: 768px) {
+      /* Header adjustments */
+      header {
+        padding: 15px 10px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
+
+      /* Logo: move below header text and center */
+      .logo {
+        position: relative; /* no longer overlaps text */
+        top: 0;
+        right: 0;
+        margin: 10px auto 0 auto; /* center logo */
+        width: 60px;
+        height: 60px;
+        font-size: 0.8em;
+      }
+
+      /* Navigation: stack vertically */
+      nav {
+        flex-direction: column; 
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;       
+        width: 100%;            
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      /* Main content */
+      main {
+        padding: 20px 10%;
+      }
+
+      /* Social icons */
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      /* Footer text */
+      .footer-text {
+        padding: 8px 15px;
+        font-size: 0.8em;
+      }
+    }
   </style>
 </head>
 <body>
@@ -168,13 +257,20 @@
   </div>
 
   <main>
-    <h2>Welcome to The Scarlett Box - The Mission</h2>
+    <h2>Welcome to The Scarlett Box</h2>
     <p>
       The Scarlett Box is dedicated to ensuring menstrual dignity for women working at sea. 
       We provide emergency sanitary boxes to women on ships who need quick access to essential sanitary products. 
       Together, we can support health, dignity, and equality — even on the high seas.
     </p>
   </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-text">
+      Copyright © 2025 The Scarlett Box - All Rights Reserved.
+    </div>
+  </footer>
 
 </body>
 </html>
