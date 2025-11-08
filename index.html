@@ -14,7 +14,7 @@
       color: #000;
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Full viewport height */
+      min-height: 100vh;
     }
 
     /* Header */
@@ -107,7 +107,6 @@
       background-color: #8A1200;
     }
 
-    /* Tooltip styling */
     .social-bar a::after {
       content: attr(title);
       position: absolute;
@@ -129,9 +128,24 @@
       opacity: 1;
     }
 
+    /* Image Slider */
+    .image-slider {
+      display: flex;
+      width: 100%;
+      overflow: hidden;
+      height: 300px; /* Adjust as needed */
+      margin: 20px 0;
+    }
+
+    .image-slider img {
+      width: 33.33%; /* 3 images visible */
+      object-fit: cover;
+      transition: opacity 0.5s ease-in-out;
+    }
+
     /* Main content */
     main {
-      flex: 1; /* pushes footer to bottom if content is short */
+      flex: 1;
       text-align: center;
       padding: 40px 15%;
     }
@@ -162,9 +176,8 @@
       font-weight: bold;
     }
 
-    /* Responsive adjustments for mobile */
+    /* Responsive adjustments */
     @media (max-width: 768px) {
-      /* Header adjustments */
       header {
         padding: 15px 10px;
       }
@@ -177,38 +190,34 @@
         font-size: 0.8em;
       }
 
-      /* Logo: move below header text and center */
       .logo {
-        position: relative; /* no longer overlaps text */
+        position: relative;
         top: 0;
         right: 0;
-        margin: 10px auto 0 auto; /* center logo */
+        margin: 10px auto 0 auto;
         width: 60px;
         height: 60px;
         font-size: 0.8em;
       }
 
-      /* Navigation: stack vertically */
       nav {
-        flex-direction: column; 
+        flex-direction: column;
         align-items: center;
         border-top: none;
         border-bottom: none;
       }
 
       nav a {
-        padding: 10px 0;       
-        width: 100%;            
+        padding: 10px 0;
+        width: 100%;
         text-align: center;
         box-sizing: border-box;
       }
 
-      /* Main content */
       main {
         padding: 20px 10%;
       }
 
-      /* Social icons */
       .social-bar {
         gap: 10px;
       }
@@ -219,22 +228,25 @@
         font-size: 18px;
       }
 
-      /* Footer text */
       .footer-text {
         padding: 8px 15px;
         font-size: 0.8em;
+      }
+
+      .image-slider {
+        height: 200px; /* smaller slider on mobile */
       }
     }
   </style>
 </head>
 <body>
 
-   <header>
+  <header>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
     <a href="index.html">
-  <div class="logo">LOGO</div>
-</a>
+      <div class="logo">LOGO</div>
+    </a>
   </header>
 
   <nav>
@@ -245,7 +257,6 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <!-- Social buttons with tooltips -->
   <div class="social-bar">
     <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank">
       <i class="fab fa-facebook-f"></i>
@@ -258,6 +269,13 @@
     </a>
   </div>
 
+  <!-- Image Slider -->
+  <div class="image-slider">
+    <img src="images/image1.jpg" alt="Slide 1">
+    <img src="images/image2.jpg" alt="Slide 2">
+    <img src="images/image3.jpg" alt="Slide 3">
+  </div>
+
   <main>
     <h2>Welcome to The Scarlett Box</h2>
     <p>
@@ -267,13 +285,47 @@
     </p>
   </main>
 
-  <!-- Footer -->
   <footer>
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
   </footer>
 
+  <!-- Slider Script -->
+  <script>
+    const images = [
+      'images/image1.jpg',
+      'images/image2.jpg',
+      'images/image3.jpg',
+      'images/image4.jpg',
+      'images/image5.jpg',
+      'images/image6.jpg',
+      'images/image7.jpg',
+      'images/image8.jpg',
+      'images/image9.jpg'
+    ];
+
+    const slider = document.querySelector('.image-slider');
+
+    function showRandomImages() {
+      let randomImages = [];
+      while(randomImages.length < 3) {
+        const img = images[Math.floor(Math.random() * images.length)];
+        if(!randomImages.includes(img)) randomImages.push(img);
+      }
+
+      const imgElements = slider.querySelectorAll('img');
+      imgElements.forEach((img, i) => {
+        img.src = randomImages[i];
+      });
+    }
+
+    // Initial load
+    showRandomImages();
+
+    // Change images every 4 seconds
+    setInterval(showRandomImages, 4000);
+  </script>
+
 </body>
 </html>
-
