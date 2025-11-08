@@ -1,16 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Scarlett Box - Social Media</title>
-
-  <!-- ✅ Favicon -->
-  <link rel="icon" href="images/logoplain.PNG" type="image/png">
-
-  <!-- Font Awesome Icons -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
+  <link rel="icon" type="image/png" href="images/logoplain.PNG" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
   <style>
     /* Base Styles */
     body {
@@ -23,9 +19,9 @@
       min-height: 100vh;
     }
 
-    /* Header */
+    /* Header (matches index page) */
     header {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       text-align: center;
       padding: 20px 10px;
@@ -46,22 +42,21 @@
       letter-spacing: 0.5px;
     }
 
-    /* ✅ Header logo (consistent with other pages) */
+    /* Centered Logo (same as index) */
     .logo {
-      position: absolute;
-      top: 20px;
-      right: 30px;
       width: 80px;
       height: 80px;
       object-fit: contain;
-      z-index: 1;
+      display: block;
+      margin: 0 auto 10px auto;
     }
 
-    /* Navigation Bar */
+    /* Navigation */
     nav {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       display: flex;
       justify-content: center;
+      align-items: center;
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
@@ -77,7 +72,7 @@
     }
 
     nav a:hover {
-      background-color: #8A1200;
+      background-color: #8a1200;
     }
 
     /* Social Icons */
@@ -87,10 +82,12 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .social-bar a {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       width: 45px;
       height: 45px;
@@ -105,7 +102,7 @@
     }
 
     .social-bar a:hover {
-      background-color: #8A1200;
+      background-color: #8a1200;
     }
 
     .social-bar a::after {
@@ -144,11 +141,11 @@
       line-height: 1.6;
     }
 
-    /* Footer */
+    /* Footer (matches index page styling) */
     footer {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       border-top: 2px solid white;
-      padding: 20px 0;
+      padding: 20px 0 70px;
       text-align: center;
       position: relative;
       overflow: hidden;
@@ -157,14 +154,14 @@
     .footer-text {
       display: inline-block;
       color: white;
-      background-color: #8A1200;
+      background-color: #8a1200;
       padding: 10px 20px;
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
     }
 
-    /* Footer logo */
+    /* Footer Logo */
     .footer-logo-link {
       position: absolute;
       bottom: 10px;
@@ -183,10 +180,16 @@
       transform: scale(1.05);
     }
 
-    /* Responsive Design */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
       header {
         padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
       }
 
       header h1 {
@@ -195,17 +198,6 @@
 
       header p {
         font-size: 0.8em;
-      }
-
-      /* ✅ Make header logo centered on mobile */
-      .logo {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin: 10px auto 0 auto;
-        width: 60px;
-        height: 60px;
-        display: block;
       }
 
       nav {
@@ -237,79 +229,75 @@
       }
 
       .footer-text {
-        display: block;
-        margin-bottom: 10px;
         padding: 8px 15px;
         font-size: 0.8em;
       }
 
-      footer {
-        padding-bottom: 80px;
-      }
-
-      /* ✅ Center footer logo on mobile */
+      /* Stack footer logo below text */
       .footer-logo-link {
         position: static;
         display: block;
-        margin: 10px auto 0 auto;
+        margin: 15px auto 0 auto;
+        text-align: center;
       }
 
       .footer-logo {
         width: 50px;
         height: 50px;
       }
+
+      footer {
+        padding-bottom: 20px;
+      }
     }
   </style>
 </head>
+
 <body>
 
-<header>
-  <h1>THE SCARLETT BOX</h1>
-  <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
-  <a href="index.html">
-    <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
-  </a>
-</header>
+  <!-- Header (now matches Home page) -->
+  <header>
+    <a href="index.html" title="Home Page">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
+    </a>
+    <h1>THE SCARLETT BOX</h1>
+    <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
+  </header>
 
-<nav>
-  <a href="index.html">HOME</a>
-  <a href="mission.html">THE MISSION</a>
-  <a href="mystory.html">MY STORY</a>
-  <a href="socialmedia.html">SOCIAL MEDIA</a>
-  <a href="contact.html">CONTACT US</a>
-</nav>
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html">MY STORY</a>
+    <a href="socialmedia.html">SOCIAL MEDIA</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
 
-<!-- Social Links -->
-<div class="social-bar">
-  <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank">
-    <i class="fab fa-facebook-f"></i>
-  </a>
-  <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank">
-    <i class="fab fa-instagram"></i>
-  </a>
-  <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank">
-    <i class="fab fa-linkedin-in"></i>
-  </a>
-  <a href="mailto:info@thescarlettbox.com" title="Email Us">
-    <i class="fas fa-envelope"></i>
-  </a>
-</div>
-
-<main>
-  <h2>Our Social Media</h2>
-  <p>
-    Follow our social media using any of the buttons above. Stay updated with our growth, mission, and latest initiatives.
-  </p>
-</main>
-
-<footer>
-  <div class="footer-text">
-    Copyright © 2025 The Scarlett Box - All Rights Reserved.
+  <!-- Social Links -->
+  <div class="social-bar">
+    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
-  <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
-    <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
-  </a>
-</footer>
+
+  <!-- Main Content -->
+  <main>
+    <h2>Our Social Media</h2>
+    <p>
+      Follow our social media using any of the buttons above. Stay updated with our growth, mission, and latest initiatives.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-text">
+      Copyright © 2025 The Scarlett Box - All Rights Reserved.
+    </div>
+    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+    </a>
+  </footer>
 
 </body>
 </html>
