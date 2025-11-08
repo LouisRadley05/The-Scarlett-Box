@@ -134,24 +134,25 @@
     .carousel-container {
       overflow: hidden;
       width: 80%;
-      margin: 30px auto 0 auto; /* shifted down */
+      margin: 30px auto 20px auto;
       position: relative;
     }
 
     .carousel-track {
       display: flex;
-      animation: scroll 35s linear infinite;
-      gap: 0; /* images touching */
+      animation: scroll 30s linear infinite;
     }
 
     .carousel-item {
-      flex: 0 0 20%; /* 5 images visible on desktop */
+      flex: 0 0 auto;
+      width: calc(100% / 5); /* 5 images visible on desktop */
+      margin: 0; /* Images touching */
     }
 
     .carousel-item img {
       width: 100%;
-      height: 180px; /* uniform height */
-      object-fit: contain;
+      height: 200px;
+      object-fit: cover;
       display: block;
     }
 
@@ -234,15 +235,15 @@
       }
 
       .carousel-item {
-        flex: 0 0 33.33%; /* 3 images visible on mobile */
-      }
-
-      .carousel-item img {
-        height: 120px;
+        width: calc(100% / 3); /* 3 images visible on mobile */
       }
 
       .carousel-container {
-        max-width: 100%;
+        width: 95%;
+      }
+
+      main {
+        padding: 20px 10%;
       }
 
       .social-bar {
@@ -287,6 +288,7 @@
     <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
     <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
 
   <!-- Carousel -->
@@ -303,8 +305,7 @@
       <div class="carousel-item"><img src="images/image9.PNG" alt="Slide 9"></div>
       <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10"></div>
       <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11"></div>
-
-      <!-- Duplicate for seamless scroll -->
+      <!-- duplicate for smooth scroll -->
       <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1 duplicate"></div>
       <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2 duplicate"></div>
       <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3 duplicate"></div>
