@@ -5,6 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Scarlett Box</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  
+  <!-- Import Montserrat Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;900&display=swap" rel="stylesheet">
+
   <style>
     /* Base Styles */
     body {
@@ -28,8 +32,9 @@
 
     header h1 {
       margin: 0;
-      font-size: 2em;
+      font-family: 'Montserrat', sans-serif;
       font-weight: 900;
+      font-size: 2em;
       letter-spacing: 1px;
     }
 
@@ -163,22 +168,29 @@
       padding: 20px 15%;
       padding-bottom: 100px; /* Prevent footer overlap */
       box-sizing: border-box;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      letter-spacing: 0.5px;
     }
 
     main h2 {
       margin-top: 20px;
-      font-weight: bold;
+      font-weight: 900;
+      color: #ba1a00;
     }
 
     main p {
       line-height: 1.6;
       margin-top: 20px;
+      text-align: justify;
     }
 
-    /* New Article Section */
+    /* Article Section */
     .article-section {
       text-align: left;
       margin-top: 50px;
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
     }
 
     .article-section img {
@@ -195,6 +207,7 @@
       color: #ba1a00;
       font-size: 1.8em;
       margin-bottom: 15px;
+      font-weight: 900;
     }
 
     .article-section p {
@@ -253,20 +266,6 @@
       white-space: normal;
       word-break: break-word;
       max-width: 100%;
-    }
-
-    .footer-logo a:hover::after {
-      content: "Home Page - The Scarlett Box";
-      position: absolute;
-      bottom: 65px;
-      left: 15px;
-      background-color: #333;
-      color: white;
-      font-size: 12px;
-      padding: 5px 8px;
-      border-radius: 4px;
-      white-space: nowrap;
-      z-index: 200;
     }
 
     /* Responsive */
@@ -360,7 +359,7 @@
       support health, dignity, and equality — even on the high seas.
     </p>
 
-    <!-- New Article Section -->
+    <!-- Article Section -->
     <section class="article-section">
       <h2>Why Women Working on Ships Deserve Access to Free Menstrual Products</h2>
       <img src="images/image12.PNG" alt="Women at sea illustration">
