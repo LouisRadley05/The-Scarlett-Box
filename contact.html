@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>The Scarlett Box - Contact Us!</title>
   <link rel="icon" type="image/png" href="images/logoplain.PNG">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     /* Base Styles */
     body {
       margin: 0;
-      font-family: 'Poppins', Arial, Helvetica, sans-serif;
-      background-color: #fff;
-      color: #333;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: white;
+      color: #000;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
@@ -20,37 +21,38 @@
 
     /* Header */
     header {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       text-align: center;
-      padding: 25px 10px;
+      padding: 20px 10px;
+      position: relative;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2.2em;
-      font-weight: 800;
-      letter-spacing: 1.5px;
+      font-size: 2em;
+      font-weight: 900;
+      letter-spacing: 1px;
     }
 
     header p {
-      margin: 8px 0 0;
+      margin: 5px 0 0;
       font-weight: 400;
-      font-size: 1em;
-      opacity: 0.9;
+      font-size: 0.9em;
+      letter-spacing: 0.5px;
     }
 
     .logo {
-      width: 85px;
-      height: 85px;
+      width: 80px;
+      height: 80px;
       object-fit: contain;
       display: block;
-      margin: 0 auto 10px;
+      margin: 0 auto 10px auto;
     }
 
     /* Navigation */
     nav {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -65,42 +67,41 @@
       padding: 15px 25px;
       display: inline-block;
       font-weight: bold;
-      letter-spacing: 0.5px;
-      transition: all 0.3s ease;
+      transition: background-color 0.3s;
     }
 
     nav a:hover {
-      background-color: #8A1200;
-      transform: scale(1.05);
+      background-color: #8a1200;
     }
 
     /* Social Icons */
     .social-bar {
-      margin-top: 25px;
+      margin-top: 20px;
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .social-bar a {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       width: 45px;
       height: 45px;
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 8px;
+      border-radius: 5px;
       text-decoration: none;
-      transition: background-color 0.3s ease, transform 0.2s ease;
+      transition: background-color 0.3s;
       font-size: 20px;
       position: relative;
     }
 
     .social-bar a:hover {
-      background-color: #8A1200;
-      transform: translateY(-3px);
+      background-color: #8a1200;
     }
 
     .social-bar a::after {
@@ -128,28 +129,26 @@
     main {
       flex: 1;
       text-align: center;
-      padding: 50px 15%;
+      padding: 40px 15%;
     }
 
     main h2 {
-      color: #BA1A00;
-      font-weight: 700;
-      font-size: 1.8em;
-      margin-bottom: 10px;
+      font-weight: bold;
+      color: #ba1a00;
     }
 
     main p {
-      line-height: 1.8;
-      font-size: 1.1em;
+      line-height: 1.6;
+      font-size: 1.05em;
       color: #444;
-      margin: 0 auto 30px;
+      margin: 10px auto 30px auto;
       max-width: 700px;
     }
 
     /* Contact Box */
     .contact-box {
       background-color: #fff;
-      border: 2px solid #BA1A00;
+      border: 2px solid #ba1a00;
       border-radius: 12px;
       padding: 35px;
       max-width: 600px;
@@ -164,15 +163,10 @@
       box-shadow: 0 8px 16px rgba(0,0,0,0.12);
     }
 
-    .contact-box form {
-      display: flex;
-      flex-direction: column;
-    }
-
     .contact-box label {
       margin-bottom: 6px;
       font-weight: 600;
-      color: #BA1A00;
+      color: #ba1a00;
       font-size: 1em;
     }
 
@@ -186,16 +180,17 @@
       font-size: 1em;
       background-color: #fdfdfd;
       transition: border-color 0.3s;
+      width: 100%;
     }
 
     .contact-box input:focus,
     .contact-box textarea:focus {
       outline: none;
-      border-color: #BA1A00;
+      border-color: #ba1a00;
     }
 
     .contact-box button {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       color: white;
       border: none;
       padding: 14px;
@@ -204,45 +199,39 @@
       font-weight: bold;
       cursor: pointer;
       transition: all 0.3s ease;
+      width: 100%;
     }
 
     .contact-box button:hover {
-      background-color: #8A1200;
+      background-color: #8a1200;
       transform: scale(1.02);
-    }
-
-    /* Divider */
-    .divider {
-      width: 80px;
-      height: 4px;
-      background-color: #BA1A00;
-      margin: 0 auto 20px auto;
-      border-radius: 2px;
     }
 
     /* Footer */
     footer {
-      background-color: #BA1A00;
+      background-color: #ba1a00;
       border-top: 2px solid white;
-      padding: 25px 0 70px;
+      padding: 20px 0 70px;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
 
     .footer-text {
-      color: white;
-      background-color: #8A1200;
-      padding: 10px 25px;
-      border-radius: 6px;
-      font-size: 0.9em;
-      font-weight: 600;
       display: inline-block;
+      color: white;
+      background-color: #8a1200;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-weight: bold;
     }
 
     .footer-logo-link {
       position: absolute;
       bottom: 10px;
       right: 20px;
+      display: inline-block;
     }
 
     .footer-logo {
@@ -253,22 +242,45 @@
     }
 
     .footer-logo-link:hover .footer-logo {
-      transform: scale(1.08);
+      transform: scale(1.05);
     }
 
     /* Responsive */
     @media (max-width: 768px) {
-      main {
-        padding: 30px 8%;
+      header {
+        padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
       }
 
       nav {
         flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
       }
 
       nav a {
-        padding: 12px 0;
+        padding: 10px 0;
         width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      main {
+        padding: 20px 10%;
       }
 
       .footer-logo-link {
@@ -285,59 +297,56 @@
 </head>
 
 <body>
+  <header>
+    <a href="index.html" title="Home Page">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
+    </a>
+    <h1>THE SCARLETT BOX</h1>
+    <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
+  </header>
 
-<header>
-  <a href="index.html">
-    <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
-  </a>
-  <h1>THE SCARLETT BOX</h1>
-  <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
-</header>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html">MY STORY</a>
+    <a href="socialmedia.html">SOCIAL MEDIA</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
 
-<nav>
-  <a href="index.html">HOME</a>
-  <a href="mission.html">THE MISSION</a>
-  <a href="mystory.html">MY STORY</a>
-  <a href="socialmedia.html">SOCIAL MEDIA</a>
-  <a href="contact.html">CONTACT US</a>
-</nav>
-
-<div class="social-bar">
-  <a href="https://www.facebook.com/" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-  <a href="https://www.instagram.com/thescarlettboxuk/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-  <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-  <a href="mailto:thescarlettboxuk@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
-</div>
-
-<main>
-  <h2>Get in Touch</h2>
-  <div class="divider"></div>
-  <p>We’d love to hear from you! Whether you have an idea, a partnership proposal, or simply want to support <strong>The Scarlett Box</strong> mission to provide menstrual dignity at sea — reach out below and we’ll get back to you soon.</p>
-
-  <div class="contact-box">
-    <form action="https://formspree.io/f/mnnlavrp" method="POST">
-      <label for="name">Full Name</label>
-      <input type="text" id="name" name="name" placeholder="Your name..." required>
-
-      <label for="email">Email Address</label>
-      <input type="email" id="email" name="email" placeholder="Your email..." required>
-
-      <label for="message">Your Message</label>
-      <textarea id="message" name="message" placeholder="Write your message..." rows="6" required></textarea>
-
-      <button type="submit">Send Message</button>
-    </form>
+  <div class="social-bar">
+    <a href="https://www.facebook.com/" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
-</main>
 
-<footer>
-  <div class="footer-text">
-    Copyright © 2025 The Scarlett Box - All Rights Reserved.
-  </div>
-  <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
-    <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
-  </a>
-</footer>
+  <main>
+    <h2>Get in Touch</h2>
+    <p>We’d love to hear from you! Whether you have an idea, a partnership proposal, or simply want to support <strong>The Scarlett Box</strong> mission to provide menstrual dignity at sea — reach out below and we’ll get back to you soon.</p>
 
+    <div class="contact-box">
+      <form action="https://formspree.io/f/mnnlavrp" method="POST">
+        <label for="name">Full Name</label>
+        <input type="text" id="name" name="name" placeholder="Your name..." required>
+
+        <label for="email">Email Address</label>
+        <input type="email" id="email" name="email" placeholder="Your email..." required>
+
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Write your message..." rows="6" required></textarea>
+
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-text">
+      Copyright © 2025 The Scarlett Box - All Rights Reserved.
+    </div>
+    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+    </a>
+  </footer>
 </body>
 </html>
