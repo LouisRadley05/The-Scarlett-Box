@@ -40,19 +40,14 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo placeholder */
+    /* Logo */
     .logo {
       position: absolute;
       top: 20px;
       right: 30px;
       width: 80px;
       height: 80px;
-      background-color: black;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
+      object-fit: contain;
       z-index: 1;
     }
 
@@ -140,7 +135,7 @@
 
     .carousel-track {
       display: flex;
-      animation: scroll 60s linear infinite; /* slowed down */
+      animation: scroll 45s linear infinite; /* updated speed */
     }
 
     .carousel-item {
@@ -217,7 +212,6 @@
         margin: 10px auto 0 auto;
         width: 60px;
         height: 60px;
-        font-size: 0.8em;
       }
 
       nav {
@@ -269,8 +263,8 @@
   <header>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
-    <a href="index.html">
-      <div class="logo">LOGO</div>
+    <a href="index.html" title="Home Page">
+      <img src="images/logo.PNG" alt="The Scarlett Box Logo" class="logo">
     </a>
   </header>
 
