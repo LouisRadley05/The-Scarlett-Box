@@ -14,7 +14,7 @@
       color: #000;
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Full viewport height */
+      min-height: 100vh;
     }
 
     /* Header */
@@ -40,19 +40,14 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo placeholder */
+    /* Logo image */
     .logo {
       position: absolute;
       top: 20px;
       right: 30px;
       width: 80px;
       height: 80px;
-      background-color: black;
-      color: white;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-weight: bold;
+      object-fit: contain; /* scale without distortion */
       z-index: 1;
     }
 
@@ -131,7 +126,7 @@
 
     /* Main content */
     main {
-      flex: 1; /* pushes footer to bottom if content is short */
+      flex: 1;
       text-align: center;
       padding: 40px 15%;
     }
@@ -183,7 +178,6 @@
         margin: 10px auto 0 auto;
         width: 60px;
         height: 60px;
-        font-size: 0.8em;
       }
 
       nav {
@@ -227,7 +221,7 @@
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
     <a href="index.html">
-      <div class="logo">LOGO</div>
+      <img src="logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
     </a>
   </header>
 
@@ -250,7 +244,6 @@
     <a href="https://uk.linkedin.com/in/scarlett-barnett-smith-952306160" title="Connect with us on LinkedIn" target="_blank">
       <i class="fab fa-linkedin-in"></i>
     </a>
-    <!-- Email button added -->
     <a href="mailto:info@thescarlettbox.com" title="Contact us via email">
       <i class="fas fa-envelope"></i>
     </a>
@@ -260,8 +253,7 @@
     <h2>My Story at Sea</h2>
     <p>
       Description about your story at sea and how it made you come to this business idea etc.
-
-      Also plan to have some photos here on a scrolling bar like a collage but changing to different photos almost like a live instagram feed.
+      Also plan to have some photos here on a scrolling bar like a collage but changing to different photos almost like a live Instagram feed.
     </p>
   </main>
 
