@@ -185,15 +185,19 @@
         font-size: 0.8em;
       }
 
-      /* Navigation */
+      /* Navigation: stack vertically */
       nav {
-        flex-direction: column;
+        flex-direction: column; 
+        align-items: center;
         border-top: none;
         border-bottom: none;
       }
 
       nav a {
-        padding: 10px 0;
+        padding: 10px 0;       
+        width: 100%;            
+        text-align: center;
+        box-sizing: border-box;
       }
 
       /* Main content */
