@@ -161,6 +161,8 @@
       flex: 1;
       text-align: center;
       padding: 20px 15%;
+      padding-bottom: 100px; /* Prevent footer overlap */
+      box-sizing: border-box;
     }
 
     main h2 {
@@ -208,51 +210,63 @@
       padding: 10px 20px;
       display: flex;
       align-items: center;
-      justify-content: center;
+      justify-content: space-between;
       position: fixed;
       bottom: 0;
       left: 0;
       width: 100%;
       z-index: 100;
       flex-wrap: wrap;
+      box-sizing: border-box;
     }
 
     .footer-logo {
-      position: absolute;
-      left: 15px;
       display: flex;
       align-items: center;
+      flex: 0 0 auto;
     }
 
     .footer-logo img {
-      width: 60px;
-      height: 60px;
+      width: 55px;
+      height: auto;
       object-fit: contain;
       cursor: pointer;
+      transition: transform 0.3s ease;
+      max-width: 100%;
+    }
+
+    .footer-logo img:hover {
+      transform: scale(1.05);
     }
 
     .footer-text {
+      flex: 1 1 auto;
+      text-align: center;
       color: white;
       background-color: #8a1200;
-      padding: 10px 20px;
+      padding: 8px 12px;
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
-      text-align: center;
       margin: 0 auto;
+      box-sizing: border-box;
+      white-space: normal;
+      word-break: break-word;
+      max-width: 100%;
     }
 
     .footer-logo a:hover::after {
       content: "Home Page - The Scarlett Box";
       position: absolute;
-      bottom: 70px;
-      left: 0;
+      bottom: 65px;
+      left: 15px;
       background-color: #333;
       color: white;
       font-size: 12px;
       padding: 5px 8px;
       border-radius: 4px;
       white-space: nowrap;
+      z-index: 200;
     }
 
     /* Responsive */
@@ -263,6 +277,29 @@
         margin: 0 auto 20px auto;
         width: 100%;
         max-width: 100%;
+      }
+
+      footer {
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 15px 10px;
+        text-align: center;
+      }
+
+      .footer-logo {
+        position: static;
+        margin-bottom: 10px;
+      }
+
+      .footer-logo img {
+        width: 45px;
+        height: auto;
+      }
+
+      .footer-text {
+        font-size: 0.8em;
+        padding: 8px 10px;
       }
     }
   </style>
