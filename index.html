@@ -142,7 +142,6 @@
     }
 
     .carousel-item {
-      min-width: 33.33%; /* Show 3 images at a time */
       flex-shrink: 0;
       padding: 0 5px;
       box-sizing: border-box;
@@ -151,10 +150,83 @@
     .carousel-item img {
       width: 100%;
       height: auto;
-      max-height: 250px; /* Limit height */
+      max-height: 200px;
       object-fit: cover;
       display: block;
       border-radius: 5px;
+    }
+
+    /* Desktop: 5 images visible */
+    @media (min-width: 769px) {
+      .carousel-item {
+        min-width: 20%;
+      }
+    }
+
+    /* Mobile: 3 images visible */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 10px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
+
+      .logo {
+        position: relative;
+        top: 0;
+        right: 0;
+        margin: 10px auto 0 auto;
+        width: 60px;
+        height: 60px;
+        font-size: 0.8em;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+
+      .carousel-item {
+        min-width: 33.3333%;
+      }
+
+      .carousel-container {
+        width: 95%;
+      }
+
+      main {
+        padding: 20px 10%;
+      }
+
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .footer-text {
+        padding: 8px 15px;
+        font-size: 0.8em;
+      }
     }
 
     @keyframes scroll {
@@ -195,72 +267,6 @@
       border-radius: 5px;
       font-size: 0.9em;
       font-weight: bold;
-    }
-
-    /* Responsive */
-    @media (max-width: 768px) {
-      header {
-        padding: 15px 10px;
-      }
-
-      header h1 {
-        font-size: 1.5em;
-      }
-
-      header p {
-        font-size: 0.8em;
-      }
-
-      .logo {
-        position: relative;
-        top: 0;
-        right: 0;
-        margin: 10px auto 0 auto;
-        width: 60px;
-        height: 60px;
-        font-size: 0.8em;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        border-top: none;
-        border-bottom: none;
-      }
-
-      nav a {
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-        box-sizing: border-box;
-      }
-
-      .carousel-item {
-        min-width: 100%; /* Show 1 image at a time on small screens */
-      }
-
-      .carousel-container {
-        width: 95%;
-      }
-
-      main {
-        padding: 20px 10%;
-      }
-
-      .social-bar {
-        gap: 10px;
-      }
-
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      .footer-text {
-        padding: 8px 15px;
-        font-size: 0.8em;
-      }
     }
   </style>
 </head>
@@ -306,7 +312,7 @@
       <div class="carousel-item"><img src="images/image10.PNG" alt="Slide 10"></div>
       <div class="carousel-item"><img src="images/image11.PNG" alt="Slide 11"></div>
 
-      <!-- duplicate for seamless scrolling -->
+      <!-- duplicate for seamless scroll -->
       <div class="carousel-item"><img src="images/image1.PNG" alt="Slide 1 duplicate"></div>
       <div class="carousel-item"><img src="images/image2.PNG" alt="Slide 2 duplicate"></div>
       <div class="carousel-item"><img src="images/image3.PNG" alt="Slide 3 duplicate"></div>
