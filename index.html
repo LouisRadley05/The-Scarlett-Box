@@ -41,7 +41,7 @@
       letter-spacing: 0.5px;
     }
 
-    /* Centered Logo */
+    /* Logo */
     .logo {
       width: 80px;
       height: 80px;
@@ -67,11 +67,13 @@
       padding: 15px 25px;
       display: inline-block;
       font-weight: bold;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
+      transform-origin: center;
     }
 
     nav a:hover {
       background-color: #8a1200;
+      transform: scale(1.15);
     }
 
     /* Social Icons */
@@ -95,13 +97,14 @@
       justify-content: center;
       border-radius: 5px;
       text-decoration: none;
-      transition: background-color 0.3s;
+      transition: all 0.3s ease;
       font-size: 20px;
       position: relative;
     }
 
     .social-bar a:hover {
       background-color: #8a1200;
+      transform: translateY(-5px);
     }
 
     .social-bar a::after {
@@ -193,7 +196,6 @@
       font-weight: bold;
     }
 
-    /* Footer Logo */
     .footer-logo-link {
       position: absolute;
       bottom: 10px;
@@ -212,8 +214,16 @@
       transform: scale(1.05);
     }
 
-    /* Responsive Adjustments */
+    /* Responsive */
     @media (max-width: 768px) {
+      nav a {
+        transform: none !important;
+      }
+
+      .social-bar a {
+        transform: none !important;
+      }
+
       header {
         padding: 15px 10px;
       }
@@ -273,7 +283,6 @@
         font-size: 0.8em;
       }
 
-      /* Stack footer logo below text */
       .footer-logo-link {
         position: static;
         display: block;
@@ -361,4 +370,3 @@
 
 </body>
 </html>
-
