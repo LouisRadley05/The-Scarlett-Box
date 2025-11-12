@@ -52,6 +52,7 @@
     /* --- GLOBAL FIXES --- */
     html {
       overflow-y: scroll;
+      scroll-behavior: smooth;
     }
 
     *, *::before, *::after {
@@ -234,10 +235,11 @@
     main {
       flex: 1;
       text-align: center;
-      padding: 40px 10px;
+      padding: 50px 10%;
       display: flex;
       flex-direction: column;
       align-items: center;
+      animation: fadeIn 1s ease-in;
     }
 
     main h2 {
@@ -252,6 +254,12 @@
       color: #444;
       max-width: 700px;
       margin: 0 auto;
+    }
+
+    /* --- FADE IN EFFECT --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
     /* --- FOOTER --- */
@@ -315,7 +323,7 @@
       .carousel-container { width: 95%; }
       .carousel-item img { height: 150px; }
 
-      main { padding: 20px; }
+      main { padding: 30px 5%; }
       .social-bar { gap: 10px; }
       .social-bar a { width: 40px; height: 40px; font-size: 18px; }
 
