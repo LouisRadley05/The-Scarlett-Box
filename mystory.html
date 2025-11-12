@@ -6,23 +6,306 @@
   <title>The Scarlett Box - My Story</title>
   <link rel="icon" type="image/png" href="images/logo.PNG" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
-  <!-- Your existing <style> block -->
+
   <style>
-    /* (keep your full style block exactly as you shared above) */
+    html {
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; }
+
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: #fff;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: #ba1a00;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 0.9em;
+      letter-spacing: 0.5px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+      background-color: #ba1a00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 2px solid white;
+      border-bottom: 2px solid white;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 5;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      display: inline-block;
+      font-weight: bold;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 50%;
+      bottom: 5px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after { width: 60%; }
+    nav a:hover { background-color: #8a1200; }
+    nav a.active { background-color: #8a1200; }
+
+    /* --- SOCIAL ICONS --- */
+    .social-bar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-bar a {
+      background-color: #ba1a00;
+      color: white;
+      width: 40px;
+      height: 40px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      font-size: 18px;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .social-bar a:hover {
+      background-color: #8a1200;
+      transform: translateY(-5px);
+    }
+
+    /* --- MAIN CONTENT --- */
+    main {
+      flex: 1;
+      padding: 50px 10%;
+      animation: fadeIn 1s ease-in;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    main h2 {
+      text-align: center;
+      font-weight: bold;
+      color: #ba1a00;
+      margin-bottom: 25px;
+    }
+
+    main p {
+      line-height: 1.6;
+      font-size: 1.05em;
+      color: #444;
+      margin-bottom: 15px;
+      text-align: justify;
+    }
+
+    /* --- FOUNDER IMAGE WITH CAPTION --- */
+    .founder-block {
+      overflow: hidden;
+      margin-bottom: 30px;
+    }
+
+    .image-caption {
+      position: relative;
+      display: inline-block;
+      float: right;
+      margin: 0 0 15px 25px;
+      width: 280px;
+      max-width: 40%;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .image-caption img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .image-caption .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(186, 26, 0, 0.8);
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      padding: 8px 10px;
+      font-size: 0.9em;
+      letter-spacing: 0.3px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
+    }
+
+    /* --- PRODUCT SECTION (IMAGE LEFT) --- */
+    .product-block {
+      overflow: hidden;
+      margin: 30px 0;
+    }
+
+    .product-block img {
+      float: left;
+      margin: 0 25px 15px 0;
+      width: 180px;
+      max-width: 35%;
+      border-radius: 8px;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #ba1a00;
+      border-top: 2px solid white;
+      padding: 20px 0 70px;
+      text-align: center;
+      margin-top: auto;
+      position: relative;
+    }
+
+    .footer-text {
+      display: inline-block;
+      color: white;
+      background-color: #8a1200;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    .footer-logo-link {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo-link:hover .footer-logo {
+      transform: scale(1.05);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      header { padding: 15px 10px; }
+      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
+      header h1 { font-size: 1.5em; }
+      header p { font-size: 0.8em; }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .social-bar a {
+        width: 35px;
+        height: 35px;
+        font-size: 16px;
+      }
+
+      .image-caption {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 80%;
+        max-width: 300px;
+      }
+
+      .product-block img {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 80%;
+        max-width: 300px;
+      }
+
+      main { padding: 30px 5%; text-align: center; }
+      main p { text-align: left; }
+
+      .footer-logo-link {
+        position: static;
+        display: block;
+        margin-top: 15px;
+      }
+
+      .footer-logo { width: 50px; height: 50px; }
+      footer { padding-bottom: 20px; }
+    }
   </style>
 </head>
 
 <body>
-  <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
     </a>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -31,58 +314,41 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <!-- Social Bar -->
   <div class="social-bar">
-    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/company/the-scarlett-box/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/the-scarlett-box/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
     <a href="mailto:thescarlettboxuk@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
   </div>
 
-  <!-- Main Content -->
   <main>
-    <h2>My Story</h2>
-
     <div class="founder-block">
       <div class="image-caption">
-        <img src="images/founder.jpg" alt="Scarlett Barnett-Smith - Founder" />
-        <div class="caption">Scarlett Barnett-Smith<br>Founder & CEO</div>
+        <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder">
+        <div class="caption">Scarlett Barnett-Smith, CEO & Founder</div>
       </div>
 
-      <p>
-        Hello, I’m Scarlett — a maritime professional and the founder of The Scarlett Box.
-        Working at sea for several years, I witnessed firsthand the lack of access to menstrual
-        products and support available to women onboard ships.
-      </p>
-      <p>
-        What began as frustration evolved into a mission: to ensure that every seafarer,
-        regardless of gender or location, has access to the dignity and comfort they deserve.
-        The Scarlett Box was born out of necessity — and built with compassion.
-      </p>
+      <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
+
+      <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — 
+      <em><span style="color: #BA1A00;">Scarlett Barnett-Smith</span></em></p>
+
+      <p>Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: access to menstrual products for women on board.</p>
     </div>
 
     <div class="product-block">
-      <img src="images/product-sample.jpg" alt="The Scarlett Box Product" />
-      <p>
-        The Scarlett Box is designed to provide practical, discreet, and reliable menstrual care
-        solutions for crew members at sea. Every element of the box has been thoughtfully created
-        to meet the challenges of life offshore — compact, sustainable, and easy to distribute.
-      </p>
+      <img src="images/tsbicon.png" alt="The Scarlett Box Icon">
+      <p><strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, to be placed in toilets in the workplace in areas women cannot leave because of their duties. It aims to empower women in maritime by ensuring menstrual health never stands in the way. At present, there is no product like this on the market. Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. This product simply makes a male-dominated environment more inclusive.</p>
     </div>
 
-    <p>
-      Today, The Scarlett Box is more than a product — it’s a movement for equality, dignity,
-      and awareness in the maritime industry. Thank you for joining me on this journey.
-    </p>
+    <p>The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – a low-cost, high-impact solution.</p>
+    <p>The box aims to provide comfort, dignity, and preparedness for female seafarers.</p>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div class="footer-text">
-      Copyright © 2025 The Scarlett Box - All Rights Reserved.
-    </div>
-    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
+    <div class="footer-text">Copyright © 2025 The Scarlett Box - All Rights Reserved.</div>
+    <a href="index.html" class="footer-logo-link">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
 </body>
