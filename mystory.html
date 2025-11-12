@@ -74,23 +74,6 @@
       position: relative;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 3px;
-      left: 50%;
-      bottom: 5px;
-      background-color: white;
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    nav a:hover::after {
-      width: 60%;
-    }
-
     nav a:hover { background-color: #8a1200; }
     nav a.active { background-color: #8a1200; }
 
@@ -146,10 +129,10 @@
       margin: 10px auto;
     }
 
-    /* --- FOUNDER IMAGE FLOAT RIGHT --- */
-    .founder-image-right {
-      float: right;
-      margin: 0 0 15px 25px;
+    /* --- FOUNDER IMAGE FLOAT LEFT --- */
+    .founder-image-left {
+      float: left;
+      margin: 0 25px 15px 0;
       width: 280px;
       max-width: 40%;
       border-radius: 8px;
@@ -158,16 +141,11 @@
       overflow: hidden;
     }
 
-    .founder-image-right img {
+    .founder-image-left img {
       width: 100%;
       height: auto;
       display: block;
       border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .founder-image-right:hover img {
-      transform: scale(1.03);
     }
 
     .founder-caption {
@@ -180,40 +158,23 @@
       font-size: 0.9em;
       padding: 8px;
       text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
+      opacity: 1; /* permanently visible */
     }
 
-    .founder-image-right:hover .founder-caption {
-      opacity: 1;
+    /* --- PRODUCT IMAGE FLOAT RIGHT --- */
+    .product-image-right {
+      float: right;
+      margin: 0 0 15px 25px;
+      width: 180px;
+      max-width: 40%;
+      flex-shrink: 0;
     }
 
-    /* --- PRODUCT IMAGE --- */
-    .product-section {
-      display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      gap: 20px;
-      flex-wrap: wrap;
-      margin: 20px auto;
-      max-width: 900px;
-      text-align: left;
-    }
-
-    .product-section p {
-      flex: 1 1 400px;
-      font-size: 1.05em;
-      line-height: 1.6;
-      color: #444;
-    }
-
-    .product-image {
-      width: 160px;
+    .product-image-right img {
+      width: 100%;
       height: auto;
       border: none;
-      box-shadow: none;
-      border-radius: 0;
-      flex-shrink: 0;
+      border-radius: 8px;
     }
 
     /* --- FOOTER --- */
@@ -255,36 +216,22 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      header {
-        padding: 15px 10px;
-      }
+      header { padding: 15px 10px; }
+      .logo { width: 60px; height: 60px; }
+      header h1 { font-size: 1.6em; }
+      header p { font-size: 0.85em; }
 
-      .logo {
-        width: 60px;
-        height: 60px;
-      }
-
-      header h1 {
-        font-size: 1.6em;
-      }
-
-      header p {
-        font-size: 0.85em;
-      }
-
-      /* ✅ Navigation stacks neatly */
+      /* Nav stacks neatly */
       nav {
         flex-direction: column;
         align-items: center;
         border-top: none;
         border-bottom: none;
       }
-
       nav a {
         padding: 10px 0;
         width: 100%;
         text-align: center;
-        box-sizing: border-box;
       }
 
       main {
@@ -292,23 +239,12 @@
         text-align: center;
       }
 
-      .founder-image-right {
+      .founder-image-left,
+      .product-image-right {
         float: none;
         margin: 0 auto 15px auto;
         width: 80%;
         max-width: 300px;
-      }
-
-      .product-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .product-image {
-        margin-bottom: 15px;
-        width: 70%;
-        max-width: 250px;
       }
 
       .footer-logo-link {
@@ -317,7 +253,6 @@
         display: block;
       }
 
-      /* ✅ Social icons match Contact page sizing */
       .social-bar { gap: 10px; }
       .social-bar a {
         width: 40px;
@@ -355,15 +290,16 @@
   <main>
     <h2>My Story.</h2>
 
-    <div class="founder-image-right">
+    <!-- Founder image LEFT -->
+    <div class="founder-image-left">
       <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder" />
       <div class="founder-caption">Scarlett Barnett-Smith, CEO & Founder</div>
     </div>
 
-    <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
-
-    <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — 
-      <em><span style="color: #BA1A00;">Scarlett Barnett-Smith</span></em>
+    <p><strong style="color:#BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
+    <p>
+      “My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” 
+      — <em><span style="color:#BA1A00;">Scarlett Barnett-Smith</span></em>
     </p>
 
     <p>
@@ -372,26 +308,22 @@
       access to menstrual products for women on board.
     </p>
 
-    <div class="product-section">
-      <img src="images/tsbicon.png" alt="The Scarlett Box Icon" class="product-image">
-      <p>
-        <strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime,
-        to be placed in toilets in the workplace in areas women cannot leave because of their duties.
-        It aims to empower women in maritime by ensuring menstrual health never stands in the way.
-        At present, there is no product like this on the market.
-        Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry.
-        This product simply makes a male-dominated environment more inclusive.
-      </p>
+    <!-- Product image RIGHT -->
+    <div class="product-image-right">
+      <img src="images/tsbicon.png" alt="The Scarlett Box Icon">
     </div>
 
     <p>
-      The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – 
-      a low-cost, high-impact solution.
+      <strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, 
+      to be placed in toilets in the workplace in areas women cannot leave because of their duties. 
+      It aims to empower women in maritime by ensuring menstrual health never stands in the way. 
+      At present, there is no product like this on the market. 
+      Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. 
+      This product simply makes a male-dominated environment more inclusive.
     </p>
 
-    <p>
-      The box aims to provide comfort, dignity, and preparedness for female seafarers.
-    </p>
+    <p>The Scarlett Box will be welcomed well into the maritime industry — a low-cost, high-impact solution.</p>
+    <p>The box aims to provide comfort, dignity, and preparedness for female seafarers.</p>
   </main>
 
   <footer>
