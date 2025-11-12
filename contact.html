@@ -8,6 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* --- GLOBAL FIX --- */
+    html {
+      overflow-y: scroll; /* Prevent header/nav shifting when scrollbar appears */
+    }
+
     /* Base Styles */
     body {
       margin: 0;
@@ -159,7 +164,7 @@
 
     main h2 {
       font-weight: bold;
-      color: #ba1a00; /* Match header color */
+      color: #ba1a00;
     }
 
     main p {
@@ -216,6 +221,7 @@
       padding: 20px 0 70px;
       text-align: center;
       position: relative;
+      margin-top: auto; /* Keeps footer pinned to bottom on short pages */
       overflow: hidden;
     }
 
@@ -331,15 +337,13 @@
   </header>
 
   <!-- Navigation -->
-<nav>
-  <a href="index.html">HOME</a>
-  <a href="mission.html">THE MISSION</a>
-  <a href="mystory.html">MY STORY</a>
-  <a href="the-product.html">THE PRODUCT</a>
-  <a href="contact.html" class="active">CONTACT US</a>
-</nav>
-
-
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html">MY STORY</a>
+    <a href="the-product.html">THE PRODUCT</a>
+    <a href="contact.html" class="active">CONTACT US</a>
+  </nav>
 
   <!-- Social Icons -->
   <div class="social-bar">
@@ -377,8 +381,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
