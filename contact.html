@@ -23,12 +23,13 @@
       min-height: 100vh;
     }
 
-    /* Header */
+    /* Header (matches index page exactly) */
     header {
       background-color: #ba1a00;
       color: white;
       text-align: center;
       padding: 20px 10px;
+      position: relative;
     }
 
     .logo {
@@ -41,21 +42,37 @@
 
     header h1 {
       margin: 0;
-      font-size: 2.5em; /* Increased for consistency with other pages */
+      font-size: 2em;
       font-weight: 900;
       letter-spacing: 1px;
     }
 
-    @media (max-width: 768px) {
-      header h1 {
-        font-size: 2em;
-      }
-    }
-
     header p {
       margin: 5px 0 0;
+      font-weight: 400;
       font-size: 0.9em;
       letter-spacing: 0.5px;
+    }
+
+    /* Mobile Header */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
     }
 
     /* Navigation Bar */
@@ -106,7 +123,7 @@
       background-color: #8a1200;
     }
 
-    /* Responsive Navigation Fix */
+    /* Responsive Navigation */
     @media (max-width: 768px) {
       nav {
         flex-direction: column;
@@ -298,7 +315,7 @@
       transform: scale(1.05);
     }
 
-    /* Responsive */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
       .contact-card, .contact-details-box { width: 90%; }
       main { padding: 30px 5%; }
