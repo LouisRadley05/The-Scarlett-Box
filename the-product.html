@@ -11,7 +11,6 @@
     /* --- GLOBAL FIXES --- */
     html {
       overflow-y: scroll; /* Prevents header/nav shifting due to scrollbar */
-      height: 100%;
     }
 
     *, *::before, *::after {
@@ -24,9 +23,9 @@
       font-family: Arial, Helvetica, sans-serif;
       background-color: white;
       color: #000;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh; /* Ensures footer stays at bottom */
     }
 
     /* --- HEADER --- */
@@ -108,20 +107,67 @@
       background-color: #8a1200;
     }
 
+    /* --- SOCIAL ICONS --- */
+    .social-bar {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .social-bar a {
+      background-color: #ba1a00;
+      color: white;
+      width: 45px;
+      height: 45px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 5px;
+      text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 20px;
+      position: relative;
+    }
+
+    .social-bar a:hover {
+      background-color: #8a1200;
+      transform: translateY(-5px);
+    }
+
+    .social-bar a::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      font-size: 12px;
+      padding: 5px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+
+    .social-bar a:hover::after {
+      opacity: 1;
+    }
+
     /* --- MAIN CONTENT --- */
     main {
-      flex: 1;
       text-align: center;
       padding: 40px 10px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+      flex: 1;
     }
 
     main h2 {
       font-weight: bold;
       color: #ba1a00;
-      margin-bottom: 20px;
+      margin-bottom: 10px;
     }
 
     main p {
@@ -129,16 +175,7 @@
       font-size: 1.05em;
       color: #444;
       max-width: 700px;
-      margin: 0 auto 20px auto;
-    }
-
-    /* Optional product image styling */
-    .product-image {
-      width: 250px;
-      height: auto;
-      margin: 20px 0;
-      border-radius: 10px;
-      border: 2px solid #ba1a00;
+      margin: 0 auto;
     }
 
     /* --- FOOTER --- */
@@ -148,6 +185,7 @@
       padding: 20px 0 70px;
       text-align: center;
       position: relative;
+      margin-top: auto;
     }
 
     .footer-text {
@@ -211,6 +249,16 @@
         text-align: center;
       }
 
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
       main {
         padding: 20px;
       }
@@ -250,30 +298,32 @@
   </header>
 
   <!-- Navigation -->
-<nav>
-  <a href="index.html">HOME</a>
-  <a href="mission.html">THE MISSION</a>
-  <a href="mystory.html">MY STORY</a>
-  <a href="the-product.html" class="active">THE PRODUCT</a>
-  <a href="contact.html">CONTACT US</a>
-</nav>
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html">MY STORY</a>
+    <a href="the-product.html" class="active">THE PRODUCT</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
 
-
+  <!-- Social Icons -->
+  <div class="social-bar">
+    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/the-scarlett-box/" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
+  </div>
 
   <!-- Main Content -->
   <main>
-    <h2>The Scarlett Box Product</h2>
-
-    <img src="images/product-placeholder.jpg" alt="The Scarlett Box Product" class="product-image" />
-
+    <h2>Introducing The Scarlett Box Product</h2>
     <p>
-      The Scarlett Box is a practical and discreet menstrual care solution designed specifically for women in the maritime industry. 
-      It provides comfort, preparedness, and dignity for female seafarers working in remote or male-dominated environments.
-    </p>
-
-    <p>
-      Each box is stocked with essential sanitary items, educational resources, and practical hygiene products, 
-      offering a low-cost, high-impact solution that supports inclusion and wellbeing at sea.
+      The Scarlett Box is a first-of-its-kind menstrual health and dignity solution designed specifically for women working at sea.  
+      Each box is compact, durable, and stocked with essential menstrual products and hygiene items, ensuring that every seafarer is supported — even in the most remote conditions.  
+      <br><br>
+      Developed with maritime professionals, it is built to meet the practical challenges of life onboard. The Scarlett Box promotes inclusion, preparedness, and wellbeing for female crew members worldwide.  
+      <br><br>
+      Coming soon: Explore purchase options and customization for shipping companies and welfare organizations.
     </p>
   </main>
 
@@ -288,4 +338,3 @@
   </footer>
 </body>
 </html>
-
