@@ -11,6 +11,7 @@
     /* --- GLOBAL FIXES --- */
     html {
       overflow-y: scroll; /* Prevents header/nav shifting due to scrollbar */
+      height: 100%;
     }
 
     *, *::before, *::after {
@@ -23,6 +24,9 @@
       font-family: Arial, Helvetica, sans-serif;
       background-color: white;
       color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Keeps footer at bottom */
     }
 
     /* --- HEADER --- */
@@ -158,8 +162,12 @@
 
     /* --- MAIN CONTENT --- */
     main {
+      flex: 1; /* Ensures footer stays at bottom when content is short */
       text-align: center;
       padding: 40px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     main h2 {
@@ -183,6 +191,7 @@
       padding: 20px 0 70px;
       text-align: center;
       position: relative;
+      overflow: hidden;
     }
 
     .footer-text {
@@ -317,7 +326,7 @@
     <p>
       To empower women in maritime by ensuring menstrual health never stands in the way. At present there is no product like this on the market. Shipping companies, ports and seafarer welfare groups are working hard to promote and retain women in the industry. This product simply makes a male dominated environment more inclusive.
       <br><br>
-      The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – a low-cost, high-impact solution. The box aims to provide comfort, dignity, and preparedness for female seafarers. 
+      The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – a low-cost, high-impact solution. The box aims to provide comfort, dignity, and preparedness for female seafarers.
       <br><br>
       A prototype was launched at International Shipping Week 2025 and gained huge interest from large shipping groups, ports, and product providers wanting orders.
     </p>
