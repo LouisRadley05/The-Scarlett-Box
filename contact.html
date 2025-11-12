@@ -10,7 +10,7 @@
   <style>
     /* --- GLOBAL FIX --- */
     html {
-      overflow-y: scroll; /* Prevent header/nav shifting when scrollbar appears */
+      overflow-y: scroll;
     }
 
     /* Base Styles */
@@ -214,6 +214,38 @@
       transform: translateY(-3px);
     }
 
+    /* --- Contact Details Box --- */
+    .contact-details-box {
+      background-color: #ba1a00;
+      color: white;
+      border-radius: 5px;
+      padding: 25px 20px;
+      text-align: center;
+      max-width: 500px;
+      margin: 40px auto 0 auto;
+      line-height: 1.6;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .contact-details-box p {
+      margin: 8px 0;
+      font-size: 1em;
+    }
+
+    .contact-details-box a {
+      color: white;
+      text-decoration: underline;
+      transition: opacity 0.3s ease;
+    }
+
+    .contact-details-box a:hover {
+      opacity: 0.8;
+    }
+
+    .contact-details-box strong {
+      text-decoration: underline;
+    }
+
     /* Footer */
     footer {
       background-color: #ba1a00;
@@ -221,7 +253,7 @@
       padding: 20px 0 70px;
       text-align: center;
       position: relative;
-      margin-top: auto; /* Keeps footer pinned to bottom on short pages */
+      margin-top: auto;
       overflow: hidden;
     }
 
@@ -368,6 +400,16 @@
       <textarea name="message" placeholder="Your Message" required></textarea>
       <button type="submit">Send Message</button>
     </form>
+
+    <!-- Red Contact Details Box -->
+    <div class="contact-details-box">
+      <p><strong>Our Contact Details:</strong></p>
+      <p>The Scarlett Box LTD</p>
+      <p>Scarlett Barnett-Smith - Founder & CEO</p>
+      <p>Email: <a href="mailto:Scarlett@thescarlettbox.co.uk">Scarlett@thescarlettbox.co.uk</a></p>
+      <p>Email: <a href="mailto:thescarlettboxuk@gmail.com">thescarlettboxuk@gmail.com</a></p>
+      <p><a href="https://thescarlettbox.co.uk" target="_blank">Visit us on the web: thescarlettbox.co.uk</a></p>
+    </div>
   </main>
 
   <!-- Footer -->
