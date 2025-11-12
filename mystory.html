@@ -237,10 +237,10 @@
       main { padding: 20px 10%; text-align: center; }
 
       .founder-image-right {
-        float: none;
-        margin: 0 auto 15px auto;
-        width: 80%;
-        max-width: 300px;
+        float: right;
+        margin: 0 0 15px 25px;
+        width: 200px;
+        max-width: 40%;
       }
 
       .product-section {
@@ -261,6 +261,14 @@
         position: static;
         margin-top: 15px;
         display: block;
+      }
+
+      /* ✅ Match social icon size to Contact page */
+      .social-bar { gap: 10px; }
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
       }
     }
   </style>
@@ -291,8 +299,6 @@
   </div>
 
   <main>
-    <h2>My Story.</h2>
-
     <div class="founder-image-right">
       <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder" />
       <div class="founder-caption">Scarlett Barnett-Smith, CEO & Founder</div>
