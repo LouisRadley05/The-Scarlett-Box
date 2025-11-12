@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Scarlett Box - My Story</title>
+  <title>The Scarlett Box - Contact Us</title>
   <link rel="icon" type="image/png" href="images/logo.PNG" />
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
@@ -12,8 +12,6 @@
       overflow-y: scroll;
       scroll-behavior: smooth;
     }
-
-    *, *::before, *::after { box-sizing: border-box; }
 
     body {
       margin: 0;
@@ -25,12 +23,21 @@
       min-height: 100vh;
     }
 
-    /* --- HEADER --- */
+    /* Header (matches index page exactly) */
     header {
       background-color: #ba1a00;
       color: white;
       text-align: center;
       padding: 20px 10px;
+      position: relative;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 10px auto;
     }
 
     header h1 {
@@ -42,19 +49,33 @@
 
     header p {
       margin: 5px 0 0;
+      font-weight: 400;
       font-size: 0.9em;
       letter-spacing: 0.5px;
     }
 
-    .logo {
-      width: 80px;
-      height: 80px;
-      object-fit: contain;
-      display: block;
-      margin: 0 auto 10px auto;
+    /* Mobile Header */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
     }
 
-    /* --- NAVIGATION --- */
+    /* Navigation Bar */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -90,11 +111,36 @@
       border-radius: 2px;
     }
 
-    nav a:hover::after { width: 60%; }
-    nav a:hover { background-color: #8a1200; }
-    nav a.active { background-color: #8a1200; }
+    nav a:hover::after {
+      width: 60%;
+    }
 
-    /* --- SOCIAL ICONS --- */
+    nav a:hover {
+      background-color: #8a1200;
+    }
+
+    nav a.active {
+      background-color: #8a1200;
+    }
+
+    /* Responsive Navigation */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    }
+
+    /* Social Bar */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -112,9 +158,10 @@
       align-items: center;
       justify-content: center;
       border-radius: 5px;
-      font-size: 20px;
-      transition: all 0.3s ease;
       text-decoration: none;
+      transition: all 0.3s ease;
+      font-size: 20px;
+      position: relative;
     }
 
     .social-bar a:hover {
@@ -122,11 +169,26 @@
       transform: translateY(-5px);
     }
 
-    /* --- MAIN CONTENT --- */
+    /* Main Content */
     main {
       flex: 1;
       padding: 50px 10%;
       animation: fadeIn 1s ease-in;
+    }
+
+    main h2 {
+      text-align: center;
+      font-weight: bold;
+      color: #ba1a00;
+      margin-bottom: 20px;
+    }
+
+    main p.intro {
+      text-align: center;
+      line-height: 1.6;
+      max-width: 700px;
+      margin: 0 auto 40px auto;
+      color: #333;
     }
 
     @keyframes fadeIn {
@@ -134,83 +196,96 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    main h2 {
-      text-align: center;
-      font-weight: bold;
-      color: #ba1a00;
-      margin-bottom: 25px;
+    /* Form Card */
+    .contact-card {
+      background-color: #fffafa;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      max-width: 600px;
+      margin: 0 auto 40px auto;
+      padding: 30px 25px;
     }
 
-    main p {
-      line-height: 1.6;
-      font-size: 1.05em;
-      color: #444;
-      margin-bottom: 15px;
-      text-align: justify;
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
     }
 
-    /* --- FOUNDER IMAGE WITH CAPTION --- */
-    .founder-block {
-      overflow: hidden;
-      margin-bottom: 30px;
+    input, textarea, button {
+      font-family: inherit;
+      font-size: 1em;
+      padding: 12px;
+      border: 2px solid #ba1a00;
+      border-radius: 5px;
+      outline: none;
+      transition: all 0.3s ease;
     }
 
-    .image-caption {
-      position: relative;
-      display: inline-block;
-      float: right;
-      margin: 0 0 15px 25px;
-      width: 280px;
-      max-width: 40%;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    input:focus, textarea:focus {
+      border-color: #8a1200;
+      box-shadow: 0 0 6px rgba(186,26,0,0.4);
     }
 
-    .image-caption img {
-      width: 100%;
-      display: block;
-      border-radius: 8px;
+    textarea {
+      resize: vertical;
+      min-height: 120px;
     }
 
-    .image-caption .caption {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 100%;
-      background: rgba(186, 26, 0, 0.8);
+    button {
+      background-color: #ba1a00;
       color: white;
       font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #8a1200;
+      transform: translateY(-3px);
+    }
+
+    /* Contact Details Box */
+    .contact-details-box {
+      background-color: #ba1a00;
+      color: white;
+      border-radius: 5px;
+      padding: 25px 20px;
       text-align: center;
-      padding: 8px 10px;
-      font-size: 0.9em;
-      letter-spacing: 0.3px;
-      border-bottom-left-radius: 8px;
-      border-bottom-right-radius: 8px;
+      max-width: 500px;
+      margin: 40px auto;
+      line-height: 1.6;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     }
 
-    /* --- PRODUCT SECTION (IMAGE LEFT) --- */
-    .product-block {
-      overflow: hidden;
-      margin: 30px 0;
+    .contact-details-box p {
+      margin: 10px 0;
+      font-size: 1em;
     }
 
-    .product-block img {
-      float: left;
-      margin: 0 25px 15px 0;
-      width: 180px;
-      max-width: 35%;
-      border-radius: 8px;
+    .contact-details-box a {
+      color: white;
+      text-decoration: underline;
+      transition: opacity 0.3s ease;
     }
 
-    /* --- FOOTER --- */
+    .contact-details-box a:hover {
+      opacity: 0.8;
+    }
+
+    .contact-details-box i {
+      margin-right: 8px;
+    }
+
+    /* Footer */
     footer {
       background-color: #ba1a00;
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
-      margin-top: auto;
       position: relative;
+      margin-top: auto;
     }
 
     .footer-text {
@@ -240,118 +315,78 @@
       transform: scale(1.05);
     }
 
-    /* --- RESPONSIVE --- */
+    /* Responsive Adjustments */
     @media (max-width: 768px) {
-      header { padding: 15px 10px; }
-      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
-      header h1 { font-size: 1.5em; }
-      header p { font-size: 0.8em; }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        border-top: none;
-        border-bottom: none;
-      }
-
-      nav a {
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-      }
-
-      /* ✅ Match Contact Page icon sizing */
-      .social-bar { gap: 10px; }
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      .image-caption {
-        float: none;
-        display: block;
-        margin: 0 auto 20px auto;
-        width: 80%;
-        max-width: 300px;
-      }
-
-      .product-block img {
-        float: none;
-        display: block;
-        margin: 0 auto 20px auto;
-        width: 80%;
-        max-width: 300px;
-      }
-
-      main { padding: 30px 5%; text-align: center; }
-      main p { text-align: left; }
-
-      .footer-logo-link {
-        position: static;
-        display: block;
-        margin-top: 15px;
-      }
-
-      .footer-logo { width: 50px; height: 50px; }
-      footer { padding-bottom: 20px; }
+      .contact-card, .contact-details-box { width: 90%; }
+      main { padding: 30px 5%; }
     }
   </style>
 </head>
 
 <body>
+
+  <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo">
     </a>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
-    <a href="mystory.html" class="active">MY STORY</a>
+    <a href="mystory.html">MY STORY</a>
     <a href="the-product.html">THE PRODUCT</a>
-    <a href="contact.html">CONTACT US</a>
+    <a href="contact.html" class="active">CONTACT US</a>
   </nav>
 
+  <!-- Social Icons -->
   <div class="social-bar">
-    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/company/the-scarlett-box/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/the-scarlett-box/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
     <a href="mailto:thescarlettboxuk@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
   </div>
 
+  <!-- Main Content -->
   <main>
-    <div class="founder-block">
-      <div class="image-caption">
-        <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder">
-        <div class="caption">Scarlett Barnett-Smith, CEO & Founder</div>
-      </div>
+    <h2>Contact Us</h2>
+    <p class="intro">
+      We’d love to hear from you! Whether you’re a crew member, ship operator, or simply curious about our mission,
+      fill out the form below and we’ll get back to you as soon as possible.
+    </p>
 
-      <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
-
-      <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — 
-      <em><span style="color: #BA1A00;">Scarlett Barnett-Smith</span></em></p>
-
-      <p>Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: access to menstrual products for women on board.</p>
+    <div class="contact-card">
+      <form action="https://formspree.io/f/mgvreepb" method="POST">
+        <input type="text" name="name" placeholder="Your Name" required />
+        <input type="email" name="email" placeholder="Your Email" required />
+        <textarea name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
     </div>
 
-    <div class="product-block">
-      <img src="images/tsbicon.png" alt="The Scarlett Box Icon">
-      <p><strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, to be placed in toilets in the workplace in areas women cannot leave because of their duties. It aims to empower women in maritime by ensuring menstrual health never stands in the way. At present, there is no product like this on the market. Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. This product simply makes a male-dominated environment more inclusive.</p>
+    <div class="contact-details-box">
+      <p><strong><u>Our Contact Details:</u></strong></p>
+      <p><i class="fas fa-building"></i> The Scarlett Box LTD</p>
+      <p><i class="fas fa-user"></i> Scarlett Barnett-Smith - Founder & CEO</p>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:Scarlett@thescarlettbox.co.uk">Scarlett@thescarlettbox.co.uk</a></p>
+      <p><i class="fas fa-envelope"></i> Email: <a href="mailto:thescarlettboxuk@gmail.com">thescarlettboxuk@gmail.com</a></p>
+      <p><i class="fas fa-globe"></i> <a href="https://thescarlettbox.co.uk" target="_blank">Visit us on the web: thescarlettbox.co.uk</a></p>
     </div>
-
-    <p>The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – a low-cost, high-impact solution.</p>
-    <p>The box aims to provide comfort, dignity, and preparedness for female seafarers.</p>
   </main>
 
+  <!-- Footer -->
   <footer>
-    <div class="footer-text">Copyright © 2025 The Scarlett Box - All Rights Reserved.</div>
-    <a href="index.html" class="footer-logo-link">
-      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
+    <div class="footer-text">
+      Copyright © 2025 The Scarlett Box - All Rights Reserved.
+    </div>
+    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo">
     </a>
   </footer>
+
 </body>
 </html>
