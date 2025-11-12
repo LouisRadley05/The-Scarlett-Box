@@ -8,8 +8,14 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* Base Styles */
-    *, *::before, *::after { box-sizing: border-box; }
+    /* --- GLOBAL FIXES --- */
+    html {
+      overflow-y: scroll; /* Prevents header/nav shift when scrollbar appears */
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
 
     body {
       margin: 0;
@@ -21,7 +27,7 @@
       min-height: 100vh;
     }
 
-    /* Header */
+    /* --- HEADER --- */
     header {
       background-color: #ba1a00;
       color: white;
@@ -52,7 +58,7 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation (Unified Style) */
+    /* --- NAVIGATION --- */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -100,7 +106,7 @@
       background-color: #8a1200;
     }
 
-    /* Social Icons (Unified Style) */
+    /* --- SOCIAL ICONS --- */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -152,7 +158,7 @@
       opacity: 1;
     }
 
-    /* Carousel */
+    /* --- CAROUSEL --- */
     .carousel-container {
       overflow: hidden;
       width: 80%;
@@ -183,7 +189,7 @@
       100% { transform: translateX(-50%); }
     }
 
-    /* Main Content */
+    /* --- MAIN CONTENT --- */
     main {
       flex: 1;
       text-align: center;
@@ -207,14 +213,14 @@
       margin: 0 auto;
     }
 
-    /* Footer */
+    /* --- FOOTER --- */
     footer {
       background-color: #ba1a00;
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      margin-top: auto;
     }
 
     .footer-text {
@@ -245,7 +251,7 @@
       transform: scale(1.05);
     }
 
-    /* Responsive */
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
       header { padding: 15px 10px; }
       .logo { width: 60px; height: 60px; margin-bottom: 8px; }
@@ -295,15 +301,14 @@
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
-<!-- Navigation -->
-<nav>
-  <a href="index.html" class="active">HOME</a>
-  <a href="mission.html">THE MISSION</a>
-  <a href="mystory.html">MY STORY</a>
-  <a href="the-product.html">THE PRODUCT</a>
-  <a href="contact.html">CONTACT US</a>
-</nav>
-
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html" class="active">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html">MY STORY</a>
+    <a href="the-product.html">THE PRODUCT</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
 
   <!-- Social Icons -->
   <div class="social-bar">
@@ -335,9 +340,9 @@
   <main>
     <h2>Welcome to The Scarlett Box</h2>
     <p>
-      The Scarlett Box our flagship product is an emergency period products box desgined to provide comfort, dignity, and preparedness for female seafarers - available right where they need it most: the workplace restroom.
+      The Scarlett Box is our flagship product — an emergency menstrual products box designed to provide comfort, dignity, and preparedness for female seafarers, available right where they need it most: the workplace restroom.
       <br><br>
-      The Scarlett Box LTD is a uk based company, founded by Scarlett Barnett-Smith, a Deck Officer with nearly a decade in the maritime industry.
+      The Scarlett Box Ltd is a UK-based company founded by Scarlett Barnett-Smith, a Deck Officer with nearly a decade of experience in the maritime industry.
     </p>
   </main>
 
@@ -352,9 +357,3 @@
   </footer>
 </body>
 </html>
-
-
-
-
-
-
