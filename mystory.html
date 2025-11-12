@@ -26,26 +26,26 @@
       background-color: #ba1a00;
       color: white;
       text-align: center;
-      padding: 20px 10px;
+      padding: 15px 10px;
       position: relative;
     }
 
     header h1 {
       margin: 0;
-      font-size: 2em;
+      font-size: clamp(1.6em, 4vw, 2em);
       font-weight: 900;
       letter-spacing: 1px;
     }
 
     header p {
       margin: 5px 0 0;
-      font-size: 0.9em;
+      font-size: clamp(0.8em, 2.5vw, 0.9em);
       letter-spacing: 0.5px;
     }
 
     .logo {
-      width: 80px;
-      height: 80px;
+      width: clamp(60px, 10vw, 80px);
+      height: clamp(60px, 10vw, 80px);
       object-fit: contain;
       display: block;
       margin: 0 auto 10px auto;
@@ -127,12 +127,13 @@
       color: #444;
       max-width: 900px;
       margin: 10px auto;
+      text-align: justify;
     }
 
     /* --- FOUNDER IMAGE FLOAT LEFT --- */
     .founder-image-left {
       float: left;
-      margin: 0 25px 15px 0;
+      margin: 5px 25px 15px 0;
       width: 280px;
       max-width: 40%;
       border-radius: 8px;
@@ -164,7 +165,7 @@
     /* --- PRODUCT IMAGE FLOAT RIGHT --- */
     .product-image-right {
       float: right;
-      margin: 0 0 15px 25px;
+      margin: 5px 0 15px 25px;
       width: 180px;
       max-width: 40%;
       flex-shrink: 0;
@@ -175,6 +176,7 @@
       height: auto;
       border: none;
       border-radius: 8px;
+      display: block;
     }
 
     /* --- FOOTER --- */
@@ -216,12 +218,11 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      header { padding: 15px 10px; }
-      .logo { width: 60px; height: 60px; }
-      header h1 { font-size: 1.6em; }
-      header p { font-size: 0.85em; }
+      header { padding: 10px; }
+      .logo { width: 55px; height: 55px; }
+      header h1 { font-size: 1.3em; }
+      header p { font-size: 0.8em; }
 
-      /* Nav stacks neatly */
       nav {
         flex-direction: column;
         align-items: center;
@@ -236,15 +237,17 @@
 
       main {
         padding: 20px 8%;
-        text-align: center;
+        text-align: left;
       }
 
+      /* Stack images neatly and keep text separate */
       .founder-image-left,
       .product-image-right {
         float: none;
-        margin: 0 auto 15px auto;
+        margin: 0 auto 20px auto;
         width: 80%;
         max-width: 300px;
+        display: block;
       }
 
       .footer-logo-link {
@@ -297,30 +300,15 @@
     </div>
 
     <p><strong style="color:#BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
-    <p>
-      “My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” 
-      — <em><span style="color:#BA1A00;">Scarlett Barnett-Smith</span></em>
-    </p>
-
-    <p>
-      Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. 
-      Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: 
-      access to menstrual products for women on board.
-    </p>
+    <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color:#BA1A00;">Scarlett Barnett-Smith</span></em></p>
+    <p>Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: access to menstrual products for women on board.</p>
 
     <!-- Product image RIGHT -->
     <div class="product-image-right">
-      <img src="images/tsbicon.png" alt="The Scarlett Box Icon">
+      <img src="images/tsbicon.png" alt="The Scarlett Box Icon" />
     </div>
 
-    <p>
-      <strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, 
-      to be placed in toilets in the workplace in areas women cannot leave because of their duties. 
-      It aims to empower women in maritime by ensuring menstrual health never stands in the way. 
-      At present, there is no product like this on the market. 
-      Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. 
-      This product simply makes a male-dominated environment more inclusive.
-    </p>
+    <p><strong style="color:#BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, to be placed in toilets in the workplace in areas women cannot leave because of their duties. It aims to empower women in maritime by ensuring menstrual health never stands in the way. At present, there is no product like this on the market. Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. This product simply makes a male-dominated environment more inclusive.</p>
 
     <p>The Scarlett Box will be welcomed well into the maritime industry — a low-cost, high-impact solution.</p>
     <p>The box aims to provide comfort, dignity, and preparedness for female seafarers.</p>
