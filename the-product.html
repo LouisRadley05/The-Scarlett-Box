@@ -1,1 +1,289 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Scarlett Box - The Product</title>
+  <link rel="icon" type="image/png" href="images/logo.PNG" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
+  <style>
+    /* --- GLOBAL FIXES --- */
+    html {
+      overflow-y: scroll; /* Prevents header/nav shifting due to scrollbar */
+      height: 100%;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background-color: white;
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh; /* Ensures footer stays at bottom */
+    }
+
+    /* --- HEADER --- */
+    header {
+      background-color: #ba1a00;
+      color: white;
+      text-align: center;
+      padding: 20px 10px;
+      position: relative;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      font-weight: 900;
+      letter-spacing: 1px;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-weight: 400;
+      font-size: 0.9em;
+      letter-spacing: 0.5px;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 10px auto;
+    }
+
+    /* --- NAVIGATION --- */
+    nav {
+      background-color: #ba1a00;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      border-top: 2px solid white;
+      border-bottom: 2px solid white;
+      flex-wrap: wrap;
+      position: relative;
+      z-index: 5;
+    }
+
+    nav a {
+      color: white;
+      text-decoration: none;
+      padding: 15px 25px;
+      display: inline-block;
+      font-weight: bold;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 50%;
+      bottom: 5px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 60%;
+    }
+
+    nav a:hover {
+      background-color: #8a1200;
+    }
+
+    nav a.active {
+      background-color: #8a1200;
+    }
+
+    /* --- MAIN CONTENT --- */
+    main {
+      flex: 1;
+      text-align: center;
+      padding: 40px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    main h2 {
+      font-weight: bold;
+      color: #ba1a00;
+      margin-bottom: 20px;
+    }
+
+    main p {
+      line-height: 1.6;
+      font-size: 1.05em;
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto 20px auto;
+    }
+
+    /* Optional product image styling */
+    .product-image {
+      width: 250px;
+      height: auto;
+      margin: 20px 0;
+      border-radius: 10px;
+      border: 2px solid #ba1a00;
+    }
+
+    /* --- FOOTER --- */
+    footer {
+      background-color: #ba1a00;
+      border-top: 2px solid white;
+      padding: 20px 0 70px;
+      text-align: center;
+      position: relative;
+    }
+
+    .footer-text {
+      display: inline-block;
+      color: white;
+      background-color: #8a1200;
+      padding: 10px 20px;
+      border-radius: 5px;
+      font-size: 0.9em;
+      font-weight: bold;
+    }
+
+    .footer-logo-link {
+      position: absolute;
+      bottom: 10px;
+      right: 20px;
+      display: inline-block;
+    }
+
+    .footer-logo {
+      width: 60px;
+      height: 60px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .footer-logo-link:hover .footer-logo {
+      transform: scale(1.05);
+    }
+
+    /* --- RESPONSIVE --- */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .footer-text {
+        padding: 8px 15px;
+        font-size: 0.8em;
+      }
+
+      .footer-logo-link {
+        position: static;
+        display: block;
+        margin: 15px auto 0 auto;
+        text-align: center;
+      }
+
+      .footer-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      footer {
+        padding-bottom: 20px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- Header -->
+  <header>
+    <a href="index.html" title="Home Page">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
+    </a>
+    <h1>THE SCARLETT BOX</h1>
+    <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
+  </header>
+
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html">MY STORY</a>
+    <a href="product.html" class="active">THE PRODUCT</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
+
+  <!-- Main Content -->
+  <main>
+    <h2>The Scarlett Box Product</h2>
+
+    <img src="images/product-placeholder.jpg" alt="The Scarlett Box Product" class="product-image" />
+
+    <p>
+      The Scarlett Box is a practical and discreet menstrual care solution designed specifically for women in the maritime industry. 
+      It provides comfort, preparedness, and dignity for female seafarers working in remote or male-dominated environments.
+    </p>
+
+    <p>
+      Each box is stocked with essential sanitary items, educational resources, and practical hygiene products, 
+      offering a low-cost, high-impact solution that supports inclusion and wellbeing at sea.
+    </p>
+  </main>
+
+  <!-- Footer -->
+  <footer>
+    <div class="footer-text">
+      Copyright © 2025 The Scarlett Box - All Rights Reserved.
+    </div>
+    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
+    </a>
+  </footer>
+</body>
+</html>
 
