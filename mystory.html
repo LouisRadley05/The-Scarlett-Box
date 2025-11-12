@@ -8,47 +8,71 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    html { overflow-y: scroll; }
-    *, *::before, *::after { box-sizing: border-box; }
+    html {
+      overflow-y: scroll;
+      scroll-behavior: smooth;
+    }
 
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: white;
+      background-color: #fff;
       color: #000;
       display: flex;
       flex-direction: column;
       min-height: 100vh;
     }
 
-    /* --- HEADER --- */
+    /* --- HEADER (matches Contact page) --- */
     header {
       background-color: #ba1a00;
       color: white;
       text-align: center;
-      padding: 15px 10px;
+      padding: 20px 10px;
       position: relative;
+    }
+
+    .logo {
+      width: 80px;
+      height: 80px;
+      object-fit: contain;
+      display: block;
+      margin: 0 auto 10px auto;
     }
 
     header h1 {
       margin: 0;
-      font-size: clamp(1.6em, 4vw, 2em);
+      font-size: 2em;
       font-weight: 900;
       letter-spacing: 1px;
     }
 
     header p {
       margin: 5px 0 0;
-      font-size: clamp(0.8em, 2.5vw, 0.9em);
+      font-weight: 400;
+      font-size: 0.9em;
       letter-spacing: 0.5px;
     }
 
-    .logo {
-      width: clamp(60px, 10vw, 80px);
-      height: clamp(60px, 10vw, 80px);
-      object-fit: contain;
-      display: block;
-      margin: 0 auto 10px auto;
+    /* Mobile Header */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
     }
 
     /* --- NAVIGATION --- */
@@ -70,12 +94,51 @@
       padding: 15px 25px;
       display: inline-block;
       font-weight: bold;
-      transition: all 0.3s ease;
       position: relative;
+      transition: all 0.3s ease;
     }
 
-    nav a:hover { background-color: #8a1200; }
-    nav a.active { background-color: #8a1200; }
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 50%;
+      bottom: 5px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 60%;
+    }
+
+    nav a:hover {
+      background-color: #8a1200;
+    }
+
+    nav a.active {
+      background-color: #8a1200;
+    }
+
+    /* Responsive Nav */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+        box-sizing: border-box;
+      }
+    }
 
     /* --- SOCIAL ICONS --- */
     .social-bar {
@@ -108,17 +171,16 @@
     /* --- MAIN CONTENT --- */
     main {
       flex: 1;
+      padding: 50px 10%;
       text-align: left;
-      padding: 40px 15%;
-      display: flex;
-      flex-direction: column;
+      animation: fadeIn 1s ease-in;
     }
 
     main h2 {
       text-align: center;
       font-weight: bold;
       color: #ba1a00;
-      margin-bottom: 15px;
+      margin-bottom: 25px;
     }
 
     main p {
@@ -130,7 +192,12 @@
       text-align: justify;
     }
 
-    /* --- FOUNDER IMAGE FLOAT LEFT --- */
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* --- FOUNDER IMAGE LEFT --- */
     .founder-image-left {
       float: left;
       margin: 5px 25px 15px 0;
@@ -146,7 +213,6 @@
       width: 100%;
       height: auto;
       display: block;
-      border-radius: 8px;
     }
 
     .founder-caption {
@@ -159,16 +225,15 @@
       font-size: 0.9em;
       padding: 8px;
       text-align: center;
-      opacity: 1; /* permanently visible */
+      opacity: 1;
     }
 
-    /* --- PRODUCT IMAGE FLOAT RIGHT --- */
+    /* --- PRODUCT IMAGE RIGHT --- */
     .product-image-right {
       float: right;
       margin: 5px 0 15px 25px;
       width: 180px;
       max-width: 40%;
-      flex-shrink: 0;
     }
 
     .product-image-right img {
@@ -185,8 +250,8 @@
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
-      margin-top: auto;
       position: relative;
+      margin-top: auto;
     }
 
     .footer-text {
@@ -218,29 +283,8 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      header { padding: 10px; }
-      .logo { width: 55px; height: 55px; }
-      header h1 { font-size: 1.3em; }
-      header p { font-size: 0.8em; }
+      main { padding: 30px 5%; }
 
-      nav {
-        flex-direction: column;
-        align-items: center;
-        border-top: none;
-        border-bottom: none;
-      }
-      nav a {
-        padding: 10px 0;
-        width: 100%;
-        text-align: center;
-      }
-
-      main {
-        padding: 20px 8%;
-        text-align: left;
-      }
-
-      /* Stack images neatly and keep text separate */
       .founder-image-left,
       .product-image-right {
         float: none;
@@ -293,7 +337,6 @@
   <main>
     <h2>My Story.</h2>
 
-    <!-- Founder image LEFT -->
     <div class="founder-image-left">
       <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder" />
       <div class="founder-caption">Scarlett Barnett-Smith, CEO & Founder</div>
@@ -303,7 +346,6 @@
     <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color:#BA1A00;">Scarlett Barnett-Smith</span></em></p>
     <p>Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: access to menstrual products for women on board.</p>
 
-    <!-- Product image RIGHT -->
     <div class="product-image-right">
       <img src="images/tsbicon.png" alt="The Scarlett Box Icon" />
     </div>
