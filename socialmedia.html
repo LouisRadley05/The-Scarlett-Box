@@ -9,6 +9,8 @@
 
   <style>
     /* Base Styles */
+    *, *::before, *::after { box-sizing: border-box; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
@@ -42,7 +44,6 @@
       letter-spacing: 0.5px;
     }
 
-    /* Logo */
     .logo {
       width: 80px;
       height: 80px;
@@ -51,7 +52,7 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation Bar */
+    /* Navigation (matches index.html) */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -99,13 +100,15 @@
       background-color: #8a1200;
     }
 
-    /* Social Icons */
+    /* Social Icons (aligned with index.html) */
     .social-bar {
       margin-top: 20px;
       display: flex;
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 2;
     }
 
     .social-bar a {
@@ -116,7 +119,7 @@
       display: flex;
       align-items: center;
       justify-content: center;
-      border-radius: 10px;
+      border-radius: 5px;
       text-decoration: none;
       transition: all 0.3s ease;
       font-size: 20px;
@@ -124,9 +127,8 @@
     }
 
     .social-bar a:hover {
-      transform: translateY(-5px);
       background-color: #8a1200;
-      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+      transform: translateY(-5px);
     }
 
     .social-bar a::after {
@@ -150,22 +152,28 @@
       opacity: 1;
     }
 
-    /* Main Content */
+    /* Main Content (aligned with index.html) */
     main {
       flex: 1;
       text-align: center;
-      padding: 40px 15%;
+      padding: 40px 10px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
 
     main h2 {
       font-weight: bold;
-      font-size: 1.8em;
-      margin-bottom: 15px;
+      color: #ba1a00;
+      margin-bottom: 10px;
     }
 
     main p {
       line-height: 1.6;
-      font-size: 1em;
+      font-size: 1.05em;
+      color: #444;
+      max-width: 700px;
+      margin: 0 auto;
     }
 
     /* Footer */
@@ -237,11 +245,6 @@
         padding: 10px 0;
         width: 100%;
         text-align: center;
-        box-sizing: border-box;
-      }
-
-      main {
-        padding: 20px 10%;
       }
 
       .social-bar {
@@ -252,6 +255,10 @@
         width: 40px;
         height: 40px;
         font-size: 18px;
+      }
+
+      main {
+        padding: 20px;
       }
 
       .footer-text {
@@ -279,6 +286,7 @@
 </head>
 
 <body>
+  <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
@@ -287,6 +295,7 @@
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
+  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -295,6 +304,7 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
+  <!-- Social Icons -->
   <div class="social-bar">
     <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -302,6 +312,7 @@
     <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
 
+  <!-- Main Content -->
   <main>
     <h2>Our Social Media</h2>
     <p>
@@ -309,6 +320,7 @@
     </p>
   </main>
 
+  <!-- Footer -->
   <footer>
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
@@ -319,5 +331,3 @@
   </footer>
 </body>
 </html>
-
-
