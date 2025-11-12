@@ -8,11 +8,7 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* --- GLOBAL FIXES --- */
-    html {
-      overflow-y: scroll;
-    }
-
+    html { overflow-y: scroll; }
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
@@ -31,7 +27,6 @@
       color: white;
       text-align: center;
       padding: 20px 10px;
-      position: relative;
     }
 
     header h1 {
@@ -43,7 +38,6 @@
 
     header p {
       margin: 5px 0 0;
-      font-weight: 400;
       font-size: 0.9em;
       letter-spacing: 0.5px;
     }
@@ -65,44 +59,19 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 5;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       padding: 15px 25px;
-      display: inline-block;
       font-weight: bold;
+      transition: all 0.3s ease;
       position: relative;
-      transition: all 0.3s ease;
     }
 
-    nav a::after {
-      content: "";
-      position: absolute;
-      width: 0;
-      height: 3px;
-      left: 50%;
-      bottom: 5px;
-      background-color: white;
-      transition: all 0.3s ease;
-      transform: translateX(-50%);
-      border-radius: 2px;
-    }
-
-    nav a:hover::after {
-      width: 60%;
-    }
-
-    nav a:hover {
-      background-color: #8a1200;
-    }
-
-    nav a.active {
-      background-color: #8a1200;
-    }
+    nav a:hover { background-color: #8a1200; }
+    nav a.active { background-color: #8a1200; }
 
     /* --- SOCIAL ICONS --- */
     .social-bar {
@@ -111,8 +80,6 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 2;
     }
 
     .social-bar a {
@@ -124,10 +91,9 @@
       align-items: center;
       justify-content: center;
       border-radius: 5px;
-      text-decoration: none;
-      transition: all 0.3s ease;
       font-size: 20px;
-      position: relative;
+      transition: all 0.3s ease;
+      text-decoration: none;
     }
 
     .social-bar a:hover {
@@ -135,38 +101,17 @@
       transform: translateY(-5px);
     }
 
-    .social-bar a::after {
-      content: attr(title);
-      position: absolute;
-      bottom: -30px;
-      left: 50%;
-      transform: translateX(-50%);
-      background-color: #333;
-      color: white;
-      font-size: 12px;
-      padding: 5px 8px;
-      border-radius: 4px;
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity 0.3s;
-      white-space: nowrap;
-    }
-
-    .social-bar a:hover::after {
-      opacity: 1;
-    }
-
     /* --- MAIN CONTENT --- */
     main {
       flex: 1;
-      text-align: center;
+      text-align: left;
       padding: 40px 15%;
       display: flex;
       flex-direction: column;
-      align-items: center;
     }
 
     main h2 {
+      text-align: center;
       font-weight: bold;
       color: #ba1a00;
       margin-bottom: 15px;
@@ -176,8 +121,50 @@
       line-height: 1.6;
       font-size: 1.05em;
       color: #444;
-      max-width: 700px;
-      margin: 0 auto;
+      max-width: 900px;
+      margin: 10px auto;
+    }
+
+    /* --- FOUNDER IMAGE FLOAT --- */
+    .founder-image-right {
+      float: right;
+      margin: 0 0 15px 25px;
+      width: 280px;
+      max-width: 40%;
+      border-radius: 8px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .founder-image-right img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .founder-image-right:hover img {
+      transform: scale(1.03);
+    }
+
+    .founder-caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(186, 26, 0, 0.9);
+      color: white;
+      font-weight: bold;
+      font-size: 0.9em;
+      padding: 8px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .founder-image-right:hover .founder-caption {
+      opacity: 1;
     }
 
     /* --- PRODUCT IMAGE WITH TEXT WRAP --- */
@@ -207,74 +194,14 @@
       flex-shrink: 0;
     }
 
-    @media (max-width: 768px) {
-      .product-section {
-        flex-direction: column;
-        align-items: center;
-        text-align: center;
-      }
-
-      .product-image {
-        margin-bottom: 15px;
-        width: 70%;
-        max-width: 250px;
-      }
-
-      .product-section p {
-        text-align: center;
-      }
-    }
-
-    /* --- IMAGE SECTION --- */
-    .founder-image {
-      position: relative;
-      display: inline-block;
-      margin: 20px auto;
-      border-radius: 8px;
-      overflow: hidden;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-      max-width: 350px;
-      width: 100%;
-    }
-
-    .founder-image img {
-      width: 100%;
-      height: auto;
-      display: block;
-      border-radius: 8px;
-      transition: transform 0.3s ease;
-    }
-
-    .founder-image:hover img {
-      transform: scale(1.03);
-    }
-
-    .founder-caption {
-      position: absolute;
-      bottom: 0;
-      width: 100%;
-      background: rgba(186, 26, 0, 0.9);
-      color: white;
-      font-weight: bold;
-      font-size: 0.95em;
-      padding: 10px;
-      text-align: center;
-      opacity: 0;
-      transition: opacity 0.3s ease;
-    }
-
-    .founder-image:hover .founder-caption {
-      opacity: 1;
-    }
-
     /* --- FOOTER --- */
     footer {
       background-color: #ba1a00;
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
-      position: relative;
       margin-top: auto;
+      position: relative;
     }
 
     .footer-text {
@@ -291,7 +218,6 @@
       position: absolute;
       bottom: 10px;
       right: 20px;
-      display: inline-block;
     }
 
     .footer-logo {
@@ -307,47 +233,39 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      header { padding: 15px 10px; }
-      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
-      header h1 { font-size: 1.5em; }
-      header p { font-size: 0.8em; }
+      main { padding: 20px 10%; text-align: center; }
 
-      nav {
-        flex-direction: column;
-        align-items: center;
-        border-top: none;
-        border-bottom: none;
+      .founder-image-right {
+        float: none;
+        margin: 0 auto 15px auto;
+        width: 80%;
+        max-width: 300px;
       }
 
-      nav a {
-        padding: 10px 0;
-        width: 100%;
+      .product-section {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
       }
 
-      .social-bar { gap: 10px; }
-      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
+      .product-image {
+        margin-bottom: 15px;
+        width: 70%;
+        max-width: 250px;
+      }
 
-      main { padding: 20px 10%; }
-
-      .founder-image { max-width: 280px; }
+      .product-section p { text-align: center; }
 
       .footer-logo-link {
         position: static;
+        margin-top: 15px;
         display: block;
-        margin: 15px auto 0 auto;
-        text-align: center;
       }
-
-      .footer-logo { width: 50px; height: 50px; }
-      footer { padding-bottom: 20px; }
     }
   </style>
 </head>
 
 <body>
-
-  <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
@@ -356,7 +274,6 @@
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
-  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -365,28 +282,23 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <!-- Social Icons -->
   <div class="social-bar">
-    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/company/the-scarlett-box/" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" target="_blank" title="Facebook"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/the-scarlett-box/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
   </div>
 
-  <!-- Main Content -->
   <main>
     <h2>My Story.</h2>
-    <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
 
-    <!-- Founder Image -->
-    <div class="founder-image">
-      <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder">
+    <div class="founder-image-right">
+      <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder" />
       <div class="founder-caption">Scarlett Barnett-Smith, CEO & Founder</div>
     </div>
 
+    <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
     <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color: #BA1A00;">Scarlett Barnett-Smith</span></em></p>
-
-    <br>
 
     <p>
       Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. 
@@ -394,9 +306,6 @@
       access to menstrual products for women on board.
     </p>
 
-    <br>
-
-    <!-- Product Section with image and text -->
     <div class="product-section">
       <img src="images/tsbicon.png" alt="The Scarlett Box Icon" class="product-image">
       <p>
@@ -409,29 +318,21 @@
       </p>
     </div>
 
-    <br>
-
     <p>
       The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – 
       a low-cost, high-impact solution.
     </p>
-
-    <br>
 
     <p>
       The box aims to provide comfort, dignity, and preparedness for female seafarers.
     </p>
   </main>
 
-  <!-- Footer -->
   <footer>
-    <div class="footer-text">
-      Copyright © 2025 The Scarlett Box - All Rights Reserved.
-    </div>
-    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
+    <div class="footer-text">Copyright © 2025 The Scarlett Box - All Rights Reserved.</div>
+    <a href="index.html" class="footer-logo-link">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
 </body>
 </html>
-
