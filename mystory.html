@@ -10,7 +10,7 @@
   <style>
     /* --- GLOBAL FIXES --- */
     html {
-      overflow-y: scroll; /* Prevents navbar/header shifting due to scrollbar */
+      overflow-y: scroll;
     }
 
     *, *::before, *::after { box-sizing: border-box; }
@@ -180,6 +180,93 @@
       margin: 0 auto;
     }
 
+    /* --- PRODUCT IMAGE WITH TEXT WRAP --- */
+    .product-section {
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      gap: 20px;
+      flex-wrap: wrap;
+      margin: 20px auto;
+      max-width: 900px;
+      text-align: left;
+    }
+
+    .product-section p {
+      flex: 1 1 400px;
+      font-size: 1.05em;
+      line-height: 1.6;
+      color: #444;
+    }
+
+    .product-image {
+      width: 160px;
+      height: auto;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      flex-shrink: 0;
+    }
+
+    @media (max-width: 768px) {
+      .product-section {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .product-image {
+        margin-bottom: 15px;
+        width: 70%;
+        max-width: 250px;
+      }
+
+      .product-section p {
+        text-align: center;
+      }
+    }
+
+    /* --- IMAGE SECTION --- */
+    .founder-image {
+      position: relative;
+      display: inline-block;
+      margin: 20px auto;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-width: 350px;
+      width: 100%;
+    }
+
+    .founder-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+      border-radius: 8px;
+      transition: transform 0.3s ease;
+    }
+
+    .founder-image:hover img {
+      transform: scale(1.03);
+    }
+
+    .founder-caption {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(186, 26, 0, 0.9);
+      color: white;
+      font-weight: bold;
+      font-size: 0.95em;
+      padding: 10px;
+      text-align: center;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+
+    .founder-image:hover .founder-caption {
+      opacity: 1;
+    }
+
     /* --- FOOTER --- */
     footer {
       background-color: #ba1a00;
@@ -187,7 +274,7 @@
       padding: 20px 0 70px;
       text-align: center;
       position: relative;
-      margin-top: auto; /* Keeps footer at bottom on short pages */
+      margin-top: auto;
     }
 
     .footer-text {
@@ -243,6 +330,8 @@
 
       main { padding: 20px 10%; }
 
+      .founder-image { max-width: 280px; }
+
       .footer-logo-link {
         position: static;
         display: block;
@@ -289,7 +378,11 @@
     <h2>My Story.</h2>
     <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
 
-    <br>
+    <!-- Founder Image -->
+    <div class="founder-image">
+      <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder">
+      <div class="founder-caption">Scarlett Barnett-Smith, CEO & Founder</div>
+    </div>
 
     <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color: #BA1A00;">Scarlett Barnett-Smith</span></em></p>
 
@@ -303,14 +396,18 @@
 
     <br>
 
-    <p>
-      <strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, 
-      to be placed in toilets in the workplace in areas women cannot leave because of their duties. 
-      It aims to empower women in maritime by ensuring menstrual health never stands in the way. 
-      At present, there is no product like this on the market. 
-      Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. 
-      This product simply makes a male-dominated environment more inclusive.
-    </p>
+    <!-- Product Section with image and text -->
+    <div class="product-section">
+      <img src="images/tsbicon.PNG" alt="The Scarlett Box Icon" class="product-image">
+      <p>
+        <strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime,
+        to be placed in toilets in the workplace in areas women cannot leave because of their duties.
+        It aims to empower women in maritime by ensuring menstrual health never stands in the way.
+        At present, there is no product like this on the market.
+        Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry.
+        This product simply makes a male-dominated environment more inclusive.
+      </p>
+    </div>
 
     <br>
 
