@@ -149,19 +149,44 @@
       text-align: justify;
     }
 
-    /* --- FOUNDER IMAGE (FLOAT RIGHT) --- */
+    /* --- FOUNDER IMAGE WITH CAPTION --- */
     .founder-block {
       overflow: hidden;
       margin-bottom: 30px;
     }
 
-    .founder-block img {
+    .image-caption {
+      position: relative;
+      display: inline-block;
       float: right;
       margin: 0 0 15px 25px;
       width: 280px;
       max-width: 40%;
       border-radius: 8px;
+      overflow: hidden;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+    }
+
+    .image-caption img {
+      width: 100%;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .image-caption .caption {
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: rgba(186, 26, 0, 0.8);
+      color: white;
+      font-weight: bold;
+      text-align: center;
+      padding: 8px 10px;
+      font-size: 0.9em;
+      letter-spacing: 0.3px;
+      border-bottom-left-radius: 8px;
+      border-bottom-right-radius: 8px;
     }
 
     /* --- PRODUCT SECTION (IMAGE LEFT) --- */
@@ -235,7 +260,14 @@
         text-align: center;
       }
 
-      .founder-block img,
+      .image-caption {
+        float: none;
+        display: block;
+        margin: 0 auto 20px auto;
+        width: 80%;
+        max-width: 300px;
+      }
+
       .product-block img {
         float: none;
         display: block;
@@ -284,10 +316,12 @@
   </div>
 
   <main>
-    <h2>My Story.</h2>
-
     <div class="founder-block">
-      <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder">
+      <div class="image-caption">
+        <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder">
+        <div class="caption">Scarlett Barnett-Smith, CEO & Founder</div>
+      </div>
+
       <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
 
       <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — 
