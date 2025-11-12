@@ -26,6 +26,19 @@
       min-height: 100vh;
       display: flex;
       flex-direction: column;
+      opacity: 0;
+      animation: fadeIn 1.2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     /* --- HEADER --- */
@@ -114,6 +127,7 @@
       justify-content: center;
       gap: 20px;
       flex-wrap: wrap;
+      animation: fadeIn 1.5s ease-out forwards;
     }
 
     .social-bar a {
@@ -162,6 +176,7 @@
       text-align: center;
       padding: 40px 10px;
       flex: 1;
+      animation: fadeIn 1.5s ease-out forwards;
     }
 
     main h2 {
@@ -186,6 +201,7 @@
       text-align: center;
       position: relative;
       margin-top: auto;
+      animation: fadeIn 2s ease-out forwards;
     }
 
     .footer-text {
@@ -319,11 +335,9 @@
     <h2>Introducing The Scarlett Box Product</h2>
     <h2>PAGE UNDER CONSTRUCTION COMING SOON</h2>
     <p>
-      The Scarlett Box is a first-of-its-kind menstrual health and dignity solution designed specifically for women working at sea.  
-      Each box is compact, durable, and stocked with essential menstrual products and hygiene items, ensuring that every seafarer is supported — even in the most remote conditions.  
-      <br><br>
-      Developed with maritime professionals, it is built to meet the practical challenges of life onboard. The Scarlett Box promotes inclusion, preparedness, and wellbeing for female crew members worldwide.  
-      <br><br>
+      The Scarlett Box is a first-of-its-kind menstrual health and dignity solution designed specifically for women working at sea.<br><br>
+      Each box is compact, durable, and stocked with essential menstrual products and hygiene items, ensuring that every seafarer is supported — even in the most remote conditions.<br><br>
+      Developed with maritime professionals, it is built to meet the practical challenges of life onboard. The Scarlett Box promotes inclusion, preparedness, and wellbeing for female crew members worldwide.<br><br>
       Coming soon: Explore purchase options and customization for shipping companies and welfare organizations.
     </p>
   </main>
