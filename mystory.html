@@ -8,7 +8,11 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* Base Styles */
+    /* --- GLOBAL FIXES --- */
+    html {
+      overflow-y: scroll; /* Prevents navbar/header shifting due to scrollbar */
+    }
+
     *, *::before, *::after { box-sizing: border-box; }
 
     body {
@@ -21,7 +25,7 @@
       min-height: 100vh;
     }
 
-    /* Header */
+    /* --- HEADER --- */
     header {
       background-color: #ba1a00;
       color: white;
@@ -52,7 +56,7 @@
       margin: 0 auto 10px auto;
     }
 
-    /* Navigation (matches Contact & Social Media pages) */
+    /* --- NAVIGATION --- */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -100,7 +104,7 @@
       background-color: #8a1200;
     }
 
-    /* Social Icons */
+    /* --- SOCIAL ICONS --- */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -152,7 +156,7 @@
       opacity: 1;
     }
 
-    /* Main Content */
+    /* --- MAIN CONTENT --- */
     main {
       flex: 1;
       text-align: center;
@@ -176,14 +180,14 @@
       margin: 0 auto;
     }
 
-    /* Footer */
+    /* --- FOOTER --- */
     footer {
       background-color: #ba1a00;
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
       position: relative;
-      overflow: hidden;
+      margin-top: auto; /* Keeps footer at bottom on short pages */
     }
 
     .footer-text {
@@ -214,25 +218,12 @@
       transform: scale(1.05);
     }
 
-    /* Responsive */
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      header {
-        padding: 15px 10px;
-      }
-
-      .logo {
-        width: 60px;
-        height: 60px;
-        margin-bottom: 8px;
-      }
-
-      header h1 {
-        font-size: 1.5em;
-      }
-
-      header p {
-        font-size: 0.8em;
-      }
+      header { padding: 15px 10px; }
+      .logo { width: 60px; height: 60px; margin-bottom: 8px; }
+      header h1 { font-size: 1.5em; }
+      header p { font-size: 0.8em; }
 
       nav {
         flex-direction: column;
@@ -245,27 +236,12 @@
         padding: 10px 0;
         width: 100%;
         text-align: center;
-        box-sizing: border-box;
       }
 
-      .social-bar {
-        gap: 10px;
-      }
+      .social-bar { gap: 10px; }
+      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
 
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      main {
-        padding: 20px 10%;
-      }
-
-      .footer-text {
-        padding: 8px 15px;
-        font-size: 0.8em;
-      }
+      main { padding: 20px 10%; }
 
       .footer-logo-link {
         position: static;
@@ -274,14 +250,8 @@
         text-align: center;
       }
 
-      .footer-logo {
-        width: 50px;
-        height: 50px;
-      }
-
-      footer {
-        padding-bottom: 20px;
-      }
+      .footer-logo { width: 50px; height: 50px; }
+      footer { padding-bottom: 20px; }
     }
   </style>
 </head>
@@ -297,16 +267,14 @@
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
- <!-- Navigation -->
-<nav>
-  <a href="index.html">HOME</a>
-  <a href="mission.html">THE MISSION</a>
-  <a href="mystory.html" class="active">MY STORY</a>
-  <a href="the-product.html">THE PRODUCT</a>
-  <a href="contact.html">CONTACT US</a>
-</nav>
-
-
+  <!-- Navigation -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html" class="active">MY STORY</a>
+    <a href="the-product.html">THE PRODUCT</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
 
   <!-- Social Icons -->
   <div class="social-bar">
@@ -318,51 +286,44 @@
 
   <!-- Main Content -->
   <main>
+    <h2>My Story.</h2>
+    <p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
 
- 
-<h2 style="color: #BA1A00; font-weight: bold; font-size: 28px;">My Story.</h2>
+    <br>
 
-<br>
+    <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color: #BA1A00;">Scarlett Barnett-Smith</span></em></p>
 
-<p><strong style="color: #BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
+    <br>
 
-<br>
+    <p>
+      Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. 
+      Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: 
+      access to menstrual products for women on board.
+    </p>
 
-<p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color: #BA1A00;">Scarlett Barnett-Smith</span></em></p>
+    <br>
 
-<br>
+    <p>
+      <strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, 
+      to be placed in toilets in the workplace in areas women cannot leave because of their duties. 
+      It aims to empower women in maritime by ensuring menstrual health never stands in the way. 
+      At present, there is no product like this on the market. 
+      Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. 
+      This product simply makes a male-dominated environment more inclusive.
+    </p>
 
-<p>
-Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. 
-Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: 
-access to menstrual products for women on board.
-</p>
+    <br>
 
-<br>
+    <p>
+      The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – 
+      a low-cost, high-impact solution.
+    </p>
 
-<p>
-<strong style="color: #BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, 
-to be placed in toilets in the workplace in areas women cannot leave because of their duties. 
-It aims to empower women in maritime by ensuring menstrual health never stands in the way. 
-At present, there is no product like this on the market. 
-Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. 
-This product simply makes a male-dominated environment more inclusive.
-</p>
+    <br>
 
-<br>
-
-<p>
-The Scarlett Box will be welcomed well into the maritime industry with the opportunity to simply make change – 
-a low-cost, high-impact solution.
-</p>
-
-<br>
-
-<p>
-The box aims to provide comfort, dignity, and preparedness for female seafarers.
-</p>
-
-
+    <p>
+      The box aims to provide comfort, dignity, and preparedness for female seafarers.
+    </p>
   </main>
 
   <!-- Footer -->
@@ -374,16 +335,5 @@ The box aims to provide comfort, dignity, and preparedness for female seafarers.
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
-
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
