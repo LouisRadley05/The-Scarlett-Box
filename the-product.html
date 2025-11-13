@@ -8,29 +8,43 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
+    /* --- GLOBAL FIXES --- */
     html {
-      overflow-x: hidden;
       overflow-y: scroll;
-      scroll-behavior: smooth;
+    }
+
+    *, *::before, *::after {
+      box-sizing: border-box;
     }
 
     body {
       margin: 0;
+      padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: #fff;
+      background-color: white;
       color: #000;
+      min-height: 100vh;
       display: flex;
       flex-direction: column;
-      min-height: 100vh;
-      overflow-x: hidden;
     }
 
-    /* HEADER */
+    /* --- HEADER --- */
     header {
       background-color: #ba1a00;
       color: white;
       text-align: center;
       padding: 20px 10px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2em;
+      font-weight: 900;
+    }
+
+    header p {
+      margin: 5px 0 0;
+      font-size: 0.9em;
     }
 
     .logo {
@@ -41,20 +55,7 @@
       margin: 0 auto 10px auto;
     }
 
-    header h1 {
-      margin: 0;
-      font-size: 2em;
-      font-weight: 900;
-      letter-spacing: 1px;
-    }
-
-    header p {
-      margin: 5px 0 0;
-      font-size: 0.9em;
-      letter-spacing: 0.5px;
-    }
-
-    /* NAVIGATION */
+    /* --- NAVIGATION --- */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -63,8 +64,6 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
-      width: 100%;
-      box-sizing: border-box;
     }
 
     nav a {
@@ -72,7 +71,6 @@
       text-decoration: none;
       padding: 15px 25px;
       font-weight: bold;
-      position: relative;
       transition: 0.3s;
     }
 
@@ -84,7 +82,7 @@
       background-color: #8a1200;
     }
 
-    /* SOCIAL ICONS */
+    /* --- SOCIAL ICONS --- */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -104,7 +102,7 @@
       border-radius: 5px;
       text-decoration: none;
       font-size: 20px;
-      transition: all 0.3s ease;
+      transition: 0.3s;
     }
 
     .social-bar a:hover {
@@ -112,90 +110,68 @@
       transform: translateY(-5px);
     }
 
-    /* MAIN CONTENT */
+    /* --- MAIN CONTENT --- */
     main {
+      padding: 40px 10px;
       flex: 1;
-      padding: 40px 20px 60px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
       max-width: 900px;
       margin: 0 auto;
-      box-sizing: border-box;
+      animation: fadeIn 1.2s ease-out forwards;
+      opacity: 0;
     }
 
-    .card {
-      background-color: #fffafa;
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    section {
+      background: #fff;
+      padding: 30px;
       border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      padding: 25px;
-      margin-bottom: 30px;
-      box-sizing: border-box;
+      margin-bottom: 40px;
     }
 
-    .section-title {
+    h2 {
       color: #ba1a00;
-      font-size: 1.6em;
-      margin-bottom: 15px;
-      font-weight: bold;
+      margin-top: 0;
     }
 
-    .card p {
-      line-height: 1.6;
-      color: #333;
-      font-size: 1em;
-      margin: 0;
-    }
-
-    /* FLEXIBLE ROW LAYOUTS */
-    .row {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
-
-    .row.reverse {
-      flex-direction: row-reverse;
-    }
-
-    .text-box {
-      flex: 1 1 300px;
-      text-align: left;
-    }
-
-    .image-box {
-      flex: 0 1 160px;
-      text-align: center;
-    }
-
-    .image-box img {
-      max-width: 100%;
-      height: auto;
+    .placeholder {
+      width: 100%;
+      height: 250px;
+      background: #ddd;
       border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 20px 0;
+      color: #555;
+      font-size: 18px;
     }
 
-    /* FOOTER */
+    ul {
+      text-align: left;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    /* --- FOOTER --- */
     footer {
       background-color: #ba1a00;
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
-      position: relative;
       margin-top: auto;
-      box-sizing: border-box;
     }
 
     .footer-text {
+      display: inline-block;
       color: white;
       background-color: #8a1200;
       padding: 10px 20px;
       border-radius: 5px;
-      font-size: 0.9em;
       font-weight: bold;
-      display: inline-block;
     }
 
     .footer-logo-link {
@@ -208,92 +184,34 @@
       width: 60px;
       height: 60px;
       object-fit: contain;
-      transition: transform 0.3s ease;
+      transition: 0.3s;
     }
 
     .footer-logo-link:hover .footer-logo {
       transform: scale(1.05);
     }
 
-    /* RESPONSIVE */
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      header {
-        padding: 15px 10px;
-      }
-
-      .logo {
-        width: 60px;
-        height: 60px;
-      }
-
-      header h1 {
-        font-size: 1.5em;
-      }
-
-      nav {
-        flex-direction: column;
-        align-items: center;
-        border-top: none;
-        border-bottom: none;
-      }
-
-      nav a {
-        width: 100%;
-        text-align: center;
-        padding: 10px 0;
-      }
-
-      .social-bar {
-        gap: 10px;
-      }
-
-      .social-bar a {
-        width: 40px;
-        height: 40px;
-        font-size: 18px;
-      }
-
-      .card {
-        padding: 20px 15px;
-      }
-
-      .section-title {
-        font-size: 1.3em;
-        text-align: center;
-      }
-
-      .row,
-      .row.reverse {
-        flex-direction: column;
-        align-items: center;
-      }
-
-      .text-box {
-        text-align: center;
-      }
-
-      .image-box {
-        margin-bottom: 15px;
-      }
-
-      .footer-logo-link {
-        position: static;
-        display: block;
-        margin-top: 15px;
-      }
+      .logo { width: 60px; height: 60px; }
+      footer { padding-bottom: 20px; }
+      .footer-logo-link { position: static; display: block; margin-top: 15px; }
     }
   </style>
 </head>
 
 <body>
-  <!-- HEADER -->
+
+  <!-- Header -->
   <header>
-    <a href="index.html"><img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" /></a>
+    <a href="index.html" title="Home Page">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
+    </a>
     <h1>THE SCARLETT BOX</h1>
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
-  <!-- NAVIGATION -->
+  <!-- Navigation -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -302,7 +220,7 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <!-- SOCIAL ICONS -->
+  <!-- Social Icons -->
   <div class="social-bar">
     <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
     <a href="https://www.instagram.com/thescarlettboxuk/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
@@ -310,60 +228,78 @@
     <a href="mailto:thescarlettboxuk@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
   </div>
 
-  <!-- MAIN CONTENT -->
+  <!-- Main Content (REPLACED) -->
   <main>
-    <div class="card">
-      <div class="row">
-        <div class="image-box">
-          <img src="images/logo.PNG" alt="The Scarlett Box Logo">
-        </div>
-        <div class="text-box">
-          <h2 class="section-title">The Scarlett Box</h2>
-          <p>
-            The Scarlett Box is an emergency menstrual health kit designed for women in maritime, providing essential supplies where
-            access to products may be limited. Its purpose is to promote dignity and inclusivity within the maritime industry.
-          </p>
-        </div>
-      </div>
-    </div>
 
-    <div class="card">
-      <div class="row reverse">
-        <div class="text-box">
-          <h2 class="section-title">The Box</h2>
-          <p>
-            The box itself is durable, compact, and easily placed in workplace toilets or key locations on board ships.
-            It ensures access to menstrual products at all times. Dimensions and layout are designed for convenience and hygiene.
-          </p>
-        </div>
-        <div class="image-box">
-          <img src="images/tsbicon.png" alt="The Scarlett Box Product">
-        </div>
-      </div>
-    </div>
+    <section id="about">
+      <h2>What the Product Is & Where It’s Used</h2>
+      <div class="placeholder">Image Placeholder (e.g., The Scarlett Box in a maritime restroom)</div>
 
-    <div class="card">
-      <div class="row">
-        <div class="image-box">
-          <img src="images/contentscard.png" alt="Contents Card">
-        </div>
-        <div class="text-box">
-          <h2 class="section-title">What's Inside?</h2>
-          <p>
-            Each Scarlett Box includes a range of essential products such as pads, tampons, wipes, disposal bags, and hygiene items.
-            We also partner with sustainable suppliers like Licettes to ensure environmental responsibility.
-          </p>
-        </div>
-      </div>
-    </div>
+      <p>The Scarlett Box is the flagship product of The Scarlett Box LTD — an emergency period care solution that provides comfort, dignity, and preparedness for female seafarers.</p>
+
+      <p>Designed specifically for the maritime environment, it ensures essential products are always available where they’re needed most: in the workplace restroom.</p>
+
+      <p>Life at sea involves long hours, harsh conditions, and high-pressure environments where emergencies must be planned for in advance. However, access to menstrual products is a recurring emergency that has historically been overlooked.</p>
+
+      <p>There is currently no standard provision for such situations throughout the maritime sector. The Scarlett Box addresses this gap with a compact, hygienic, fully equipped menstrual care solution for women working on board ships and in maritime settings.</p>
+    </section>
+
+    <section id="box-details">
+      <h2>Box Dimensions & Type</h2>
+      <div class="placeholder">Image Placeholder (e.g., Box size diagram)</div>
+
+      <p><strong>Dimensions:</strong> 225 x 275 x 90 mm</p>
+
+      <p>The Scarlett Box is designed as a first-aid–style emergency menstrual care box to be placed in workplace toilets, especially in areas where women cannot leave due to duty requirements.</p>
+
+      <h3>Why This Type of Box Is Needed</h3>
+      <ul>
+        <li>Provides essential menstrual care items in a compact, hygienic format.</li>
+        <li>Supports comfort, dignity, and preparedness in an overlooked emergency.</li>
+        <li>Promotes health, safety, and performance on board.</li>
+        <li>Helps create a more inclusive maritime environment.</li>
+        <li>Offers a low-cost, high-impact solution for shipping companies and ports.</li>
+      </ul>
+    </section>
+
+    <section id="contents">
+      <h2>Contents of The Scarlett Box</h2>
+
+      <div class="placeholder">Image Placeholder (e.g., Flat-lay of contents)</div>
+
+      <p>Inside The Scarlett Box:</p>
+
+      <ul>
+        <li>Education Card</li>
+        <li>Non-Flushable Wipes</li>
+        <li>Disposal Bags</li>
+        <li>Extra Protection Pads</li>
+        <li>Normal Pads</li>
+        <li>Ultra Tampons</li>
+        <li>Super Plus Tampons</li>
+        <li>Super Tampons</li>
+        <li>Regular Tampons</li>
+      </ul>
+
+      <h3>Period Product Supply – Lil-Lets</h3>
+      <div class="placeholder">Image Placeholder (Lil-Lets product range)</div>
+
+      <p>All period products provided inside The Scarlett Box will be supplied by <strong>Lil-Lets</strong>, a trusted and well-established brand known for developing high-quality menstrual products designed with comfort and performance in mind.</p>
+
+      <p>Lil-Lets is recognised for its commitment to understanding the needs of people who menstruate, offering a wide range of products including tampons, pads, liners, and menstrual health essentials. Their focus on comfort, absorbency, and user-centred design aligns with The Scarlett Box’s mission to ensure dignity and preparedness for women in the maritime industry.</p>
+    </section>
+
   </main>
 
-  <!-- FOOTER -->
+  <!-- Footer -->
   <footer>
-    <div class="footer-text">Copyright © 2025 The Scarlett Box - All Rights Reserved.</div>
+    <div class="footer-text">
+      Copyright © 2025 The Scarlett Box - All Rights Reserved.
+    </div>
     <a href="index.html" class="footer-logo-link">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
+
 </body>
 </html>
