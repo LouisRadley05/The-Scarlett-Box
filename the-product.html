@@ -9,6 +9,7 @@
 
   <style>
     html {
+      overflow-x: hidden;
       overflow-y: scroll;
       scroll-behavior: smooth;
     }
@@ -21,6 +22,7 @@
       display: flex;
       flex-direction: column;
       min-height: 100vh;
+      overflow-x: hidden;
     }
 
     /* HEADER */
@@ -61,6 +63,8 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
+      width: 100%;
+      box-sizing: border-box;
     }
 
     nav a {
@@ -111,12 +115,13 @@
     /* MAIN CONTENT */
     main {
       flex: 1;
-      padding: 40px 10px 60px;
+      padding: 40px 20px 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
       max-width: 900px;
       margin: 0 auto;
+      box-sizing: border-box;
     }
 
     .card {
@@ -126,13 +131,7 @@
       width: 100%;
       padding: 25px;
       margin-bottom: 30px;
-      text-align: center;
-    }
-
-    .card img {
-      max-width: 180px;
-      height: auto;
-      border-radius: 8px;
+      box-sizing: border-box;
     }
 
     .section-title {
@@ -146,6 +145,7 @@
       line-height: 1.6;
       color: #333;
       font-size: 1em;
+      margin: 0;
     }
 
     /* FLEXIBLE ROW LAYOUTS */
@@ -153,7 +153,7 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
-      flex-wrap: nowrap;
+      flex-wrap: wrap;
       gap: 20px;
     }
 
@@ -162,13 +162,19 @@
     }
 
     .text-box {
-      flex: 1;
+      flex: 1 1 300px;
       text-align: left;
     }
 
     .image-box {
-      flex: 0 0 180px;
+      flex: 0 1 160px;
       text-align: center;
+    }
+
+    .image-box img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
     }
 
     /* FOOTER */
@@ -179,6 +185,7 @@
       text-align: center;
       position: relative;
       margin-top: auto;
+      box-sizing: border-box;
     }
 
     .footer-text {
@@ -210,8 +217,22 @@
 
     /* RESPONSIVE */
     @media (max-width: 768px) {
+      header {
+        padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
       nav {
         flex-direction: column;
+        align-items: center;
         border-top: none;
         border-bottom: none;
       }
@@ -219,15 +240,40 @@
       nav a {
         width: 100%;
         text-align: center;
+        padding: 10px 0;
+      }
+
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      .card {
+        padding: 20px 15px;
+      }
+
+      .section-title {
+        font-size: 1.3em;
+        text-align: center;
       }
 
       .row,
       .row.reverse {
-        flex-direction: row;
+        flex-direction: column;
+        align-items: center;
       }
 
-      main {
-        padding: 20px;
+      .text-box {
+        text-align: center;
+      }
+
+      .image-box {
+        margin-bottom: 15px;
       }
 
       .footer-logo-link {
@@ -266,7 +312,6 @@
 
   <!-- MAIN CONTENT -->
   <main>
-    <!-- Intro -->
     <div class="card">
       <div class="row">
         <div class="image-box">
@@ -282,7 +327,6 @@
       </div>
     </div>
 
-    <!-- The Box -->
     <div class="card">
       <div class="row reverse">
         <div class="text-box">
@@ -298,7 +342,6 @@
       </div>
     </div>
 
-    <!-- Contents -->
     <div class="card">
       <div class="row">
         <div class="image-box">
