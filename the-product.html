@@ -8,27 +8,22 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
 
   <style>
-    /* --- GLOBAL FIXES --- */
     html {
       overflow-y: scroll;
-    }
-
-    *, *::before, *::after {
-      box-sizing: border-box;
+      scroll-behavior: smooth;
     }
 
     body {
       margin: 0;
-      padding: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background-color: white;
+      background-color: #fff;
       color: #000;
-      min-height: 100vh;
       display: flex;
       flex-direction: column;
+      min-height: 100vh;
     }
 
-    /* --- HEADER --- */
+    /* --- HEADER (MATCHES MYSTORY) --- */
     header {
       background-color: #ba1a00;
       color: white;
@@ -54,10 +49,29 @@
 
     header p {
       margin: 5px 0 0;
+      font-weight: 400;
       font-size: 0.9em;
+      letter-spacing: 0.5px;
     }
 
-    /* --- NAVIGATION --- */
+    @media (max-width: 768px) {
+      header {
+        padding: 15px 10px;
+      }
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+      header h1 {
+        font-size: 1.5em;
+      }
+      header p {
+        font-size: 0.8em;
+      }
+    }
+
+    /* --- NAVIGATION (MATCHES MYSTORY) --- */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -66,24 +80,60 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 5;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       padding: 15px 25px;
+      display: inline-block;
       font-weight: bold;
-      transition: 0.3s;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 50%;
+      bottom: 5px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 60%;
     }
 
     nav a:hover {
       background-color: #8a1200;
     }
+
     nav a.active {
       background-color: #8a1200;
     }
 
-    /* --- SOCIAL ICONS --- */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+    }
+
+    /* --- SOCIAL ICONS (MATCHES MYSTORY + FIXED UNDERLINES) --- */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -102,7 +152,14 @@
       justify-content: center;
       border-radius: 5px;
       font-size: 20px;
-      transition: 0.3s ease;
+      transition: all 0.3s ease;
+      text-decoration: none;
+      position: relative;
+    }
+
+    /* FIX: remove nav underline effect */
+    .social-bar a::after {
+      display: none !important;
     }
 
     .social-bar a:hover {
@@ -157,7 +214,6 @@
       color: #555;
     }
 
-    /* --- STORY BOX STYLE (copied from My Story) --- */
     .story-box {
       background-color: #fffafa;
       border-radius: 10px;
@@ -165,7 +221,6 @@
       width: 100%;
       padding: 30px 25px;
       margin-bottom: 30px;
-      box-sizing: border-box;
       text-align: center;
     }
 
@@ -203,17 +258,17 @@
 
     .footer-logo-link:hover .footer-logo { transform: scale(1.05); }
 
-    /* RESPONSIVE */
     @media (max-width: 768px) {
-      .logo { width: 60px; height: 60px; }
       .footer-logo-link { position: static; display: block; margin-top: 20px; }
+      .social-bar { gap: 10px; }
+      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
     }
   </style>
 </head>
 
 <body>
 
-  <!-- Header -->
+  <!-- HEADER -->
   <header>
     <a href="index.html">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
@@ -222,7 +277,7 @@
     <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
   </header>
 
-  <!-- Navigation -->
+  <!-- NAV -->
   <nav>
     <a href="index.html">HOME</a>
     <a href="mission.html">THE MISSION</a>
@@ -231,15 +286,15 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <!-- Social Icons -->
+  <!-- SOCIAL -->
   <div class="social-bar">
-    <a href="#" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="#" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="#"><i class="fab fa-facebook-f"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-linkedin-in"></i></a>
     <a href="#"><i class="fas fa-envelope"></i></a>
   </div>
 
-  <!-- Main Content -->
+  <!-- MAIN CONTENT (your original content unchanged) -->
   <main>
 
     <!-- BOX 1 -->
@@ -304,11 +359,9 @@
 
   </main>
 
-  <!-- Footer -->
+  <!-- FOOTER -->
   <footer>
-    <div class="footer-text">
-      Copyright © 2025 The Scarlett Box - All Rights Reserved.
-    </div>
+    <div class="footer-text">Copyright © 2025 The Scarlett Box - All Rights Reserved.</div>
     <a href="index.html" class="footer-logo-link">
       <img src="images/logoplain.PNG" class="footer-logo" />
     </a>
