@@ -23,7 +23,7 @@
       min-height: 100vh;
     }
 
-    /* --- HEADER (MATCHES MYSTORY) --- */
+    /* --- HEADER --- */
     header {
       background-color: #ba1a00;
       color: white;
@@ -80,8 +80,6 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
-      position: relative;
-      z-index: 5;
     }
 
     nav a {
@@ -123,8 +121,6 @@
       nav {
         flex-direction: column;
         align-items: center;
-        border-top: none;
-        border-bottom: none;
       }
       nav a {
         padding: 10px 0;
@@ -154,11 +150,6 @@
       font-size: 20px;
       transition: all 0.3s ease;
       text-decoration: none;
-      position: relative;
-    }
-
-    .social-bar a::after {
-      display: none !important;
     }
 
     .social-bar a:hover {
@@ -190,25 +181,6 @@
       padding: 30px 25px;
       margin: 0 auto 30px auto;
       text-align: center;
-    }
-
-    /* ⭐ MOBILE FIX — CENTER EVERYTHING ON SMALL SCREENS */
-    @media (max-width: 768px) {
-      .story-box {
-        max-width: 95%;
-        margin-left: auto;
-        margin-right: auto;
-        padding: 25px 18px;
-      }
-
-      ul {
-        padding-left: 20px;
-        max-width: 100%;
-      }
-
-      .placeholder {
-        height: 200px;
-      }
     }
 
     .placeholder {
@@ -272,11 +244,47 @@
 
     .footer-logo-link:hover .footer-logo { transform: scale(1.05); }
 
+    /* ⭐ MOBILE FIX — TRUE CENTERING & RESPONSIVE PLACEHOLDERS */
     @media (max-width: 768px) {
-      .footer-logo-link { position: static; display: block; margin-top: 20px; }
-      .social-bar { gap: 10px; }
-      .social-bar a { width: 40px; height: 40px; font-size: 18px; }
+
+      main {
+        padding-left: 0 !important;
+        padding-right: 0 !important;
+      }
+
+      .story-box {
+        width: 90% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+        padding: 25px 18px;
+      }
+
+      .placeholder {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 4 / 3;
+      }
+
+      ul {
+        max-width: 100%;
+      }
+
+      .footer-logo-link {
+        position: static;
+        margin-top: 20px;
+      }
+
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
     }
+
   </style>
 </head>
 
@@ -300,12 +308,23 @@
     <a href="contact.html">CONTACT US</a>
   </nav>
 
-  <!-- SOCIAL -->
+  <!-- SOCIAL (UPDATED WITH LINKS + TITLES) -->
   <div class="social-bar">
-    <a href="#"><i class="fab fa-facebook-f"></i></a>
-    <a href="#"><i class="fab fa-instagram"></i></a>
-    <a href="#"><i class="fab fa-linkedin-in"></i></a>
-    <a href="#"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" target="_blank" title="Visit us on Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.instagram.com/thescarlettboxuk/" target="_blank" title="Visit us on Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/company/the-scarlett-box/" target="_blank" title="Visit us on LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email">
+      <i class="fas fa-envelope"></i>
+    </a>
   </div>
 
   <!-- MAIN CONTENT -->
