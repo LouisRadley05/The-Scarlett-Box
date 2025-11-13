@@ -71,7 +71,7 @@
       }
     }
 
-    /* --- NAVIGATION (MATCHES MYSTORY) --- */
+    /* --- NAVIGATION --- */
     nav {
       background-color: #ba1a00;
       display: flex;
@@ -133,7 +133,7 @@
       }
     }
 
-    /* --- SOCIAL ICONS (MATCHES MYSTORY + FIXED UNDERLINES) --- */
+    /* --- SOCIAL ICONS --- */
     .social-bar {
       margin-top: 20px;
       display: flex;
@@ -157,7 +157,6 @@
       position: relative;
     }
 
-    /* FIX: remove nav underline effect */
     .social-bar a::after {
       display: none !important;
     }
@@ -182,23 +181,34 @@
       to { opacity: 1; transform: translateY(0); }
     }
 
-    section {
-      margin-bottom: 50px;
+    .story-box {
+      background-color: #fffafa;
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      max-width: 800px;
+      padding: 30px 25px;
+      margin: 0 auto 30px auto;
       text-align: center;
     }
 
-    h2 {
-      color: #ba1a00;
-      margin-bottom: 10px;
-      font-weight: bold;
-    }
+    /* ⭐ MOBILE FIX — CENTER EVERYTHING ON SMALL SCREENS */
+    @media (max-width: 768px) {
+      .story-box {
+        max-width: 95%;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 25px 18px;
+      }
 
-    ul {
-      text-align: left;
-      max-width: 700px;
-      margin: 20px auto;
-      padding-left: 20px;
-      line-height: 1.6;
+      ul {
+        padding-left: 20px;
+        max-width: 100%;
+      }
+
+      .placeholder {
+        height: 200px;
+      }
     }
 
     .placeholder {
@@ -214,14 +224,18 @@
       color: #555;
     }
 
-    .story-box {
-      background-color: #fffafa;
-      border-radius: 10px;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-      width: 100%;
-      padding: 30px 25px;
-      margin-bottom: 30px;
-      text-align: center;
+    h2 {
+      color: #ba1a00;
+      margin-bottom: 10px;
+      font-weight: bold;
+    }
+
+    ul {
+      text-align: left;
+      max-width: 700px;
+      margin: 20px auto;
+      padding-left: 20px;
+      line-height: 1.6;
     }
 
     /* --- FOOTER --- */
@@ -294,7 +308,7 @@
     <a href="#"><i class="fas fa-envelope"></i></a>
   </div>
 
-  <!-- MAIN CONTENT (your original content unchanged) -->
+  <!-- MAIN CONTENT -->
   <main>
 
     <!-- BOX 1 -->
