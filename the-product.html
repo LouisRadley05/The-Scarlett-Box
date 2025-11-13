@@ -10,7 +10,7 @@
   <style>
     /* --- GLOBAL FIXES --- */
     html {
-      overflow-y: scroll;
+      overflow-y: scroll; /* Prevents header/nav shifting due to scrollbar */
     }
 
     *, *::before, *::after {
@@ -34,17 +34,21 @@
       color: white;
       text-align: center;
       padding: 20px 10px;
+      position: relative;
     }
 
     header h1 {
       margin: 0;
       font-size: 2em;
       font-weight: 900;
+      letter-spacing: 1px;
     }
 
     header p {
       margin: 5px 0 0;
+      font-weight: 400;
       font-size: 0.9em;
+      letter-spacing: 0.5px;
     }
 
     .logo {
@@ -64,14 +68,35 @@
       border-top: 2px solid white;
       border-bottom: 2px solid white;
       flex-wrap: wrap;
+      position: relative;
+      z-index: 5;
     }
 
     nav a {
       color: white;
       text-decoration: none;
       padding: 15px 25px;
+      display: inline-block;
       font-weight: bold;
-      transition: 0.3s;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+
+    nav a::after {
+      content: "";
+      position: absolute;
+      width: 0;
+      height: 3px;
+      left: 50%;
+      bottom: 5px;
+      background-color: white;
+      transition: all 0.3s ease;
+      transform: translateX(-50%);
+      border-radius: 2px;
+    }
+
+    nav a:hover::after {
+      width: 60%;
     }
 
     nav a:hover {
@@ -101,8 +126,9 @@
       justify-content: center;
       border-radius: 5px;
       text-decoration: none;
+      transition: all 0.3s ease;
       font-size: 20px;
-      transition: 0.3s;
+      position: relative;
     }
 
     .social-bar a:hover {
@@ -110,49 +136,58 @@
       transform: translateY(-5px);
     }
 
+    .social-bar a::after {
+      content: attr(title);
+      position: absolute;
+      bottom: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background-color: #333;
+      color: white;
+      font-size: 12px;
+      padding: 5px 8px;
+      border-radius: 4px;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.3s;
+      white-space: nowrap;
+    }
+
+    .social-bar a:hover::after {
+      opacity: 1;
+    }
+
     /* --- MAIN CONTENT --- */
     main {
+      text-align: center;
       padding: 40px 10px;
       flex: 1;
-      max-width: 900px;
-      margin: 0 auto;
-      animation: fadeIn 1.2s ease-out forwards;
       opacity: 0;
+      animation: fadeIn 1.2s ease-out forwards;
     }
 
     @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(10px); }
-      to { opacity: 1; transform: translateY(0); }
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    section {
-      background: #fff;
-      padding: 30px;
-      border-radius: 10px;
-      margin-bottom: 40px;
-    }
-
-    h2 {
+    main h2 {
+      font-weight: bold;
       color: #ba1a00;
-      margin-top: 0;
+      margin-bottom: 10px;
     }
 
-    .placeholder {
-      width: 100%;
-      height: 250px;
-      background: #ddd;
-      border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      margin: 20px 0;
-      color: #555;
-      font-size: 18px;
-    }
-
-    ul {
-      text-align: left;
-      max-width: 600px;
+    main p {
+      line-height: 1.6;
+      font-size: 1.05em;
+      color: #444;
+      max-width: 700px;
       margin: 0 auto;
     }
 
@@ -162,6 +197,7 @@
       border-top: 2px solid white;
       padding: 20px 0 70px;
       text-align: center;
+      position: relative;
       margin-top: auto;
     }
 
@@ -171,6 +207,7 @@
       background-color: #8a1200;
       padding: 10px 20px;
       border-radius: 5px;
+      font-size: 0.9em;
       font-weight: bold;
     }
 
@@ -178,13 +215,14 @@
       position: absolute;
       bottom: 10px;
       right: 20px;
+      display: inline-block;
     }
 
     .footer-logo {
       width: 60px;
       height: 60px;
       object-fit: contain;
-      transition: 0.3s;
+      transition: transform 0.3s ease;
     }
 
     .footer-logo-link:hover .footer-logo {
@@ -193,15 +231,76 @@
 
     /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
-      .logo { width: 60px; height: 60px; }
-      footer { padding-bottom: 20px; }
-      .footer-logo-link { position: static; display: block; margin-top: 15px; }
+      header {
+        padding: 15px 10px;
+      }
+
+      .logo {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 8px;
+      }
+
+      header h1 {
+        font-size: 1.5em;
+      }
+
+      header p {
+        font-size: 0.8em;
+      }
+
+      nav {
+        flex-direction: column;
+        align-items: center;
+        border-top: none;
+        border-bottom: none;
+      }
+
+      nav a {
+        padding: 10px 0;
+        width: 100%;
+        text-align: center;
+      }
+
+      .social-bar {
+        gap: 10px;
+      }
+
+      .social-bar a {
+        width: 40px;
+        height: 40px;
+        font-size: 18px;
+      }
+
+      main {
+        padding: 20px;
+      }
+
+      .footer-text {
+        padding: 8px 15px;
+        font-size: 0.8em;
+      }
+
+      .footer-logo-link {
+        position: static;
+        display: block;
+        margin: 15px auto 0 auto;
+        text-align: center;
+      }
+
+      .footer-logo {
+        width: 50px;
+        height: 50px;
+      }
+
+      footer {
+        padding-bottom: 20px;
+      }
     }
   </style>
 </head>
 
 <body>
-
   <!-- Header -->
   <header>
     <a href="index.html" title="Home Page">
@@ -222,73 +321,25 @@
 
   <!-- Social Icons -->
   <div class="social-bar">
-    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-    <a href="https://www.instagram.com/thescarlettboxuk/" title="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-    <a href="https://www.linkedin.com/company/the-scarlett-box/" title="LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
-    <a href="mailto:thescarlettboxuk@gmail.com" title="Email"><i class="fas fa-envelope"></i></a>
+    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" title="Visit our Facebook page" target="_blank"><i class="fab fa-facebook-f"></i></a>
+    <a href="https://www.instagram.com/thescarlettboxuk/" title="Follow us on Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+    <a href="https://www.linkedin.com/company/the-scarlett-box/" title="Connect with us on LinkedIn" target="_blank"><i class="fab fa-linkedin-in"></i></a>
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Send us an email"><i class="fas fa-envelope"></i></a>
   </div>
 
-  <!-- Main Content (REPLACED) -->
+  <!-- Main Content -->
   <main>
-
-    <section id="about">
-      <h2>What the Product Is & Where It’s Used</h2>
-      <div class="placeholder">Image Placeholder (e.g., The Scarlett Box in a maritime restroom)</div>
-
-      <p>The Scarlett Box is the flagship product of The Scarlett Box LTD — an emergency period care solution that provides comfort, dignity, and preparedness for female seafarers.</p>
-
-      <p>Designed specifically for the maritime environment, it ensures essential products are always available where they’re needed most: in the workplace restroom.</p>
-
-      <p>Life at sea involves long hours, harsh conditions, and high-pressure environments where emergencies must be planned for in advance. However, access to menstrual products is a recurring emergency that has historically been overlooked.</p>
-
-      <p>There is currently no standard provision for such situations throughout the maritime sector. The Scarlett Box addresses this gap with a compact, hygienic, fully equipped menstrual care solution for women working on board ships and in maritime settings.</p>
-    </section>
-
-    <section id="box-details">
-      <h2>Box Dimensions & Type</h2>
-      <div class="placeholder">Image Placeholder (e.g., Box size diagram)</div>
-
-      <p><strong>Dimensions:</strong> 225 x 275 x 90 mm</p>
-
-      <p>The Scarlett Box is designed as a first-aid–style emergency menstrual care box to be placed in workplace toilets, especially in areas where women cannot leave due to duty requirements.</p>
-
-      <h3>Why This Type of Box Is Needed</h3>
-      <ul>
-        <li>Provides essential menstrual care items in a compact, hygienic format.</li>
-        <li>Supports comfort, dignity, and preparedness in an overlooked emergency.</li>
-        <li>Promotes health, safety, and performance on board.</li>
-        <li>Helps create a more inclusive maritime environment.</li>
-        <li>Offers a low-cost, high-impact solution for shipping companies and ports.</li>
-      </ul>
-    </section>
-
-    <section id="contents">
-      <h2>Contents of The Scarlett Box</h2>
-
-      <div class="placeholder">Image Placeholder (e.g., Flat-lay of contents)</div>
-
-      <p>Inside The Scarlett Box:</p>
-
-      <ul>
-        <li>Education Card</li>
-        <li>Non-Flushable Wipes</li>
-        <li>Disposal Bags</li>
-        <li>Extra Protection Pads</li>
-        <li>Normal Pads</li>
-        <li>Ultra Tampons</li>
-        <li>Super Plus Tampons</li>
-        <li>Super Tampons</li>
-        <li>Regular Tampons</li>
-      </ul>
-
-      <h3>Period Product Supply – Lil-Lets</h3>
-      <div class="placeholder">Image Placeholder (Lil-Lets product range)</div>
-
-      <p>All period products provided inside The Scarlett Box will be supplied by <strong>Lil-Lets</strong>, a trusted and well-established brand known for developing high-quality menstrual products designed with comfort and performance in mind.</p>
-
-      <p>Lil-Lets is recognised for its commitment to understanding the needs of people who menstruate, offering a wide range of products including tampons, pads, liners, and menstrual health essentials. Their focus on comfort, absorbency, and user-centred design aligns with The Scarlett Box’s mission to ensure dignity and preparedness for women in the maritime industry.</p>
-    </section>
-
+    <h2>Introducing The Scarlett Box Product</h2>
+    <h2>PAGE UNDER CONSTRUCTION COMING SOON</h2>
+    <p>
+      The Scarlett Box is a first-of-its-kind menstrual health and dignity solution designed specifically for women working at sea.
+      <br><br>
+      Each box is compact, durable, and stocked with essential menstrual products and hygiene items, ensuring that every seafarer is supported — even in the most remote conditions.
+      <br><br>
+      Developed with maritime professionals, it is built to meet the practical challenges of life onboard. The Scarlett Box promotes inclusion, preparedness, and wellbeing for female crew members worldwide.
+      <br><br>
+      Coming soon: Explore purchase options and customization for shipping companies and welfare organizations.
+    </p>
   </main>
 
   <!-- Footer -->
@@ -296,10 +347,9 @@
     <div class="footer-text">
       Copyright © 2025 The Scarlett Box - All Rights Reserved.
     </div>
-    <a href="index.html" class="footer-logo-link">
+    <a href="index.html" title="Home - The Scarlett Box" class="footer-logo-link">
       <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="footer-logo" />
     </a>
   </footer>
-
 </body>
 </html>
