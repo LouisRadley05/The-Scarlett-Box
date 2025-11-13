@@ -218,6 +218,7 @@
       display: block;
     }
 
+    /* ✅ Center caption perfectly */
     .founder-caption {
       position: absolute;
       bottom: 0;
@@ -249,6 +250,22 @@
       border-radius: 8px;
       display: block;
     }
+
+    /* --- STORY BOX (matches contact page .contact-card) --- */
+    .story-box {
+      background-color: #fffafa;              /* same pinkish background */
+      border-radius: 10px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      width: 100%;
+      padding: 30px 25px;
+      margin-bottom: 30px;
+      box-sizing: border-box;
+      text-align: left;
+      overflow: auto; /* contain floats */
+    }
+
+    /* Keep images and captions inside boxes nicely centered on small screens */
+    .story-box .founder-caption { font-size: 0.9em; }
 
     /* --- FOOTER --- */
     footer {
@@ -287,6 +304,7 @@
       transform: scale(1.05);
     }
 
+    /* --- RESPONSIVE --- */
     @media (max-width: 768px) {
       main { padding: 30px 5%; }
 
@@ -342,24 +360,33 @@
   <main>
     <div class="content-container">
 
-      <!-- UPDATED IMAGE PATH -->
-      <div class="founder-image-left">
-        <img src="/mnt/data/6cff974c-3b5b-4aec-880c-8ac34d62a0b1.png" alt="Scarlett Barnett-Smith, CEO & Founder" />
-        <div class="founder-caption">Scarlett Barnett-Smith, CEO & Founder</div>
+      <!-- STORY BOX 1: Founder image + founder paragraphs -->
+      <div class="story-box">
+        <div class="founder-image-left">
+          <img src="images/scarlett-deckofficer.PNG" alt="Scarlett Barnett-Smith, CEO & Founder" />
+          <div class="founder-caption">Scarlett Barnett-Smith, CEO & Founder</div>
+        </div>
+
+        <p><strong style="color:#BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
+
+        <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color:#BA1A00;">Scarlett Barnett-Smith</span></em></p>
+
+        <p>Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: access to menstrual products for women on board.</p>
       </div>
 
-      <p><strong style="color:#BA1A00;">Scarlett Barnett-Smith</strong>, CEO and Founder, is a Deck Officer in The Merchant Navy.</p>
-      <p>“My passion for maritime is at the heart of this business. With the goal to change the industry for the better… one Scarlett Box at a time.” — <em><span style="color:#BA1A00;">Scarlett Barnett-Smith</span></em></p>
-      <p>Life in maritime environments can be demanding — long hours, harsh conditions, and high-pressure environments where every emergency is planned for in advance. Something Scarlett knows first-hand being a seafarer. Yet one very real and recurring emergency is often overlooked: access to menstrual products for women on board.</p>
+      <!-- STORY BOX 2: Product icon + product paragraphs -->
+      <div class="story-box">
+        <div class="product-image-right">
+          <img src="images/tsbicon.png" alt="The Scarlett Box Icon" />
+        </div>
 
-      <div class="product-image-right">
-        <img src="images/tsbicon.png" alt="The Scarlett Box Icon" />
+        <p><strong style="color:#BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, to be placed in toilets in the workplace in areas women cannot leave because of their duties. It aims to empower women in maritime by ensuring menstrual health never stands in the way. At present, there is no product like this on the market. Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. This product simply makes a male-dominated environment more inclusive.</p>
+
+        <p>The Scarlett Box will be welcomed well into the maritime industry — a low-cost, high-impact solution.</p>
+
+        <p>The box aims to provide comfort, dignity, and preparedness for female seafarers.</p>
       </div>
 
-      <p><strong style="color:#BA1A00;">The Scarlett Box (TSB)</strong> is an emergency menstrual health kit designed for women working in maritime, to be placed in toilets in the workplace in areas women cannot leave because of their duties. It aims to empower women in maritime by ensuring menstrual health never stands in the way. At present, there is no product like this on the market. Shipping companies, ports, and seafarer welfare groups are working hard to promote and retain women in the industry. This product simply makes a male-dominated environment more inclusive.</p>
-
-      <p>The Scarlett Box will be welcomed well into the maritime industry — a low-cost, high-impact solution.</p>
-      <p>The box aims to provide comfort, dignity, and preparedness for female seafarers.</p>
     </div>
   </main>
 
