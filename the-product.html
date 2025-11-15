@@ -253,7 +253,6 @@
 
     /* ⭐ MOBILE FIX */
     @media (max-width: 768px) {
-
       nav {
         border-top: none !important;
       }
@@ -296,9 +295,36 @@
       }
     }
 
+    /* ----------------------------------------------------------- */
+    /* ⭐ NEW FIXES ADDED BELOW ⭐ */
+    /* ----------------------------------------------------------- */
+
+    /* MOBILE — ensure full centering */
+    @media (max-width: 768px) {
+      main {
+        margin: 0 auto !important;
+        max-width: 100% !important;
+      }
+
+      .story-box {
+        width: 94% !important;
+        margin-left: auto !important;
+        margin-right: auto !important;
+      }
+    }
+
+    /* DESKTOP — shrink Dimensions image in Box 2 */
+    @media (min-width: 769px) {
+      .story-box:nth-of-type(2) .placeholder img {
+        width: 60%;
+        max-width: 350px;
+        margin: 0 auto;
+        display: block;
+      }
+    }
+
   </style>
 </head>
-
 <body>
 
   <!-- HEADER -->
