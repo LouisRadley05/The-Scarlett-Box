@@ -183,29 +183,17 @@
       text-align: center;
     }
 
-    /* --- UPDATED PLACEHOLDER STYLE FOR IMAGES --- */
     .placeholder {
       width: 100%;
+      height: 250px;
       background: #ddd;
       border-radius: 10px;
       margin: 20px 0;
       display: flex;
       justify-content: center;
       align-items: center;
-      overflow: hidden;  
-      padding: 10px;
-    }
-
-    /* ⭐ BOX 2 placeholder background colour */
-    .story-box:nth-of-type(2) .placeholder {
-      background: #F3F0EB;
-    }
-
-    .placeholder img {
-      width: 100%;
-      height: auto;
-      object-fit: contain;
-      display: block;
+      font-size: 18px;
+      color: #555;
     }
 
     h2 {
@@ -256,8 +244,10 @@
 
     .footer-logo-link:hover .footer-logo { transform: scale(1.05); }
 
-    /* ⭐ MOBILE FIX */
+    /* ⭐ MOBILE FIX — TRUE CENTERING & RESPONSIVE PLACEHOLDERS */
     @media (max-width: 768px) {
+
+      /* FIX: Remove thin white line above nav */
       nav {
         border-top: none !important;
       }
@@ -300,33 +290,120 @@
       }
     }
 
-    /* MOBILE — ensure full centering */
-    @media (max-width: 768px) {
-      main {
-        margin: 0 auto !important;
-        max-width: 100% !important;
-      }
-
-      .story-box {
-        width: 94% !important;
-        margin-left: auto !important;
-        margin-right: auto !important;
-      }
-    }
-
-    /* DESKTOP — shrink Dimensions image in Box 2 */
-    @media (min-width: 769px) {
-      .story-box:nth-of-type(2) .placeholder img {
-        width: 60%;
-        max-width: 350px;
-        margin: 0 auto;
-        display: block;
-      }
-    }
-
   </style>
 </head>
+
 <body>
 
-<!-- Rest of your HTML stays the same (not repeated here for space) -->
+  <!-- HEADER -->
+  <header>
+    <a href="index.html">
+      <img src="images/logoplain.PNG" alt="The Scarlett Box Logo" class="logo" />
+    </a>
+    <h1>THE SCARLETT BOX</h1>
+    <p>CHAMPIONING MENSTRUAL DIGNITY AT SEA</p>
+  </header>
 
+  <!-- NAV -->
+  <nav>
+    <a href="index.html">HOME</a>
+    <a href="mission.html">THE MISSION</a>
+    <a href="mystory.html">MY STORY</a>
+    <a href="the-product.html" class="active">THE PRODUCT</a>
+    <a href="contact.html">CONTACT US</a>
+  </nav>
+
+  <!-- SOCIAL (UPDATED WITH LINKS + TITLES) -->
+  <div class="social-bar">
+    <a href="https://www.facebook.com/share/1aBgiG5Z6U/?mibextid=wwXIfr" target="_blank" title="Facebook">
+      <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="https://www.instagram.com/thescarlettboxuk/" target="_blank" title="Instagram">
+      <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="https://www.linkedin.com/company/the-scarlett-box/" target="_blank" title="LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
+    </a>
+
+    <a href="mailto:thescarlettboxuk@gmail.com" title="Email">
+      <i class="fas fa-envelope"></i>
+    </a>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <main>
+
+    <!-- BOX 1 -->
+    <div class="story-box">
+      <h2>What the Product Is & Where It’s Used</h2>
+
+      <div class="placeholder">Image Placeholder (e.g., The Scarlett Box installed on a vessel)</div>
+
+      <p>The Scarlett Box is the flagship product of The Scarlett Box LTD — an emergency period care solution that provides comfort, dignity, and preparedness for female seafarers.</p>
+
+      <p>It is designed specifically for the maritime environment, ensuring essential menstrual products are always available where they’re needed most: in the workplace restroom.</p>
+
+      <p>Life at sea involves long hours, harsh conditions, and high-pressure environments where emergencies must be planned for in advance. However, access to menstrual products is an emergency that has been historically overlooked. There is currently no standard industry provision for such situations, leaving a gap that affects comfort, dignity, health, safety, and performance.</p>
+
+      <p>The Scarlett Box addresses this gap with a compact, hygienic, fully equipped menstrual care solution tailored for women working on board ships and in maritime settings.</p>
+    </div>
+
+    <!-- BOX 2 -->
+    <div class="story-box">
+      <h2>Dimensions & Type of Box</h2>
+
+      <div class="placeholder">Image Placeholder (e.g., Size diagram or product photo)</div>
+
+      <p><strong>Box Dimensions:</strong> 225 x 275 x 90 mm</p>
+
+      <p>The Scarlett Box is designed as a first-aid–style emergency menstrual care box that can be placed in workplace toilets, especially in areas women cannot leave due to duty requirements.</p>
+
+      <h3 style="color:#ba1a00; margin-top:25px;">Why This Type of Box Is Needed</h3>
+
+      <ul>
+        <li>Provides essential menstrual care items in a compact, hygienic format</li>
+        <li>Ensures readiness for an often-unplanned and underserved emergency</li>
+        <li>Supports comfort, dignity, and well-being</li>
+        <li>Offers a low-cost, high-impact solution for a male-dominated industry</li>
+        <li>Helps shipping companies and ports create more inclusive, supportive environments for women</li>
+        <li>Aligns with ongoing efforts to promote and retain women in maritime roles</li>
+      </ul>
+    </div>
+
+    <!-- BOX 3 -->
+    <div class="story-box">
+      <h2>Contents of the Box</h2>
+
+      <div class="placeholder">Image Placeholder (e.g., Box contents flat lay)</div>
+
+      <p>The interior of The Scarlett Box includes a comprehensive set of menstrual care essentials:</p>
+
+      <ul>
+        <li>Education Card</li>
+        <li>Non-Flushable Wipes</li>
+        <li>Disposal Bags</li>
+        <li>Extra Protection Pads</li>
+        <li>Normal Pads</li>
+        <li>Ultra Tampons</li>
+        <li>Super Plus Tampons</li>
+        <li>Super Tampons</li>
+        <li>Regular Tampons</li>
+      </ul>
+
+      <p>These items ensure that female crew members have access to a full range of menstrual care products in unexpected or urgent situations.</p>
+    </div>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-text">Copyright © 2025 The Scarlett Box - All Rights Reserved.</div>
+    <a href="index.html" class="footer-logo-link">
+      <img src="images/logoplain.PNG" class="footer-logo" />
+    </a>
+  </footer>
+
+</body>
+</html>
